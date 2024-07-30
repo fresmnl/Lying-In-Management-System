@@ -494,7 +494,7 @@
                     <button class="send-button">
                       <div class="send-button-child"></div>
                       <div>
-                        <a class="send" href="Login-Reset-Message-Box.php">Send</a>
+                        <a class="send" href="Login-New-Password.php">Send</a>
                       </div>
                     </button>
                   </div>
