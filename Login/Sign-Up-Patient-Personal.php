@@ -1,15 +1,16 @@
 <!DOCTYPE html>
 <html>
-  <head>
+  <t>
     <meta charset="utf-8" />
     <meta name="viewport" content="initial-scale=1, width=device-width" />
 
     <link rel="stylesheet" href="css/global.css" />
-    <link rel="stylesheet" href="css/Patient-Sign-Up.css" />
+    <link rel="stylesheet" href="css/Sign-Up-Patient.css" />
     <link
       rel="stylesheet"
       href="https://fonts.googleapis.com/css2?family=Lato:wght@500;600;700;800;900&display=swap"
     />
+    <title>Create an Account</title>
   </head>
   <body>
     <div class="sign-up-patient-personal-d">
@@ -42,7 +43,7 @@
               </div>
               <button class="sign-in-button">
                 <div class="sign-in-button-child"></div>
-                <a class="sign-in">Sign in</a>
+                <a class="sign-in" href="Login.php">Sign in</a>
               </button>
             </div>
           </div>
@@ -438,7 +439,7 @@
                     </button>
                     <button class="clear-next-buttons">
                       <div class="clear-next-buttons-child"></div>
-                      <div class="next">Next</div>
+                      <a class="next" href="Sign Up-Patient-History.php">Next</a>
                       <div class="next-button-container">
                         <img
                           class="div-cssbx-icon"

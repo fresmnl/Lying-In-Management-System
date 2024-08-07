@@ -637,7 +637,7 @@
           </button>
         </div>
         <div class="sign-up">
-          <p>Don’t have an account yet?<span><a href="">Sign up</a></span></p>
+          <p>Don’t have an account yet?<span><a href="Sign-Up-Patient-Personal.php">Sign up</a></span></p>
         </div>
       </form>
     </div>
