@@ -10,6 +10,7 @@
       rel="stylesheet"
       href="https://fonts.googleapis.com/css2?family=Lato:wght@500;600;700;800;900&display=swap"
     />
+    <title>Create an Account - History</title>
   </head>
   <body>
     <div class="sign-up-patient-history">
@@ -22,7 +23,7 @@
               class="logo-white-1"
               loading="lazy"
               alt=""
-              src="./public/logo--white-1@2x.png"
+              src="images/signup-logo.svg"
             />
           </div>
           <div class="frame-wrapper">
@@ -129,7 +130,7 @@
                                 <img
                                   class="frame-icon"
                                   alt=""
-                                  src="./public/frame.svg"
+                                  src="images/calendar.svg"
                                 />
                               </div>
                             </div>
@@ -162,8 +163,8 @@
                               <img
                                 class="add-second-operation"
                                 alt=""
-                                src="./public/frame.svg"
-                              />
+                                src="images/calendar.svg"
+                                />
                             </div>
                           </div>
                         </div>
@@ -412,7 +413,7 @@
                       class="frame-icon1"
                       loading="lazy"
                       alt=""
-                      src="./public/frame-2.svg"
+                      src="images/right-arrow.svg"
                     />
                   </div>
                   <a class="previous" href="Sign-Up-Patient-Personal.php">Previous</a>
@@ -426,12 +427,12 @@
                   </div>
                   <button class="group-button">
                     <div class="frame-child14"></div>
-                    <div class="next">Next</div>
+                    <a class="next" href="Sign-Up-Patient-Registration.php">Next</a>
                     <div class="next-button-padding">
                       <img
                         class="next-button-container1"
                         alt=""
-                        src="./public/frame-3.svg"
+                        src="images/left-arrow.svg"
                       />
                     </div>
                   </button>

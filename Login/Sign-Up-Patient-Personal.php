@@ -10,7 +10,7 @@
       rel="stylesheet"
       href="https://fonts.googleapis.com/css2?family=Lato:wght@500;600;700;800;900&display=swap"
     />
-    <title>Create an Account</title>
+    <title>Create an Account - Personal</title>
   </head>
   <body>
     <div class="sign-up-patient-personal-d">
@@ -23,7 +23,7 @@
               class="logo-white-1"
               loading="lazy"
               alt=""
-              src="./public/logo--white-1@2x.png"
+              src="images/signup-logo.svg"
             />
           </div>
           <div class="account-actions">
@@ -109,7 +109,7 @@
                       <img
                         class="layer-1-icon"
                         alt=""
-                        src="./public/layer-1.svg"
+                        src="images/drop-arrow.svg"
                       />
                     </div>
                   </div>
@@ -172,7 +172,7 @@
                           <img
                             class="layer-1-icon1"
                             alt=""
-                            src="./public/layer-1-1.svg"
+                            src="images/drop-arrow.svg"
                           />
                         </div>
                       </div>
@@ -186,7 +186,7 @@
                           <img
                             class="layer-1-icon2"
                             alt=""
-                            src="./public/layer-1-1.svg"
+                            src="images/drop-arrow.svg"
                           />
                         </div>
                       </div>
@@ -203,7 +203,7 @@
                         <img
                           class="placeholder-icon"
                           alt=""
-                          src="./public/placeholder-icon.svg"
+                          src="images/calendar.svg"
                         />
                       </div>
                     </div>
@@ -313,8 +313,8 @@
                       <img
                         class="layer-1-icon3"
                         alt=""
-                        src="./public/layer-1.svg"
-                      />
+                        src="images/drop-arrow.svg"
+                        />
                     </div>
                   </div>
                   <div class="rectangle-parent6">
@@ -324,8 +324,8 @@
                       <img
                         class="layer-1-icon4"
                         alt=""
-                        src="./public/layer-1.svg"
-                      />
+                        src="images/drop-arrow.svg"
+                        />
                     </div>
                   </div>
                   <div class="occupation-input">
@@ -396,7 +396,7 @@
                       <img
                         class="layer-1-icon5"
                         alt=""
-                        src="./public/layer-1.svg"
+                        src="images/drop-arrow.svg"
                       />
                     </div>
                   </div>
@@ -439,12 +439,12 @@
                     </button>
                     <button class="clear-next-buttons">
                       <div class="clear-next-buttons-child"></div>
-                      <a class="next" href="Sign Up-Patient-History.php">Next</a>
+                      <a class="next" href="Sign-Up-Patient-History.php">Next</a>
                       <div class="next-button-container">
                         <img
                           class="div-cssbx-icon"
                           alt=""
-                          src="./public/frame-5.svg"
+                          src="images/left-arrow.svg"
                         />
                       </div>
                     </button>

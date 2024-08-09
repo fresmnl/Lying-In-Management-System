@@ -1858,6 +1858,7 @@ body {
   color: var(--color-gray-100);
   text-align: left;
   z-index: 1;
+  text-decoration: none;
 }
 .next-button-container1 {
   width: 1.125rem;
