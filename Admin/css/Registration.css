@@ -1,0 +1,638 @@
+body {
+    margin: 0;
+    line-height: normal;
+  }
+  
+  :root {
+    /* fonts */
+    --font-lato: Lato;
+  
+    /* font sizes */
+    --font-size-xl: 1.25rem;
+    --font-size-base: 1rem;
+    --font-size-lg: 1.125rem;
+    --font-size-6xl: 1.563rem;
+    --font-size-sm: 0.875rem;
+  
+    /* Colors */
+    --color-gray-100: #fdfdfd;
+    --color-gray-200: rgba(0, 0, 0, 0.25);
+    --color-gray-300: rgba(253, 253, 253, 0.8);
+    --color-gray-400: rgba(253, 253, 253, 0.7);
+    --color-aliceblue: #edf1f6;
+    --color-darkturquoise: #00c8d2;
+    --color-darkslategray-100: #004268;
+    --color-darkslategray-200: #004168;
+    --color-darkslategray-300: rgba(0, 66, 104, 0.1);
+    --color-darkslategray-400: rgba(0, 66, 104, 0.6);
+    --color-gainsboro-100: rgba(227, 227, 227, 0.7);
+    --color-lightseagreen: #00adb8;
+    --color-deepskyblue: #00acce;
+    --color-skyblue: #1ac7e8;
+  
+    /* Gaps */
+    --gap-15xl: 2.125rem;
+    --gap-mid: 1.062rem;
+    --gap-5xl: 1.5rem;
+    --gap-3xl: 1.375rem;
+    --gap-35xl: 3.375rem;
+    --gap-8xl: 1.687rem;
+    --gap-4xs: 0.562rem;
+    --gap-xl: 1.25rem;
+    --gap-6xl: 1.562rem;
+    --gap-5xs: 0.5rem;
+    --gap-34xl: 3.312rem;
+    --gap-7xl: 1.625rem;
+    --gap-8xs: 0.312rem;
+    --gap-smi: 0.812rem;
+    --gap-18xl: 2.312rem;
+    --gap-lg: 1.125rem;
+    --gap-105xl: 7.75rem;
+    --gap-2xl: 1.312rem;
+  
+    /* Paddings */
+    --padding-134xl: 9.562rem;
+    --padding-xl: 1.25rem;
+    --padding-57xl: 4.75rem;
+    --padding-18xl: 2.312rem;
+    --padding-30xl: 3.062rem;
+    --padding-smi: 0.812rem;
+    --padding-15xl: 2.125rem;
+    --padding-3xs: 0.625rem;
+    --padding-17xl: 2.25rem;
+    --padding-22xl: 2.562rem;
+    --padding-5xl: 1.5rem;
+    --padding-xs: 0.75rem;
+    --padding-6xs: 0.437rem;
+    --padding-10xs: 0.187rem;
+    --padding-12xs: 0.062rem;
+    --padding-4xl: 1.437rem;
+    --padding-7xl: 1.625rem;
+    --padding-sm: 0.875rem;
+    --padding-mini: 0.937rem;
+    --padding-50xl: 4.312rem;
+    --padding-28xl: 2.937rem;
+    --padding-2xs: 0.687rem;
+    --padding-11xs: 0.125rem;
+    --padding-14xl: 2.062rem;
+    --padding-2xl: 1.312rem;
+    --padding-9xs: 0.25rem;
+    --padding-lg: 1.125rem;
+    --padding-21xl: 2.5rem;
+    --padding-34xl: 3.312rem;
+    --padding-20xl: 2.437rem;
+    --padding-63xl: 5.125rem;
+    --padding-6xl: 1.562rem;
+    --padding-mid: 1.062rem;
+    --padding-mini-5: 0.906rem;
+  
+    /* Border radiuses */
+    --br-5xs: 8px;
+  }
+.frame-child {
+    align-self: stretch;
+    height: 38.75rem;
+    position: relative;
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: var(--br-5xs);
+    background-color: var(--color-aliceblue);
+    display: none;
+  }
+  .health-facility-registration-child {
+    height: 4.813rem;
+    width: 44.625rem;
+    position: relative;
+    border-radius: var(--br-5xs) var(--br-5xs) 0 0;
+    background-color: var(--color-deepskyblue);
+    display: none;
+    max-width: 100%;
+  }
+  .create-an-account {
+    position: relative;
+    font-size: var(--font-size-6xl);
+    font-family: var(--font-lato);
+    color: var(--color-gray-100);
+    text-align: center;
+    z-index: 2;
+  }
+  .health-facility-registration {
+    cursor: pointer;
+    border: 0;
+    padding: var(--padding-5xl) var(--padding-xl) var(--padding-4xl)
+      var(--padding-7xl);
+    background-color: var(--color-deepskyblue);
+    align-self: stretch;
+    border-radius: var(--br-5xs) var(--br-5xs) 0 0;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: center;
+    box-sizing: border-box;
+    max-width: 100%;
+    z-index: 1;
+  }
+  .health-facility-registration:hover {
+    background-color: var(--color-skyblue);
+  }
+  .name-of-health {
+    width: 13.813rem;
+    position: relative;
+    font-size: var(--font-size-lg);
+    display: inline-block;
+    font-family: var(--font-lato);
+    color: var(--color-darkslategray-100);
+    text-align: left;
+    z-index: 1;
+  }
+  .complete-name-child {
+    height: 3.125rem;
+    width: 39.125rem;
+    position: relative;
+    border-radius: var(--br-5xs);
+    background-color: var(--color-gray-400);
+    border: 1.5px solid var(--color-darkturquoise);
+    box-sizing: border-box;
+    display: none;
+    max-width: 100%;
+  }
+  .enter-the-complete {
+    width: 13.5rem;
+    border: 0;
+    outline: 0;
+    font-weight: 500;
+    font-family: var(--font-lato);
+    font-size: var(--font-size-lg);
+    background-color: transparent;
+    height: 1.375rem;
+    position: relative;
+    color: var(--color-darkslategray-400);
+    text-align: left;
+    display: inline-block;
+    padding: 0;
+    z-index: 2;
+  }
+  .complete-name {
+    align-self: stretch;
+    border-radius: var(--br-5xs);
+    background-color: var(--color-gray-400);
+    border: 1.5px solid var(--color-darkturquoise);
+    box-sizing: border-box;
+    flex-direction: row;
+    justify-content: flex-start;
+    padding: var(--padding-xs) 1.187rem;
+    z-index: 1;
+  }
+  .complete-name,
+  .facility-name-input,
+  .facility-name-instructions {
+    display: flex;
+    align-items: flex-start;
+    max-width: 100%;
+  }
+  .facility-name-instructions {
+    flex: 1;
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: var(--gap-4xs);
+  }
+  .facility-name-input {
+    align-self: stretch;
+    flex-direction: row;
+    justify-content: flex-end;
+    padding: 0 var(--padding-30xl) var(--padding-xl) var(--padding-22xl);
+    box-sizing: border-box;
+  }
+  .citymunicipality {
+    flex: 1;
+    position: relative;
+    font-size: var(--font-size-lg);
+    font-family: var(--font-lato);
+    color: var(--color-darkslategray-100);
+    text-align: left;
+    z-index: 1;
+  }
+  .city-municipality-field {
+    width: 10.563rem;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding: 0 var(--padding-12xs);
+    box-sizing: border-box;
+  }
+  .frame-item {
+    height: 3.125rem;
+    width: 18.875rem;
+    position: relative;
+    border-radius: var(--br-5xs);
+    background-color: var(--color-gray-400);
+    border: 1.5px solid var(--color-darkturquoise);
+    box-sizing: border-box;
+    display: none;
+  }
+  .enter-the-citymunicipality {
+    width: 15.188rem;
+    position: relative;
+    font-size: var(--font-size-lg);
+    font-weight: 500;
+    font-family: var(--font-lato);
+    color: var(--color-darkslategray-400);
+    text-align: left;
+    display: inline-block;
+    flex-shrink: 0;
+    z-index: 1;
+  }
+  .city-email,
+  .rectangle-group {
+    align-self: stretch;
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+  }
+  .rectangle-group {
+    cursor: pointer;
+    border: 1.5px solid var(--color-darkturquoise);
+    padding: var(--padding-xs);
+    background-color: var(--color-gray-400);
+    border-radius: var(--br-5xs);
+    flex-direction: row;
+    white-space: nowrap;
+    z-index: 1;
+  }
+  .rectangle-group:hover {
+    background-color: var(--color-gainsboro-100);
+    border: 1.5px solid var(--color-lightseagreen);
+    box-sizing: border-box;
+  }
+  .city-email {
+    flex-direction: column;
+    gap: var(--gap-4xs);
+  }
+  .landline-no {
+    width: 7.75rem;
+    position: relative;
+    font-size: var(--font-size-lg);
+    display: inline-block;
+    font-family: var(--font-lato);
+    color: var(--color-darkslategray-100);
+    text-align: left;
+    z-index: 1;
+  }
+  .frame-inner {
+    height: 3.125rem;
+    width: 18.875rem;
+    position: relative;
+    border-radius: var(--br-5xs);
+    background-color: var(--color-gray-400);
+    border: 1.5px solid var(--color-darkturquoise);
+    box-sizing: border-box;
+    display: none;
+  }
+  .pxxx-yyyy,
+  .city{
+    width: 15rem;
+    border: 0;
+    outline: 0;
+    font-weight: 500;
+    font-family: var(--font-lato);
+    font-size: var(--font-size-lg);
+    background-color: transparent;
+    height: 1.375rem;
+    position: relative;
+    color: var(--color-darkslategray-400);
+    text-align: left;
+    display: inline-block;
+    padding: 0;
+    z-index: 1;
+  }
+  .rectangle-container {
+    align-self: stretch;
+    border-radius: var(--br-5xs);
+    background-color: var(--color-gray-400);
+    border: 1.5px solid var(--color-darkturquoise);
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding: var(--padding-xs);
+    z-index: 1;
+  }
+  .city-municipality-input,
+  .landline-no-parent {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+  }
+  .landline-no-parent {
+    align-self: stretch;
+    gap: var(--gap-4xs);
+  }
+  .city-municipality-input {
+    flex: 1;
+    gap: var(--gap-35xl);
+    min-width: 12.25rem;
+  }
+  .email-address {
+    flex: 1;
+    position: relative;
+    font-size: var(--font-size-lg);
+    font-family: var(--font-lato);
+    color: var(--color-darkslategray-100);
+    text-align: left;
+    z-index: 1;
+  }
+  .email-address-wrapper {
+    width: 8.125rem;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding: 0 var(--padding-10xs);
+    box-sizing: border-box;
+  }
+  .rectangle-div {
+    height: 3.125rem;
+    width: 18.875rem;
+    position: relative;
+    border-radius: var(--br-5xs);
+    background-color: var(--color-gray-400);
+    border: 1.5px solid var(--color-darkturquoise);
+    box-sizing: border-box;
+    display: none;
+  }
+  .examplegmailcom,
+  .xxx-yyy-zzzz {
+    width: 14.125rem;
+    border: 0;
+    outline: 0;
+    font-weight: 500;
+    font-family: var(--font-lato);
+    font-size: var(--font-size-lg);
+    background-color: transparent;
+    height: 1.375rem;
+    position: relative;
+    color: var(--color-darkslategray-400);
+    text-align: left;
+    display: inline-block;
+    white-space: nowrap;
+    padding: 0;
+    z-index: 1;
+  }
+  .frame-parent,
+  .group-div {
+    align-self: stretch;
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+  }
+  .group-div {
+    border-radius: var(--br-5xs);
+    background-color: var(--color-gray-400);
+    border: 1.5px solid var(--color-darkturquoise);
+    flex-direction: row;
+    padding: var(--padding-xs);
+    z-index: 1;
+  }
+  .frame-parent {
+    flex-direction: column;
+    gap: var(--gap-4xs);
+  }
+  .mobile-no {
+    flex: 1;
+    position: relative;
+    font-size: var(--font-size-lg);
+    font-family: var(--font-lato);
+    color: var(--color-darkslategray-100);
+    text-align: left;
+    z-index: 1;
+  }
+  .mobile-no-wrapper {
+    width: 8.125rem;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding: 0 var(--padding-10xs);
+    box-sizing: border-box;
+  }
+  .frame-child1 {
+    height: 3.125rem;
+    width: 18.875rem;
+    position: relative;
+    border-radius: var(--br-5xs);
+    background-color: var(--color-gray-400);
+    border: 1.5px solid var(--color-darkturquoise);
+    box-sizing: border-box;
+    display: none;
+  }
+  .city-municipality-input1,
+  .frame-group,
+  .rectangle-parent1 {
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+  }
+  .rectangle-parent1 {
+    align-self: stretch;
+    border-radius: var(--br-5xs);
+    background-color: var(--color-gray-400);
+    border: 1.5px solid var(--color-darkturquoise);
+    flex-direction: row;
+    padding: var(--padding-xs) var(--padding-6xs) var(--padding-xs)
+      var(--padding-xs);
+    z-index: 1;
+  }
+  .city-municipality-input1,
+  .frame-group {
+    flex-direction: column;
+  }
+  .frame-group {
+    align-self: stretch;
+    gap: var(--gap-4xs);
+  }
+  .city-municipality-input1 {
+    flex: 1;
+    gap: var(--gap-35xl);
+    min-width: 12.25rem;
+  }
+  .city-municipality-input-parent,
+  .location-contact {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    max-width: 100%;
+  }
+  .city-municipality-input-parent {
+    flex: 1;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    gap: var(--gap-3xl);
+  }
+  .location-contact {
+    align-self: stretch;
+    justify-content: flex-end;
+    padding: 0 var(--padding-30xl) var(--padding-18xl) var(--padding-22xl);
+    box-sizing: border-box;
+  }
+  .frame-child2 {
+    height: 3.125rem;
+    width: 9rem;
+    position: relative;
+    border-radius: var(--br-5xs);
+    background-color: var(--color-gray-100);
+    border: 2px solid var(--color-darkturquoise);
+    box-sizing: border-box;
+    display: none;
+  }
+  .clear {
+    flex: 1;
+    position: relative;
+    font-size: var(--font-size-xl);
+    font-weight: 800;
+    font-family: var(--font-lato);
+    color: var(--color-darkturquoise);
+    text-align: center;
+    z-index: 1;
+  }
+  .rectangle-parent2 {
+    flex: 0.8947;
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: var(--br-5xs);
+    background-color: var(--color-gray-100);
+    border: 2px solid var(--color-darkturquoise);
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding: var(--padding-3xs) var(--padding-17xl);
+    min-width: 5.875rem;
+    z-index: 1;
+  }
+  .frame-child3 {
+    height: 3.125rem;
+    width: 9rem;
+    position: relative;
+    border-radius: var(--br-5xs);
+    background-color: var(--color-darkturquoise);
+    display: none;
+  }
+  .next {
+    flex: 1;
+    position: relative;
+    font-size: var(--font-size-xl);
+    font-weight: 800;
+    font-family: var(--font-lato);
+    color: var(--color-gray-100);
+    text-align: center;
+    z-index: 1;
+    text-decoration: none;
+  }
+  .rectangle-parent3 {
+    flex: 1;
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: var(--br-5xs);
+    background-color: var(--color-darkturquoise);
+    justify-content: flex-start;
+    padding: var(--padding-smi) var(--padding-15xl);
+    box-sizing: border-box;
+    min-width: 5.875rem;
+    z-index: 1;
+  }
+  .actions,
+  .clear-next,
+  .rectangle-parent,
+  .rectangle-parent3 {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+  }
+  .clear-next {
+    flex: 1;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    gap: var(--gap-5xl);
+  }
+  .actions,
+  .rectangle-parent {
+    width: 25.625rem;
+    justify-content: flex-end;
+    padding: 0 var(--padding-30xl);
+    box-sizing: border-box;
+    max-width: 100%;
+  }
+  .rectangle-parent {
+    margin: 0;
+    width: 44.75rem;
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: var(--br-5xs);
+    background-color: var(--color-aliceblue);
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: flex-start;
+    padding: 0 0 var(--padding-18xl);
+    gap: var(--gap-15xl);
+  }
+  .admin-registration {
+    width: 100%;
+    position: absolute;
+    background-color: var(--color-gray-100);
+    overflow: hidden;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: flex-end;
+    padding: 12rem 19.125rem 10.625rem;
+    box-sizing: border-box;
+    line-height: normal;
+    letter-spacing: normal;
+    top: -5rem;
+  }
+  @media screen and (max-width: 1200px) {
+    .admin-registration {
+      padding-left: var(--padding-134xl);
+      padding-right: var(--padding-134xl);
+      box-sizing: border-box;
+    }
+  }
+  @media screen and (max-width: 750px) {
+    .facility-name-input,
+    .location-contact {
+      padding-right: var(--padding-5xl);
+      box-sizing: border-box;
+    }
+    .rectangle-parent {
+      gap: var(--gap-mid);
+    }
+    .admin-registration {
+      padding-left: var(--padding-57xl);
+      padding-right: var(--padding-57xl);
+      box-sizing: border-box;
+      left: 3rem;
+    }
+  }
+  @media screen and (max-width: 450px) {
+    .create-an-account {
+      font-size: var(--font-size-xl);
+    }
+    .city-municipality-input,
+    .city-municipality-input1 {
+      gap: var(--gap-8xl);
+    }
+    .clear {
+      font-size: var(--font-size-base);
+    }
+    .rectangle-parent2 {
+      flex: 1;
+    }
+    .next {
+      font-size: var(--font-size-base);
+    }
+    .actions,
+    .admin-registration {
+      padding-left: var(--padding-xl);
+      padding-right: var(--padding-xl);
+      box-sizing: border-box;
+    }
+  }
