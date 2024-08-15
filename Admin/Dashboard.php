@@ -301,4 +301,6 @@
 
         // Initial render
         renderCalendar(currentDate);
+
+        
     </script>

@@ -1383,6 +1383,7 @@ body {
     color: var(--color-darkslategray-100);
     font-family: var(--font-lato);
   }
+  
   .admin-dashboard {
     width: 100%;
     position: relative;
@@ -1541,6 +1542,8 @@ body {
       padding-left: var(--padding-xl);
       box-sizing: border-box;
       position: absolute;
-      top: 1rem;
-      left: 2rem;    }
+      top: -30px;      
+      left: 5rem;    
+    }
+    
   }
