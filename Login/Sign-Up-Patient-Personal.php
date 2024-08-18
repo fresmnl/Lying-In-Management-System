@@ -106,13 +106,20 @@
                     <div class="frame-item"></div>
                     <div class="select-rhu">Select RHU</div>
                     <div class="r-h-u-dropdown">
-                      <img
-                        class="layer-1-icon"
-                        alt=""
-                        src="images/drop-arrow.svg"
-                      />
+                        <img
+                            id="toggleDropdown"
+                            class="layer-1-icon"
+                            alt="Dropdown Arrow"
+                            src="images/drop-arrow.svg"
+                        />
+                        <!-- Dropdown content -->
+                        <div id="dropdownContent" class="dropdown-content">
+                            <a href="#">Option 1</a>
+                            <a href="#">Option 2</a>
+                            <a href="#">Option 3</a>
+                        </div>
                     </div>
-                  </div>
+                </div>
                 </div>
                 <div class="name-fields">
                   <div class="name-labels">
@@ -131,9 +138,13 @@
                   <div class="middle-name-label">
                     <b class="middle-name">Middle Name</b>
                   </div>
-                  <div class="group-div">
-                    <div class="rectangle-div"></div>
-                    <div class="enter-you-middle">Enter you middle name</div>
+                  <div class="rectangle-container">
+                    <div class="frame-inner"></div>
+                    <input
+                      class="enter-your-first"
+                      placeholder="Enter your middle name"
+                      type="text"
+                    />
                   </div>
                   <div class="middle-name-instruction">
                     <div class="write-a-dash">
@@ -161,35 +172,50 @@
                 <div class="left-column">
                   <div class="left-column-child"></div>
                   <div class="contact-details">
-                    <div class="sex-and-status">
+                  <div class="sex-and-status">
                       <div class="sex-field">
-                        <b class="sex">Sex</b>
+                          <b class="sex">Sex</b>
                       </div>
                       <div class="sex-dropdown">
-                        <div class="sex-dropdown-child"></div>
-                        <div class="select-a-sex">Select a sex</div>
-                        <div class="sex-options">
-                          <img
-                            class="layer-1-icon1"
-                            alt=""
-                            src="images/drop-arrow.svg"
-                          />
-                        </div>
+                          <div class="sex-dropdown-child"></div>
+                          <div class="select-a-sex">Select a sex</div>
+                          <div class="sex-options">
+                              <img
+                                  id="toggleSexDropdown"
+                                  class="layer-1-icon1"
+                                  alt="Dropdown Arrow"
+                                  src="images/drop-arrow.svg"
+                              />
+                          </div>
+                          <!-- Dropdown content -->
+                          <div id="sexDropdownContent" class="dropdown-content">
+                              <a href="#" data-value="Male">Male</a>
+                              <a href="#" data-value="Female">Female</a>
+                              <a href="#" data-value="Other">Other</a>
+                          </div>
                       </div>
-                    </div>
+                  </div>
                     <div class="civil-status">
                       <b class="civil-status1">Civil Status</b>
                       <div class="civil-status-dropdown">
-                        <div class="civil-status-dropdown-child"></div>
-                        <div class="select-a-status">Select a status</div>
-                        <div class="status-options">
+                      <div class="civil-status-dropdown-child"></div>
+                      <div class="select-a-status">Select a status</div>
+                      <div class="status-options">
                           <img
-                            class="layer-1-icon2"
-                            alt=""
-                            src="images/drop-arrow.svg"
+                              id="toggleStatusDropdown"
+                              class="layer-1-icon2"
+                              alt="Dropdown Arrow"
+                              src="images/drop-arrow.svg"
                           />
-                        </div>
                       </div>
+                      <!-- Dropdown content -->
+                      <div id="statusDropdownContent" class="dropdown-content">
+                          <a href="#" data-value="Single">Single</a>
+                          <a href="#" data-value="Married">Married</a>
+                          <a href="#" data-value="Divorced">Divorced</a>
+                          <a href="#" data-value="Widowed">Widowed</a>
+                      </div>
+                     </div>
                     </div>
                   </div>
                   <div class="right-column">
@@ -199,13 +225,23 @@
                       </div>
                       <div class="birthdate-input">
                         <div class="birthdate-input-child"></div>
-                        <div class="mmddyyyy">mm/dd/yyyy</div>
+                        <div class="mmddyyyy" id="displayDate">mm/dd/yyyy</div>
                         <img
-                          class="placeholder-icon"
-                          alt=""
-                          src="images/calendar.svg"
+                            class="placeholder-icon"
+                            alt="Calendar"
+                            src="images/calendar.svg"
+                            id="calendarIcon"
                         />
-                      </div>
+                        <div class="calendar-popup" id="calendarPopup">
+                            <div class="calendar-header">
+                                <select id="monthSelect"></select>
+                                <select id="yearSelect"></select>
+                            </div>
+                            <div class="calendar-days" id="calendarDays">
+                                <!-- Days of the week will be inserted here -->
+                            </div>
+                        </div>
+                    </div>
                     </div>
                     <div class="age-field">
                       <div class="age-label">
@@ -213,7 +249,7 @@
                       </div>
                       <div class="rectangle-parent2">
                         <div class="frame-child2"></div>
-                        <div class="calculated-from-birthdate">
+                        <div class="calculated-from-birthdate" id="ageText">                          
                           Calculated from birthdate
                         </div>
                       </div>
@@ -277,20 +313,36 @@
                         type="text"
                       />
                     </div>
-                    <div class="placeholders">
-                      <div class="placeholders-child"></div>
-                      <div class="enter-the-barangay">Enter the Barangay</div>
-                    </div>
-                    <button class="placeholders1">
-                      <div class="placeholders-item"></div>
-                      <div class="city-or-municipality1">
-                        City or Municipality
-                      </div>
-                    </button>
-                    <button class="placeholders2">
-                      <div class="placeholders-inner"></div>
-                      <div class="enter-the-province">Enter the Province</div>
-                    </button>
+                    <div class="name-fields">
+                  <div class="rectangle-container">
+                    <div class="frame-inner"></div>
+                    <input
+                      class="enter-your-first"
+                      placeholder="Enter the Barangay"
+                      type="text"
+                    />
+                  </div>
+                </div>
+                    <div class="name-fields">
+                  <div class="rectangle-container">
+                    <div class="frame-inner"></div>
+                    <input
+                      class="enter-your-first"
+                      placeholder="Enter the Municipality"
+                      type="text"
+                    />
+                  </div>
+                </div>
+                <div class="name-fields">
+                  <div class="rectangle-container">
+                    <div class="frame-inner"></div>
+                    <input
+                      class="enter-your-first"
+                      placeholder="Enter the Province"
+                      type="text"
+                    />
+                  </div>
+                </div>
                   </div>
                 </div>
               </div>
@@ -306,33 +358,50 @@
                   </div>
                 </div>
                 <form class="attainment-status-selection-parent">
-                  <div class="attainment-status-selection">
-                    <div class="attainment-status-selection-child"></div>
-                    <div class="select-an-attainment">Select an attainment</div>
-                    <div class="attainment-status-layers">
+                <div class="attainment-status-selection">
+                  <div class="attainment-status-selection-child"></div>
+                  <div class="select-an-attainment">Select an attainment</div>
+                  <div class="attainment-status-layers">
                       <img
-                        class="layer-1-icon3"
-                        alt=""
-                        src="images/drop-arrow.svg"
-                        />
-                    </div>
+                          id="toggleAttainmentDropdown"
+                          class="layer-1-icon3"
+                          alt="Dropdown Arrow"
+                          src="images/drop-arrow.svg"
+                      />
                   </div>
-                  <div class="rectangle-parent6">
-                    <div class="frame-child7"></div>
-                    <div class="select-a-status1">Select a status</div>
-                    <div class="layer-1-wrapper">
-                      <img
+                  <!-- Dropdown content -->
+                  <div id="attainmentDropdownContent" class="dropdown-content">
+                      <a href="#" data-value="Elementary">Elementary</a>
+                      <a href="#" data-value="High School">High School</a>
+                      <a href="#" data-value="Bachelor's Degree">Bachelor's Degree</a>
+                      <a href="#" data-value="Master's Degree">Master's Degree</a>
+                      <a href="#" data-value="Doctorate">Doctorate</a>
+                      <a href="#" data-value="N/A">N/A</a>
+                  </div>
+              </div>
+              <div class="rectangle-parent6">
+                <div class="frame-child7"></div>
+                <div class="select-a-status1">Select a status</div>
+                <div class="layer-1-wrapper">
+                    <img
+                        id="toggleStatusDropdown1"
                         class="layer-1-icon4"
-                        alt=""
+                        alt="Dropdown Arrow"
                         src="images/drop-arrow.svg"
-                        />
-                    </div>
-                  </div>
+                    />
+                </div>
+                <!-- Dropdown content -->
+                <div id="statusDropdownContent1" class="dropdown-content">
+                    <a href="#" data-value="Active">Active</a>
+                    <a href="#" data-value="Inactive">Inactive</a>
+                    <a href="#" data-value="Pending">Pending</a>
+                </div>
+            </div>
                   <div class="occupation-input">
                     <div class="occupation-input-child"></div>
                     <input
                       class="enter-you-occupation"
-                      placeholder="Enter you occupation"
+                      placeholder="Enter your occupation"
                       type="text"
                     />
                   </div>
@@ -347,13 +416,13 @@
                   <div class="i-d-type-selection-parent">
                     <div class="i-d-type-selection">
                       <div class="i-d-type-dropdown">
-                        <input class="i-d-type-layer" type="radio" />
+                        <input class="i-d-type-layer" type="radio" name="dswd-nhts" id="yes-option" />
                       </div>
                       <div class="yes">Yes</div>
                     </div>
                     <div class="i-d-type-no">
                       <div class="i-d-type-no-dropdown">
-                        <input class="samay-patel" type="radio" />
+                        <input class="samay-patel" type="radio" name="dswd-nhts" id="no-option" />
                       </div>
                       <div class="no">No</div>
                     </div>
@@ -364,13 +433,13 @@
                   <div class="membership-attachment-status">
                     <div class="membership-file-selection">
                       <div class="choose-file-dialog">
-                        <input class="choose-file-layer" type="radio" />
+                        <input class="choose-file-layer" type="radio" name="ps-member" id="yes-file" />
                       </div>
                       <div class="yes1">Yes</div>
                     </div>
                     <div class="no-file-status">
                       <div class="no-file-dialog">
-                        <input class="no-file-layer" type="radio" />
+                        <input class="no-file-layer" type="radio" name="ps-member" id="no-file" />
                       </div>
                       <div class="no1">No</div>
                     </div>
@@ -393,13 +462,21 @@
                     <div class="i-d-type-dropdown-container-child"></div>
                     <div class="select-an-id">Select an ID Type</div>
                     <div class="i-d-type-dropdown-layer">
-                      <img
-                        class="layer-1-icon5"
-                        alt=""
-                        src="images/drop-arrow.svg"
-                      />
+                        <img
+                            id="toggleIdTypeDropdown"
+                            class="layer-1-icon5"
+                            alt="Dropdown Arrow"
+                            src="images/drop-arrow.svg"
+                        />
                     </div>
-                  </div>
+                    <!-- Dropdown content -->
+                    <div id="idTypeDropdownContent" class="dropdown-content">
+                        <a href="#" data-value="Driver's License">Driver's License</a>
+                        <a href="#" data-value="Passport">Passport</a>
+                        <a href="#" data-value="National ID">National ID</a>
+                        <a href="#" data-value="Student ID">Student ID</a>
+                    </div>
+                </div>
                 </div>
                 <div class="frame-parent1">
                   <div class="attach-file-wrapper">
@@ -458,3 +535,6 @@
     </div>
   </body>
 </html>
+
+<script src="javascript/Sign-up.js"></script>
+<script src="javascript/calendar-personal.js"></script>

@@ -529,8 +529,6 @@ body {
 .frame-button {
   cursor: pointer;
   border: 1.5px solid var(--color-darkturquoise);
-  padding: var(--padding-xs) var(--padding-xl) var(--padding-xs)
-    var(--padding-5xl);
   background-color: var(--color-gray-400);
   flex: 1;
   border-radius: var(--br-5xs);
@@ -774,7 +772,9 @@ body {
     var(--padding-20xl);
   gap: 4.187rem;
   z-index: 1;
+  height: 23.3rem;
 }
+
 .frame-form,
 .frame-parent5,
 .frame-parent6 {
@@ -862,7 +862,6 @@ body {
   position: relative;
   border: 2.5px solid var(--color-darkslategray-100);
   box-sizing: border-box;
-  z-index: 2;
 }
 .frame-wrapper3,
 .smoker-checkboxes-parent {
@@ -899,7 +898,6 @@ body {
   align-self: stretch;
   position: relative;
   font-weight: 500;
-  z-index: 3;
 }
 .frame-parent17 {
   flex: 1;
@@ -1013,7 +1011,6 @@ body {
   flex: 1;
   position: relative;
   font-weight: 500;
-  z-index: 2;
 }
 .frame-parent19 {
   width: 17.063rem;
@@ -1042,7 +1039,6 @@ body {
   align-items: flex-start;
   padding: var(--padding-lg) 2.187rem 2.375rem var(--padding-20xl);
   gap: 4.062rem;
-  z-index: 1;
   font-size: var(--font-size-xl);
   color: var(--color-darkslategray-100);
 }
@@ -1081,7 +1077,6 @@ body {
   font-weight: 900;
   display: inline-block;
   flex-shrink: 0;
-  z-index: 2;
 }
 .family-history-wrapper {
   width: 60.5rem;
@@ -1736,7 +1731,6 @@ body {
   padding: var(--padding-5xl) var(--padding-18xl) var(--padding-21xl)
     var(--padding-21xl);
   gap: var(--gap-34xl);
-  z-index: 1;
   text-align: left;
 }
 .frame-parent1,

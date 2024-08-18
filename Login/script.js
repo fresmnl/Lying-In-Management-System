@@ -30,16 +30,14 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   });
 
-  document.getElementById('togglePassword').addEventListener('click', function (e) {
-    const password = document.getElementById('password');
-    const type = password.getAttribute('type') === 'password' ? 'text' : 'password';
-    password.setAttribute('type', type);
-    
-    // Toggle the eye icon
-    if (type === 'password') {
-      e.target.src = 'images/hide.svg';
-    } else {
-      e.target.src = 'images/show.svg';
-    }
-  });
-  
+//dropdown for designated rhu//
+document.getElementById("toggleDropdown").addEventListener("click", function() {
+  const dropdownContent = document.getElementById("dropdownContent");
+  if (dropdownContent.style.display === "none" || dropdownContent.style.display === "") {
+      dropdownContent.style.display = "block";
+  } else {
+      dropdownContent.style.display = "none";
+  }
+});
+
+// Optional: Close the dropdown if the user clicks outside of it

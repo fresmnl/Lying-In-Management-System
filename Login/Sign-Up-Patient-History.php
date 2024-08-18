@@ -11,6 +11,7 @@
       href="https://fonts.googleapis.com/css2?family=Lato:wght@500;600;700;800;900&display=swap"
     />
     <title>Create an Account - History</title>
+    <style>.rectangle-parent1{display:flex;align-items:center;background-color:transparent;position:relative;}.frame-input{border:1px solid #ccc;background-color:transparent;padding:5px;flex:1;font-size:16px;outline:none;}.frame-icon{cursor:pointer;margin-left:10px;}.calendar-popup{display: none; position: absolute;top: 3.4rem;left: 0;background: white;border: 2px solid var(--color-deepskyblue);padding: 10px;box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);z-index: 1000;width: 326px;    }.calendar-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;}.calendar-header select{padding:5px;}.calendar-days{display:grid;grid-template-columns:repeat(7,1fr);gap:5px;}.calendar-day,.calendar-day-name{text-align:center;padding:5px;border:1px solid #ddd;cursor:pointer;}.calendar-day-name{font-weight:bold;}.calendar-day.selected{background-color:#007bff;color:white;}</style>
   </head>
   <body>
     <div class="sign-up-patient-history">
@@ -95,7 +96,7 @@
                           >
                         </div>
                       </div>
-                      <form class="frame-form">
+                      <form class="frame-form" style="  height: 23.3rem;">
                         <div class="rectangle-div"></div>
                         <div class="frame-parent7">
                           <div class="past-surgical-history-wrapper">
@@ -113,61 +114,43 @@
                               </div>
                             </div>
                             <div class="frame-parent9">
-                              <button class="frame-button">
+                              <div class="frame-button" style="padding: 0.55rem;">
                                 <div class="frame-child4"></div>
-                                <div class="enter-the-name">
-                                  Enter the name or type of operation
-                                </div>
-                              </button>
+                                <input 
+                                  class="enter-the-name"
+                                  style="border: none; background-color:transparent;"
+                                  placeholder= "Enter the name or type of operation"
+                                  type="text"
+                                />
+                              </div>
                               <div class="rectangle-parent1">
                                 <div class="frame-child5"></div>
                                 <input
-                                  class="frame-input"
-                                  placeholder="mm/dd/yyyy"
-                                  type="text"
+                                    class="frame-input"
+                                    id="dateInput"
+                                    placeholder="mm/dd/yyyy"
+                                    type="text"
                                 />
-
                                 <img
-                                  class="frame-icon"
-                                  alt=""
-                                  src="images/calendar.svg"
+                                    class="frame-icon"
+                                    alt="Calendar"
+                                    src="images/calendar.svg"
+                                    id="calendarIcon"
                                 />
-                              </div>
+                                <div class="calendar-popup" id="calendarPopup">
+                                    <div class="calendar-header">
+                                        <select id="monthSelect"></select>
+                                        <select id="yearSelect"></select>
+                                    </div>
+                                    <div class="calendar-days" id="calendarDays">
+                                        <!-- Days of the week will be inserted here -->
+                                    </div>
+                                </div>
+                            </div>
                             </div>
                           </div>
                         </div>
-                        <div class="frame-parent10">
-                          <div class="second-operation-date-header-wrapper">
-                            <div class="second-operation-date-header">
-                              <b class="major-minor1"
-                                >Major / Minor Operation</b
-                              >
-                              <b class="date1">Date</b>
-                            </div>
-                          </div>
-                          <div class="frame-parent11">
-                            <button class="rectangle-parent2">
-                              <div class="frame-child6"></div>
-                              <div class="enter-the-name1">
-                                Enter the name or type of operation
-                              </div>
-                            </button>
-                            <div class="rectangle-parent3">
-                              <div class="frame-child7"></div>
-                              <input
-                                class="frame-child8"
-                                placeholder="mm/dd/yyyy"
-                                type="text"
-                              />
-
-                              <img
-                                class="add-second-operation"
-                                alt=""
-                                src="images/calendar.svg"
-                                />
-                            </div>
-                          </div>
-                        </div>
+                  
                       </form>
                     </div>
                   </div>
@@ -215,13 +198,23 @@
                               </div>
                             </div>
                             <div class="gallery-images-parent">
-                              <div class="gallery-images"></div>
+                                <input 
+                                  class="gallery-images"
+                                  type="text" 
+                                  name="" 
+                                  id=""
+                                  style="align-self:stretch;height:3.125rem;position:relative;border-radius:var(--br-5xs);background-color:var(--color-gray-400);border:1.5px solid var(--color-darkturquoise);box-sizing:border-box;z-index:4;">
                               <div class="frame-parent18">
                                 <div class="bottlesday-wrapper">
                                   <b class="bottlesday">Bottles/Day</b>
                                 </div>
-                                <div class="bottles-day-placeholder"></div>
-                              </div>
+                                <input 
+                                  class="gallery-images"
+                                  type="text" 
+                                  name="" 
+                                  id=""
+                                  style="align-self:stretch;height:3.125rem;position:relative;border-radius:var(--br-5xs);background-color:var(--color-gray-400);border:1.5px solid var(--color-darkturquoise);box-sizing:border-box;z-index:4;">
+                                                            </div>
                             </div>
                           </div>
                         </div>
@@ -306,12 +299,16 @@
                                   <b class="type1">Type:</b>
                                 </div>
                               </div>
-                              <div class="specific-type-checkboxes">
+                              <div class="specific-type-checkboxes" style="border:none; background:none;">
                                 <div
                                   class="specific-type-checkboxes-child"
                                 ></div>
-                                <div class="specific-type-checkbox"></div>
-                                <div class="specific-type-checkbox1"></div>
+                                <input 
+                                  class="gallery-images"
+                                  type="text" 
+                                  name="" 
+                                  id=""
+                                  style="align-self:stretch;height:3.125rem;position:relative;border-radius:var(--br-5xs);background-color:var(--color-gray-400);border:1.5px solid var(--color-darkturquoise);box-sizing:border-box;z-index:4;width: 8rem;">                
                               </div>
                             </div>
                           </div>
@@ -339,9 +336,12 @@
                                 <div class="allergy-type">
                                   <b class="type2">Type:</b>
                                 </div>
-                                <div
-                                  class="lorem-ipsum-dolor-sit-amet-con"
-                                ></div>
+                                <input 
+                                  class="gallery-images"
+                                  type="text" 
+                                  name="" 
+                                  id=""
+                                  style="align-self:stretch;height:3.125rem;position:relative;border-radius:var(--br-5xs);background-color:var(--color-gray-400);border:1.5px solid var(--color-darkturquoise);box-sizing:border-box;z-index:4;width: 8rem;">                
                               </div>
                             </div>
                             <div class="conditions1">
@@ -356,9 +356,14 @@
                                     <b class="type4">Type:</b>
                                   </div>
                                 </div>
-                                <div class="rectangle-parent6">
+                                <div class="rectangle-parent6" style="border:none; background:none">
                                   <div class="frame-child11"></div>
-                                  <div class="allergy-specific-checkbox"></div>
+                                  <input 
+                                  class="gallery-images"
+                                  type="text" 
+                                  name="" 
+                                  id=""
+                                  style="align-self:stretch;height:3.125rem;position:relative;border-radius:var(--br-5xs);background-color:var(--color-gray-400);border:1.5px solid var(--color-darkturquoise);box-sizing:border-box;z-index:4;width: 8rem;">                
                                 </div>
                               </div>
                             </div>
@@ -375,7 +380,12 @@
                                   <div class="cancer-specific-type">
                                     <b class="type5">Type:</b>
                                   </div>
-                                  <div class="explore-button"></div>
+                                  <input 
+                                  class="gallery-images"
+                                  type="text" 
+                                  name="" 
+                                  id=""
+                                  style="align-self:stretch;height:3.125rem;position:relative;border-radius:var(--br-5xs);background-color:var(--color-gray-400);border:1.5px solid var(--color-darkturquoise);box-sizing:border-box;z-index:4;width:8rem;">
                                 </div>
                               </div>
                             </div>
@@ -384,7 +394,12 @@
                                 <div class="cancer-stage-box">
                                   <b class="stage">Stage:</b>
                                 </div>
-                                <div class="gallery-images1"></div>
+                                <input 
+                                  class="gallery-images"
+                                  type="text" 
+                                  name="" 
+                                  id=""
+                                  style="align-self:stretch;height:3.125rem;position:relative;border-radius:var(--br-5xs);background-color:var(--color-gray-400);border:1.5px solid var(--color-darkturquoise);box-sizing:border-box;z-index:4;width:8rem;">
                               </div>
                             </div>
                           </div>
@@ -397,7 +412,12 @@
                           type="text"
                         />
 
-                        <div class="others-checkbox"></div>
+                        <input 
+                                  class="gallery-images"
+                                  type="text" 
+                                  name="" 
+                                  id=""
+                                  style="align-self:stretch;height:3.125rem;position:relative;border-radius:var(--br-5xs);background-color:var(--color-gray-400);border:1.5px solid var(--color-darkturquoise);box-sizing:border-box;z-index:4;width:64rem;">
                       </div>
                     </div>
                   </div>
@@ -444,4 +464,5 @@
       </main>
     </div>
   </body>
-</html>
+</html> 
+<script src="javascript/calendar-history.js"></script>

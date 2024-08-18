@@ -527,6 +527,30 @@ body {
     justify-content: flex-start;
     padding: var(--padding-12xs) 0 0;
   }
+  /* Hide dropdown content by default */
+#dropdownContent {
+  display: none;
+  position: absolute;
+  background-color: var(--color-gray-100);
+  border: 2px solid var(--color-deepskyblue);
+  min-width: 343px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 3;
+  left: 15.4rem;
+  top: 23rem;
+}
+
+#dropdownContent a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+#dropdownContent a:hover {
+  background-color: #f1f1f1;
+}
+
   .designated-r-h-u-label-parent,
   .rectangle-group {
     display: flex;
@@ -792,7 +816,6 @@ body {
   .sex {
     flex: 1;
     position: relative;
-    z-index: 2;
   }
   .sex-field {
     width: 11.875rem;
@@ -817,7 +840,6 @@ body {
   .select-a-sex {
     position: relative;
     flex-shrink: 0;
-    z-index: 3;
   }
   .select-a-sex {
     width: 7.269rem;
@@ -851,7 +873,6 @@ body {
     padding: var(--padding-xs) var(--padding-mini) var(--padding-xs)
       var(--padding-smi);
     gap: var(--gap-xl);
-    z-index: 2;
     color: var(--color-darkslategray-200);
   }
   .sex-and-status {
@@ -861,11 +882,34 @@ body {
     gap: var(--gap-4xs);
     min-width: 9.938rem;
   }
+  /* Hide sex dropdown content by default */
+#sexDropdownContent {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+  top: 33.4rem;
+  left: 17rem;
+  border: 2px solid var(--color-deepskyblue);
+}
+
+#sexDropdownContent a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+#sexDropdownContent a:hover {
+  background-color: #f1f1f1;
+}
+
   .civil-status1 {
     width: 11.375rem;
     position: relative;
     display: inline-block;
-    z-index: 2;
   }
   .civil-status-dropdown-child {
     height: 3.125rem;
@@ -881,7 +925,6 @@ body {
 .select-a-status {
   position: relative;
   flex-shrink: 0;
-  z-index: 3;
 }
 .select-a-status {
   width: 9.556rem;
@@ -912,7 +955,6 @@ body {
   padding: var(--padding-xs) var(--padding-mini) var(--padding-xs)
     var(--padding-smi);
   gap: var(--gap-xl);
-  z-index: 2;
   color: var(--color-darkslategray-200);
 }
 .civil-status,
@@ -927,6 +969,30 @@ body {
   gap: var(--gap-4xs);
   min-width: 9.938rem;
 }
+/* Hide status dropdown content by default */
+#statusDropdownContent {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+  top: 33.4rem;
+  left: 33.4rem;
+  border: 2px solid var(--color-deepskyblue);
+}
+
+#statusDropdownContent a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+#statusDropdownContent a:hover {
+  background-color: #f1f1f1;
+}
+
 .contact-details {
   align-self: stretch;
   flex-direction: row;
@@ -935,7 +1001,6 @@ body {
 .birthdate {
   flex: 1;
   position: relative;
-  z-index: 2;
 }
 .birthdate-field {
   width: 11.875rem;
@@ -962,7 +1027,65 @@ body {
   font-weight: 500;
   display: inline-block;
   min-width: 5.063rem;
-  z-index: 3;
+}
+.birthdate-input {
+  position: relative;
+  display: inline-block;
+}
+
+.placeholder-icon {
+  cursor: pointer;
+}
+
+.calendar-popup {
+  display: none; /* Hidden by default */
+  position: absolute;
+  top: 3.4rem;
+  left: 0;
+  background: white;
+  border: 2px solid var(--color-deepskyblue);
+  padding: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  z-index: 1000; /* Ensure it appears above other content */
+  width: 326px;
+}
+
+.calendar-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.calendar-header select {
+  padding: 5px;
+  background: white;
+  border: 2px solid var(--color-deepskyblue);
+  color: var(--color-deepskyblue);
+  font-size: 15px;
+  font-weight: bold;
+}
+
+.calendar-days {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 5px;
+}
+
+.calendar-day, .calendar-day-name {
+  text-align: center;
+  padding: 5px;
+  border: 1px solid #ddd;
+  cursor: pointer;
+}
+
+.calendar-day-name {
+  font-weight: bold;
+}
+
+.calendar-day.selected {
+  background-color: #007bff;
+  color: white;
 }
 .placeholder-icon {
   height: 1.5rem;
@@ -988,7 +1111,6 @@ body {
   padding: var(--padding-xs) var(--padding-xs) var(--padding-3xs)
     var(--padding-smi);
   gap: var(--gap-5xs);
-  z-index: 2;
   color: var(--color-darkslategray-200);
 }
 .birthdate-and-age {
@@ -1000,7 +1122,6 @@ body {
 .age {
   flex: 1;
   position: relative;
-  z-index: 2;
 }
 .age-label {
   width: 11.75rem;
@@ -1024,7 +1145,6 @@ body {
 .calculated-from-birthdate {
   position: relative;
   font-weight: 500;
-  z-index: 1;
 }
 .rectangle-parent2 {
   align-self: stretch;
@@ -1035,7 +1155,6 @@ body {
   padding: var(--padding-xs) var(--padding-sm) var(--padding-xs)
     var(--padding-lg);
   white-space: nowrap;
-  z-index: 2;
   color: var(--color-darkslategray-200);
 }
 .age-field,
@@ -1075,7 +1194,6 @@ body {
     var(--padding-20xl);
   gap: var(--gap-6xl);
   min-width: 24.063rem;
-  z-index: 1;
 }
 .left-column-item {
     width: 37rem;
@@ -1508,7 +1626,6 @@ body {
     justify-content: flex-start;
     padding: var(--padding-xl) var(--padding-12xl) 2rem;
     gap: 1.062rem;
-    z-index: 1;
   }
   .occupation-and-education-child {
     width: 75.25rem;
@@ -1586,6 +1703,28 @@ body {
     min-width: 8.063rem;
     z-index: 3;
   }
+  /* Hide attainment dropdown content by default */
+#attainmentDropdownContent {
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  top: 62.4rem;
+  left: 21rem;
+  border: 2px solid var(--color-deepskyblue);
+}
+
+#attainmentDropdownContent a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+#attainmentDropdownContent a:hover {
+  background-color: #f1f1f1;
+}
+
   .layer-1-icon3 {
     width: 1.25rem;
     height: 1.25rem;
@@ -1632,7 +1771,6 @@ body {
   .select-a-status1 {
     position: relative;
     flex-shrink: 0;
-    z-index: 1;
   }
   .select-a-status1 {
     flex: 1;
@@ -1645,6 +1783,28 @@ body {
     min-width: 5.625rem;
     max-width: 105%;
   }
+  /* Hide status dropdown content by default */
+    #statusDropdownContent1 {
+      position: absolute;
+      background-color: #f9f9f9;
+      min-width: 160px;
+      box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+      top: 62.4rem;
+      left: 44.5rem;
+      border: 2px solid var(--color-deepskyblue);
+    }
+
+    #statusDropdownContent1 a {
+      color: black;
+      padding: 12px 16px;
+      text-decoration: none;
+      display: block;
+    }
+
+    #statusDropdownContent1 a:hover {
+      background-color: #f1f1f1;
+    }
+
   .layer-1-icon4 {
     width: 1.25rem;
     height: 1.25rem;
@@ -1763,7 +1923,6 @@ body {
     width: 11.375rem;
     position: relative;
     display: inline-block;
-    z-index: 2;
   }
   .i-d-type-layer {
     cursor: pointer;
@@ -1773,7 +1932,6 @@ body {
     position: relative;
     overflow: hidden;
     flex-shrink: 0;
-    z-index: 2;
   }
   .i-d-type-dropdown {
     display: flex;
@@ -1786,7 +1944,6 @@ body {
     flex: 1;
     position: relative;
     font-weight: 500;
-    z-index: 2;
   }
   .i-d-type-selection {
     width: 4.813rem;
@@ -1804,7 +1961,6 @@ body {
     position: relative;
     overflow: hidden;
     flex-shrink: 0;
-    z-index: 2;
   }
   .i-d-type-no-dropdown {
     display: flex;
@@ -1817,7 +1973,6 @@ body {
     flex: 1;
     position: relative;
     font-weight: 500;
-    z-index: 2;
   }
   .i-d-type-no,
   .i-d-type-selection-parent {
@@ -1848,7 +2003,6 @@ body {
     width: 11.375rem;
     position: relative;
     display: inline-block;
-    z-index: 2;
   }
   .choose-file-layer {
     cursor: pointer;
@@ -1858,7 +2012,6 @@ body {
     position: relative;
     overflow: hidden;
     flex-shrink: 0;
-    z-index: 2;
   }
   .choose-file-dialog {
     display: flex;
@@ -1871,7 +2024,6 @@ body {
     flex: 1;
     position: relative;
     font-weight: 500;
-    z-index: 2;
   }
   .membership-file-selection {
     width: 4.813rem;
@@ -1889,7 +2041,6 @@ body {
     position: relative;
     overflow: hidden;
     flex-shrink: 0;
-    z-index: 2;
   }
   .no-file-dialog {
     display: flex;
@@ -1902,7 +2053,6 @@ body {
     flex: 1;
     position: relative;
     font-weight: 500;
-    z-index: 2;
   }
   .membership-attachment-status,
   .no-file-status {
@@ -1947,7 +2097,6 @@ body {
     padding: var(--padding-7xl) 2.875rem var(--padding-17xl);
     gap: 3.125rem;
     min-width: 24.063rem;
-    z-index: 1;
   }
   .d-s-w-d-match-item {
     width: 37rem;
@@ -1961,7 +2110,6 @@ body {
     font-weight: 500;
     display: inline-block;
     max-width: 100%;
-    z-index: 2;
   }
   .please-ensure-that-the-informa-wrapper {
     align-self: stretch;
@@ -1976,7 +2124,6 @@ body {
   .id-type {
     flex: 1;
     position: relative;
-    z-index: 2;
   }
   .id-type-wrapper {
     width: 11.625rem;
@@ -1987,6 +2134,28 @@ body {
     padding: 0 var(--padding-11xs);
     box-sizing: border-box;
   }
+  /* Hide ID type dropdown content by default */
+    #idTypeDropdownContent {
+      position: absolute;
+      background-color: #f9f9f9;
+      min-width: 160px;
+      box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+      top: 74.4rem;
+      left: 72rem;
+      border: 2px solid var(--color-deepskyblue);
+    }
+
+    #idTypeDropdownContent a {
+      color: black;
+      padding: 12px 16px;
+      text-decoration: none;
+      display: block;
+    }
+
+    #idTypeDropdownContent a:hover {
+      background-color: #f1f1f1;
+    }
+
   .i-d-type-dropdown-container-child {
     height: 3.125rem;
     width: 31.875rem;
@@ -2002,7 +2171,6 @@ body {
   .select-an-id {
     position: relative;
     flex-shrink: 0;
-    z-index: 3;
   }
   .select-an-id {
     width: 12.625rem;
@@ -2038,7 +2206,6 @@ body {
     padding: var(--padding-xs) var(--padding-mid) var(--padding-4xs)
       var(--padding-mini);
     gap: var(--gap-xl);
-    z-index: 2;
     color: var(--color-darkslategray-200);
   }
   .frame-container {
@@ -2115,7 +2282,6 @@ body {
     align-self: stretch;
     position: relative;
     font-weight: 500;
-    z-index: 3;
   }
   .no-file-chosen-wrapper {
     width: 12.625rem;
@@ -2134,7 +2300,6 @@ body {
     box-sizing: border-box;
     flex-direction: row;
     gap: 0.75rem;
-    z-index: 2;
     color: var(--color-darkslategray-200);
   }
   .d-s-w-d-match-parent,
@@ -2165,7 +2330,6 @@ body {
     padding: var(--padding-4xs) 0 1.75rem 2.187rem;
     gap: var(--gap-6xl);
     min-width: 24.063rem;
-    z-index: 1;
   }
   .d-s-w-d-match-parent {
     align-self: stretch;
@@ -2264,7 +2428,6 @@ body {
     flex-direction: row;
     align-items: flex-start;
     justify-content: flex-start;
-    z-index: 1;
   }
   .group-button:hover {
     background-color: #e3e3e3;
@@ -2322,7 +2485,6 @@ body {
     box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
     border-radius: var(--br-5xs);
     gap: 0.062rem;
-    z-index: 1;
   }
   .username-actions {
     width: 19.5rem;
