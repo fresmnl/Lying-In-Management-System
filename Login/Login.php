@@ -9,7 +9,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (empty($_POST["username"]) && empty($_POST["password"]) && $_POST["role"] === "Select a role") {
       $message = 'Please Select role and enter credentials.';
       header('Location: Login.php?message=' . urlencode($message));
-    }elseif ($_POST["role"] === "Select a role") {
+    } elseif ($_POST["role"] === "Select a role") {
       $message = 'Please Select role.';
       header('Location: Login.php?message=' . urlencode($message));
     } elseif (empty($_POST["username"]) && empty($_POST["password"])) {
@@ -21,30 +21,36 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     } elseif (empty($_POST["password"])) {
       $message = 'Please enter your password.';
       header('Location: Login.php?message=' . urlencode($message));
-    }else{
+    } else {
       $role = $db_conn->cleanStr($_POST["role"]);
       $username = $db_conn->cleanStr($_POST["username"]);
       $password = $db_conn->cleanStr($_POST["password"]);
 
-      $sql = "SELECT Password FROM user_account WHERE Username = :username AND Role = :role";
-      $params = ['username' => $username, 'role' => $role];
+      $sql = "SELECT * FROM user_account WHERE Username = :username AND Password = :password";
+      $params = ['username' => $username, 'password' => $password];
       $stmt = $db_conn->query($sql, $params);
       if ($stmt) {
         $user = $stmt->fetch(PDO::FETCH_ASSOC);
-        
-        if ($user && $user['Password'] === $password && $user['Role'] === $role) {
-            // Successful login
-            $message = 'Login successful!';
-            // Redirect to a protected area or dashboard
+
+        if ($user && $username === $user['Username'] && $password === $user['Password']) {
+          // Successful login
+          // $message = 'Login successful!';
+          // Redirect to a protected area or dashboard
+          if ($role === $user['Role']) {
             header('Location: ../Admin/dashboard.php');
             exit();
+          }else{
+            $message = 'Invalid Role.';
+            header('Location: Login.php?message=' . urlencode($message));
+          }
         } else {
-            // Invalid credentials
-            $message = 'Invalid username or password.';
+          // Invalid credentials
+          $message = 'Invalid role, username or password.';
+          header('Location: Login.php?message=' . urlencode($message));
         }
-    } else {
+      } else {
         $message = 'An error occurred while querying the database.';
-    }
+      }
     }
   }
 }
@@ -216,10 +222,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     padding: 0 0.312rem 0 0;
     box-sizing: border-box;
   }
-  .message{
+
+  .message {
     color: red;
     font-size: .9rem;
   }
+
   .select-a-role {
     position: relative;
     font-size: 1.125rem;
@@ -721,7 +729,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <div class="placeholder-wrapper">
               <img class="placeholder-icon" alt="" src="images/role.svg" />
             </div>
-            <select name="role" id="">
+            <select name="role" id="role" onchange="handleSelectChange()">
               <option value="Select a role">Select a role</option>
               <option value="Admin">Admin</option>
               <option value="Health Facility">Health Facility</option>
@@ -769,13 +777,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             </div>
           </div>
         </div> -->
-        <div class="reset-pass">
+        <div id="forget-password" class="reset-pass">
           <p><a href="Login-Reset-Password.php">Forgot Password?</a></p>
         </div>
         <div class="mask-container-wrapper">
           <input type="submit" name="sign_in" value="Sign in">
         </div>
-        <div class="sign-up">
+        <div id="sign-up" class="sign-up">
           <p>Don't have an account yet?<span><a href="Sign-Up-Patient-Personal.php">Sign up</a></span></p>
         </div>
 </form>
