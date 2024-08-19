@@ -134,27 +134,17 @@
             </div>
             <div class="navigation">
               <div class="buttons">
-                <div class="group-div">
-                  <div class="rectangle-div"></div>
-                  <div class="padding-wrapper">
-                    <img
-                      class="padding-icon"
-                      loading="lazy"
-                      alt=""
-                      src="images/right-arrow.svg"
-                    />
-                  </div>
-                  <a class="previous" href="Sign-Up-Patient-History.php">Previous</a>
+              <form action="Sign-Up-Patient-History.php">
+                      <input type="submit" value="Previous" style="cursor: pointer; width: 144px; height: 50px; background: #fdfdfd; box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25); border-radius: 8px; font-family: 'Lato'; font-style: normal; font-weight: 800; font-size: 20px; line-height: 24px; color: #00C8D2; border: 2px solid #00C8D2;">
+                  </form>
                 </div>
                 <div class="submit-buttons">
-                  <button class="group-button">
-                    <div class="frame-child1"></div>
-                    <div class="clear">Clear</div>
-                  </button>
-                  <button class="rectangle-parent1">
-                    <div class="frame-child2"></div>
-                    <div class="create">Create</div>
-                  </button>
+                <form action=" ">
+                      <input type="submit" value="Clear" style="cursor: pointer; width: 144px; height: 50px; background: #fdfdfd; box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25); border-radius: 8px; font-family: 'Lato'; font-style: normal; font-weight: 800; font-size: 20px; line-height: 24px; color: #00C8D2; border: 2px solid #00C8D2;">
+                  </form>
+                  <form action="">
+                      <input type="submit" value="Create" class="next-button" style="cursor: pointer; width: 144px; height: 50px; background: #00C8D2; box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25); border-radius: 8px; font-family: 'Lato'; font-style: normal; font-weight: 800; font-size: 20px; line-height: 24px; color: #FDFDFD; border: none;">
+                  </form>
                 </div>
               </div>
             </div>

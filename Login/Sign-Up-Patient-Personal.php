@@ -476,21 +476,12 @@
                     />
                   </div>
                   <div class="username-actions">
-                    <button class="group-button">
-                      <div class="frame-child10"></div>
-                      <div class="clear">Clear</div>
-                    </button>
-                    <button class="clear-next-buttons">
-                      <div class="clear-next-buttons-child"></div>
-                      <a class="next" href="Sign-Up-Patient-History.php">Next</a>
-                      <div class="next-button-container">
-                        <img
-                          class="div-cssbx-icon"
-                          alt=""
-                          src="images/left-arrow.svg"
-                        />
-                      </div>
-                    </button>
+                  <form action=" ">
+                      <input type="submit" value="Clear" style="cursor: pointer; width: 144px; height: 50px; background: #fdfdfd; box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25); border-radius: 8px; font-family: 'Lato'; font-style: normal; font-weight: 800; font-size: 20px; line-height: 24px; color: #00C8D2; border: 2px solid #00C8D2;">
+                  </form>
+                    <form action="Sign-Up-Patient-History.php">
+                      <input type="submit" value="Next" style="cursor: pointer; width: 144px; height: 50px; background: #00C8D2; box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25); border-radius: 8px; font-family: 'Lato'; font-style: normal; font-weight: 800; font-size: 20px; line-height: 24px; color: #FDFDFD; border: none;">
+                  </form>
                   </div>
                 </div>
               </div>

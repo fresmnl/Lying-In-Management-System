@@ -2582,7 +2582,7 @@ body {
     box-sizing: border-box;
   }
   .main-container {
-    width: 81.25rem;
+    width: 82.25rem;
     box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
     border-radius: var(--br-5xs);
     background-color: var(--color-gray-300);
@@ -2591,6 +2591,7 @@ body {
     padding: 0 0 var(--padding-15xl);
     gap: var(--gap-5xl);
     max-width: 100%;
+    display: flex;
   }
   .sign-up-patient-personal-d {
     width: 100%;

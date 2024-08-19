@@ -193,6 +193,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     overflow: hidden;
     flex-shrink: 0;
     z-index: 2;
+    top: -5px;
   }
 
   .placeholder-wrapper {
@@ -287,7 +288,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     flex-direction: row;
     align-items: flex-start;
     justify-content: space-between;
-    padding: 0 0.875rem 0.062rem 0.75rem;
+    padding: 8px;
     gap: 1.25rem;
     z-index: 10;
     /* Adjusted to ensure it's in front */
@@ -676,6 +677,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     color: white;
     width: 100%;
     font-size: 1.2rem;
+    width: 17rem;
+    font-family: 'Lato';
+    font-weight: 800;
   }
 
   select option {
@@ -780,9 +784,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <div id="forget-password" class="reset-pass">
           <p><a href="Login-Reset-Password.php">Forgot Password?</a></p>
         </div>
-        <div class="mask-container-wrapper">
-          <input type="submit" name="sign_in" value="Sign in">
-        </div>
+        <form action=" ">
+          <input type="submit" value="Sign in" style="cursor: pointer; width: 338px; height: 47px; background: #00C8D2; box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25); border-radius: 8px; font-family: 'Lato'; font-style: normal; font-weight: 800; font-size: 20px; line-height: 24px; color: #fdfdfd; border:none;">
+        </form>
         <div id="sign-up" class="sign-up">
           <p>Don't have an account yet?<span><a href="Sign-Up-Patient-Personal.php">Sign up</a></span></p>
         </div>

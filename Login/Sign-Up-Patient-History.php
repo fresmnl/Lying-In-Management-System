@@ -426,36 +426,16 @@
             </div>
             <footer class="pagination">
               <div class="page-controls">
-                <div class="group-div">
-                  <div class="frame-child12"></div>
-                  <div class="previous-button-container">
-                    <img
-                      class="frame-icon1"
-                      loading="lazy"
-                      alt=""
-                      src="images/right-arrow.svg"
-                    />
-                  </div>
-                  <a class="previous" href="Sign-Up-Patient-Personal.php">Previous</a>
-                </div>
+                  <form action="Sign-Up-Patient-Personal.php">
+                      <input type="submit" value="Previous" style="cursor: pointer; width: 144px; height: 50px; background: #fdfdfd; box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25); border-radius: 8px; font-family: 'Lato'; font-style: normal; font-weight: 800; font-size: 20px; line-height: 24px; color: #00C8D2; border: 2px solid #00C8D2;">
+                  </form>
                 <div class="next-button">
-                  <div class="next-button-container">
-                    <div class="rectangle-parent7">
-                      <div class="frame-child13"></div>
-                      <div class="clear">Clear</div>
-                    </div>
-                  </div>
-                  <button class="group-button">
-                    <div class="frame-child14"></div>
-                    <a class="next" href="Sign-Up-Patient-Registration.php">Next</a>
-                    <div class="next-button-padding">
-                      <img
-                        class="next-button-container1"
-                        alt=""
-                        src="images/left-arrow.svg"
-                      />
-                    </div>
-                  </button>
+                  <form action=" ">
+                      <input type="submit" value="Clear" style="cursor: pointer; width: 144px; height: 50px; background: #fdfdfd; box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25); border-radius: 8px; font-family: 'Lato'; font-style: normal; font-weight: 800; font-size: 20px; line-height: 24px; color: #00C8D2; border: 2px solid #00C8D2;">
+                  </form>
+                  <form action="Sign-Up-Patient-Registration.php">
+                      <input type="submit" value="Next" class="next-button" style="cursor: pointer; width: 144px; height: 50px; background: #00C8D2; box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25); border-radius: 8px; font-family: 'Lato'; font-style: normal; font-weight: 800; font-size: 20px; line-height: 24px; color: #FDFDFD; border: none;">
+                  </form>
                 </div>
               </div>
             </footer>
