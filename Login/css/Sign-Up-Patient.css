@@ -505,15 +505,51 @@ body {
     max-width: 100%;
   }
   .layer-1-icon,
-  .select-rhu {
+  .select-rhu,
+  .select-sex {
     position: relative;
     flex-shrink: 0;
     z-index: 3;
   }
-  .select-rhu {
-    width: 8.063rem;
+  .select-rhu,
+  .select-sex{
+    width: 22rem;
+    border: 0;
+    outline: 0;
     font-weight: 500;
+    font-family: var(--font-lato);
+    font-size: var(--font-size-lg);
+    background-color: transparent;
+    flex: 1;
+    position: relative;
+    color: var(--color-darkslategray-200);
+    text-align: left;
     display: inline-block;
+    min-width: 8rem;
+    padding: 8.5px;
+    z-index: 1;
+  }
+  #dropdownSex,
+  #dropdownEducation,
+  #dropdownEmployment,
+  #dropdownID{
+    align-self: stretch;
+    border-radius: var(--br-5xs);
+    background-color: var(--color-gray-300);
+    border: 1.5px solid var(--color-darkturquoise-100);
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 11px;    
+    gap: var(--gap-xl);
+    color: var(--color-darkslategray-200); 
+    width: 15rem; 
+  }
+  #dropdownEducation,
+  #dropdownEmployment{
+    width: 22.5rem;
+  }
+  #dropdownID{
+    width: 32rem;
   }
   .layer-1-icon {
     width: 1.25rem;
@@ -565,11 +601,10 @@ body {
     border: 1.5px solid var(--color-darkturquoise-100);
     flex-direction: row;
     justify-content: space-between;
-    padding: var(--padding-xs) var(--padding-mini) var(--padding-xs)
-      var(--padding-5xl);
     gap: var(--gap-xl);
     z-index: 2;
     color: var(--color-darkslategray-200);
+    padding: 3px;
   }
   .designated-r-h-u-label-parent {
     flex: 1;

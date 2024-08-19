@@ -1,8 +1,8 @@
 const calendarPopup = document.getElementById("calendarPopup");
 const calendarIcon = document.getElementById("calendarIcon");
-const currentMonthElement = document.getElementById("monthSelect");
-const yearSelect = document.getElementById("yearSelect");
-const calendarDaysElement = document.getElementById("calendarDays");
+const currentMonthElement = document.getElementById("monthSelect"); // <select> element for months
+const yearSelect = document.getElementById("yearSelect"); // <select> element for years
+const calendarDaysElement = document.getElementById("calendarDays"); // Container for calendar days
 const displayDate = document.getElementById("displayDate");
 const ageText = document.getElementById("ageText");
 
