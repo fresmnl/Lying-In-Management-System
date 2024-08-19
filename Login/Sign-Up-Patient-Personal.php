@@ -325,15 +325,9 @@
                 <div class="occupation-and-education-child"></div>
                 <div class="occupation-education-fields">
                   <div class="occupation-and-education-title">
+                    <div style="width: 24rem;">
                     <b class="educational-attainment">Educational Attainment</b>
-                    <div class="employment-status-wrapper">
-                      <b class="employment-status">Employment Status</b>
-                    </div>
-                    <b class="occupation">Occupation</b>
-                  </div>
-                </div>
-                <form class="attainment-status-selection-parent">
-                <div class="r-h-u-dropdown">
+                    <div class="r-h-u-dropdown">
                     <!-- Dropdown using select -->
                     <select id="dropdownEducation" class="select-rhu">Select RHU
                         <option value="option1">Select an Attainment</option>
@@ -347,7 +341,11 @@
                         <option value="option9">N/A</option>
                     </select>
                 </div>
-                <div class="r-h-u-dropdown">
+                </div>
+                <div style="width: 24rem;">
+                    <div class="employment-status-wrapper">
+                      <b class="employment-status">Employment Status</b>
+                      <div class="r-h-u-dropdown">
                     <!-- Dropdown using select -->
                     <select id="dropdownEmployment" class="select-rhu">Select RHU
                         <option value="option1">Select a status</option>
@@ -359,7 +357,11 @@
                 
                     </select>
                 </div>
-                  <div class="occupation-input">
+                </div>
+                    </div>
+                    <div style="width: 24rem;">
+                    <b class="occupation">Occupation</b>
+                    <div class="occupation-input">
                     <div class="occupation-input-child"></div>
                     <input
                       class="enter-you-occupation"
@@ -367,7 +369,8 @@
                       type="text"
                     />
                   </div>
-                </form>
+                  </div>
+                </div>
               </div>
             </div>
             <div class="d-s-w-d-match-parent">
