@@ -1,3 +1,6 @@
+if ( window.history.replaceState ) {
+  window.history.replaceState( null, null, window.location.href );
+}
 document.addEventListener('DOMContentLoaded', function() {
     const roleSelection = document.querySelector('.role-selection');
     const selectRoleLabel = document.querySelector('.select-a-role');
