@@ -2609,63 +2609,49 @@ body {
     line-height: normal;
     letter-spacing: normal;
   }
-  @media screen and (max-width: 1200px) {
-    .progress-indicator,
-    .steps-container-inner {
-      padding-right: var(--padding-2xl);
-      box-sizing: border-box;
+
+  @media screen and (max-width:1024px) {
+    .sign-up-patient-personal-d {
+      display: list-item;
+      max-width: fit-content;
     }
-    .progress-indicator {
-      padding-left: var(--padding-5xl);
-      padding-right: var(--padding-5xl);
-    }
-  }
-  @media screen and (max-width: 1050px) {
-    .provide-the-required {
+    .create-an-account,
+    .provide-the-required,
+    .already-have-an,
+    .a1, .a2, .history,
+    .step-indicators3{
       display: none;
     }
-    .form-fields {
-      justify-content: center;
+    .if-a-particular-container {
+      width: 33rem;
     }
-    .form-fields,
+    .rectangle-parent{
+      display: inline-table;
+      max-width: 51%;
+    }
+    .rectangle-group{
+      align-self: flex-start;
+    }
+    .content-area{
+      gap: 0;
+    }
+    .logo-white-1{
+      width: 11.25rem;
+      max-height: 81%;
+    }
+    .contact-and-demographic-fields,
     .occupation-and-education-title,
-    .street {
-      flex-wrap: wrap;
-    }
-    .d-s-w-d-match,
-    .d-s-w-d-match1 {
-      flex: 1;
-    }
     .d-s-w-d-match-parent,
-    .generated-username {
-      flex-wrap: wrap;
+    .generated-username{
+      display: grid;
+    }
+    .occupation-and-education,
+    .d-s-w-d-match,
+    .d-s-w-d-match1{
+      max-width: 50%;
+    }
+    #dropdownID{
+      max-width: 68%;
     }
   }
-  @media screen and (max-width: 750px) {
-    .already-have-an {
-      display: none;
-    }
-    .details-title {
-      flex-wrap: wrap;
-    }
-    .personal-details-title {
-      padding-left: var(--padding-17xl);
-      box-sizing: border-box;
-    }
-    .contact-details,
-    .right-column {
-      flex-wrap: wrap;
-    }
-    .left-column,
-    .left-column1 {
-      min-width: 100%;
-    }
-    .city-province {
-      flex-wrap: wrap;
-      gap: 1.438rem;
-    }
-    .d-s-w-d-match,
-    .d-s-w-d-match1 {
-      min-width: 100%;
-    }
-  }    
+ 
