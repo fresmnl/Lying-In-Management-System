@@ -1,5 +1,6 @@
-<?php include '../nav-side-bar/nav-side.php'; ?>
-    <link
+<?php include 'nav-side-bar/sidebar.php'; ?>
+<?php include 'nav-side-bar/navbar.php'; ?>    
+<link
       rel="stylesheet"
       href="https://fonts.googleapis.com/css2?family=Lato:wght@500;700;800&display=swap"
     />
