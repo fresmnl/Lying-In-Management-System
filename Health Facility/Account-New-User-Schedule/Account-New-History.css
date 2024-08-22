@@ -1,0 +1,214 @@
+body {
+    margin: 0;
+    line-height: normal;
+  }
+  
+  :root {
+    /* fonts */
+    --font-lato: Lato;
+  
+    /* font sizes */
+    --font-size-xl: 1.25rem;
+    --font-size-base: 1rem;
+    --font-size-lg: 1.125rem;
+  
+    /* Colors */
+    --color-gray-100: #fdfdfd;
+    --color-gray-200: rgba(253, 253, 253, 0.8);
+    --color-gray-300: rgba(253, 253, 253, 0.7);
+    --color-deepskyblue: #00acce;
+    --color-aliceblue: #edf1f6;
+    --color-darkturquoise-100: #00c8d2;
+    --color-darkturquoise-200: rgba(0, 200, 210, 0.4);
+    --color-skyblue: #1ac7e8;
+    --color-darkslategray-100: #004268;
+    --color-darkslategray-200: #004168;
+    --color-darkslategray-300: rgba(0, 66, 104, 0.6);
+    --color-lightseagreen: #00adb8;
+  
+    /* Gaps */
+    --gap-6xl: 1.562rem;
+    --gap-xl: 1.25rem;
+    --gap-8xs: 0.312rem;
+  
+    /* Paddings */
+    --padding-xl: 1.25rem;
+    --padding-4xs: 0.562rem;
+    --padding-2xs: 0.687rem;
+    --padding-7xl: 1.625rem;
+    --padding-smi: 0.812rem;
+    --padding-12xl: 1.937rem;
+    --padding-87xl: 6.625rem;
+    --padding-mini: 0.937rem;
+    --padding-95xl: 7.125rem;
+    --padding-10xl: 1.812rem;
+    --padding-12xs: 0.062rem;
+    --padding-34xl: 3.312rem;
+    --padding-3xs: 0.625rem;
+    --padding-mid: 1.062rem;
+    --padding-xs: 0.75rem;
+    --padding-mini-5: 0.906rem;
+  
+    /* Border radiuses */
+    --br-5xs: 8px;
+  }
+  .content-child {
+    align-self: stretch;
+    width: 78.563rem;
+    position: relative;
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+    background-color: var(--color-darkturquoise-200);
+    display: none;
+    max-width: 100%;
+  }
+  .request {
+    text-decoration: none;
+    position: relative;
+    font-weight: 600;
+    color: inherit;
+    display: inline-block;
+    min-width: 4.5rem;
+    z-index: 1;
+  }
+  .requests {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding: var(--padding-smi) 0 0;
+  }
+  .frame-child {
+    height: 3.125rem;
+    width: 8.625rem;
+    position: relative;
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+    background-color: var(--color-deepskyblue);
+    display: none;
+  }
+  .history {
+    text-decoration: none;
+    position: relative;
+    font-size: var(--font-size-xl);
+    font-weight: 600;
+    font-family: var(--font-lato);
+    color: var(--color-gray-100);
+    text-align: left;
+    display: inline-block;
+    min-width: 4.125rem;
+    z-index: 2;
+  }
+  .content,
+  .rectangle-parent {
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    box-sizing: border-box;
+  }
+  .rectangle-parent {
+    cursor: pointer;
+    border: 0;
+    padding: var(--padding-smi) var(--padding-12xl);
+    background-color: var(--color-deepskyblue);
+    width: 8.625rem;
+    justify-content: flex-end;
+    z-index: 1;
+  }
+  .rectangle-parent:hover {
+    background-color: var(--color-skyblue);
+  }
+  .content {
+    width: 81.563rem;    
+    background-color: var(--color-darkturquoise-200);
+    justify-content: flex-start;
+    padding: 0 var(--padding-7xl);
+    gap: 1.625rem;
+    max-width: 100%;
+  }
+  .frame-item {
+    height: 3.125rem;
+    width: 8.625rem;
+    position: relative;
+    border-radius: var(--br-5xs);
+    background-color: var(--color-deepskyblue);
+    border: 2px solid var(--color-aliceblue);
+    box-sizing: border-box;
+    display: none;
+  }
+  .div,
+  .vector-icon {
+    position: relative;
+    z-index: 1;
+  }
+  .div {
+    width: 5.75rem;
+    font-weight: 800;
+    display: inline-block;
+    flex-shrink: 0;
+  }
+  .vector-icon {
+    width: 0.894rem;
+    height: 0.594rem;
+  }
+  .vector-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding: 0.55rem 0 0;
+  }
+  .health-facility-dashboard-inner,
+  .rectangle-group {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    box-sizing: border-box;
+  }
+  .rectangle-group {
+    width: 8.625rem;
+    border-radius: var(--br-5xs);
+    background-color: var(--color-deepskyblue);
+    border: 2px solid var(--color-aliceblue);
+    justify-content: flex-start;
+    padding: var(--padding-4xs) 0.437rem var(--padding-2xs);
+    gap: 0.612rem;
+  }
+  .health-facility-dashboard-inner {
+    width: 22.875rem;
+    justify-content: center;
+    padding: 0 var(--padding-xl);
+    max-width: 100%;
+    text-align: center;
+    color: var(--color-aliceblue);
+  }
+  .health-facility-dashboard {
+    width: 100%;
+    position: relative;
+    background-color: var(--color-gray-100);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: flex-start;
+    padding: 4.25rem 0 49.187rem;
+    box-sizing: border-box;
+    gap: 1.687rem;
+    line-height: normal;
+    letter-spacing: normal;
+    text-align: left;
+    font-size: var(--font-size-xl);
+    color: var(--color-darkslategray-100);
+    font-family: var(--font-lato);
+  }
+  @media screen and (max-width: 450px) {
+    .history,
+    .request {
+      font-size: var(--font-size-base);
+    }
+    .content {
+      flex-wrap: wrap;
+    }
+    .div {
+      font-size: var(--font-size-base);
+    }
+}
