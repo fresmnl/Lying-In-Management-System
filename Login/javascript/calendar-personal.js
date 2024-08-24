@@ -5,6 +5,8 @@ const yearSelect = document.getElementById("yearSelect"); // <select> element fo
 const calendarDaysElement = document.getElementById("calendarDays"); // Container for calendar days
 const displayDate = document.getElementById("displayDate");
 const ageText = document.getElementById("ageText");
+const birthday = document.getElementById("birthday");
+const currentAge = document.getElementById("age");
 
 let currentDate = new Date();
 
@@ -85,12 +87,14 @@ function handleDateClick(event) {
     
     // Update the display date
     displayDate.textContent = formattedDate;
+    birthday.value = formattedDate;
 
     // Calculate age
     const age = calculateAge(selectedDate);
 
-    // Update the age text
+    // Update the age text  
     ageText.textContent = `${age} years old`;
+    currentAge.value = age;
 
     // Highlight the selected date
     document.querySelectorAll('.calendar-day').forEach(day => day.classList.remove('selected'));

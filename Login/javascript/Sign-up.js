@@ -65,5 +65,15 @@ function toggleDropdown(dropdownId) {
   handleDropdownSelection("idTypeDropdownContent", ".select-an-id");
 
   
-  //calendar
+// Get all input elements
+var inputs = document.getElementsByTagName('input');
+
+// Loop through the NodeList and add an event listener to each input
+for (var i = 0; i < inputs.length; i++) {
+  inputs[i].addEventListener('input', function() {
+    this.value = this.value.toUpperCase();
+  });
+}
+
+
   

@@ -1,9 +1,10 @@
+
 if (window.history.replaceState) {
   window.history.replaceState(null, null, window.location.href);
 }
-window.onbeforeunload = function(e){
+window.onbeforeunload = function (e) {
   history.go(-1);
-}
+};
 function handleSelectChange() {
   var value = document.getElementById("role").value;
   var forgetPassword = document.getElementById("forget-password");
@@ -12,10 +13,10 @@ function handleSelectChange() {
   if (value === "Admin") {
     forgetPassword.style.display = "none";
     signUp.style.display = "none";
-  }else if(value === "Health Facility"){
+  } else if (value === "Health Facility") {
     forgetPassword.style.display = "block";
     signUp.style.display = "none";
-  }else if(value === "Patient"){
+  } else if (value === "Patient") {
     forgetPassword.style.display = "block";
     signUp.style.display = "block";
   }

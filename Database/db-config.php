@@ -42,8 +42,45 @@ class Database
         $this->pdo = null;
     }
 
-    public function cleanStr($value){
-        $result = trim($value);
-        return $result;
+    public function cleanStr($value)
+    {
+        return trim($value);
+    }
+    function NumberOfPatient()
+    {
+        $sql = "SELECT COUNT(*) FROM patient_info";
+        $stmt = $this->pdo->prepare($sql);
+        $stmt->execute();
+        return $stmt->fetchColumn() + 1;
+    }
+    function generatePatientId($currentCount)
+    {
+        $year = date('Y');
+        $month = date('m');
+        $sequentialNumber = str_pad($currentCount, 4, '0', STR_PAD_LEFT);
+        $patientId = "P{$year}{$month}-{$sequentialNumber}";
+        return $patientId;
+    }
+    function generateAccountId($currentCount)
+    {
+        $year = date('Y');
+        $month = date('m');
+        $sequentialNumber = str_pad($currentCount, 4, '0', STR_PAD_LEFT);
+        $accountId = "A{$year}{$month}-{$sequentialNumber}";
+        return $accountId;
+    }
+
+    function startTransaction()
+    {
+        return $this->pdo->beginTransaction();
+    }
+
+    function proceed()
+    {
+        $this->pdo->commit();
+    }
+    function terminateTransaction()
+    {
+        $this->pdo->rollBack();
     }
 }

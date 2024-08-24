@@ -105,6 +105,11 @@ body {
   background-color: var(--color-deepskyblue);
   max-width: 100%;
 }
+.message {
+  color: red;
+  font-size: .9rem;
+}
+
 .logo-white-1 {
   width: 14.25rem;
   flex: 1;

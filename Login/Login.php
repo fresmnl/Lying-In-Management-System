@@ -1,61 +1,3 @@
-<?php
-require '../Database/db-config.php';
-$db_conn = new Database("localhost", "root", "", "db_lyingin");
-
-
-$message = '';
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-  if (isset($_POST["sign_in"])) {
-    if (empty($_POST["username"]) && empty($_POST["password"]) && $_POST["role"] === "Select a role") {
-      $message = 'Please Select role and enter credentials.';
-      header('Location: Login.php?message=' . urlencode($message));
-    } elseif ($_POST["role"] === "Select a role") {
-      $message = 'Please Select role.';
-      header('Location: Login.php?message=' . urlencode($message));
-    } elseif (empty($_POST["username"]) && empty($_POST["password"])) {
-      $message = 'Please enter credentials.';
-      header('Location: Login.php?message=' . urlencode($message));
-    } elseif (empty($_POST["username"])) {
-      $message = 'Please enter your username.';
-      header('Location: Login.php?message=' . urlencode($message));
-    } elseif (empty($_POST["password"])) {
-      $message = 'Please enter your password.';
-      header('Location: Login.php?message=' . urlencode($message));
-    } else {
-      $role = $db_conn->cleanStr($_POST["role"]);
-      $username = $db_conn->cleanStr($_POST["username"]);
-      $password = $db_conn->cleanStr($_POST["password"]);
-
-      $sql = "SELECT * FROM user_account WHERE Username = :username AND Password = :password";
-      $params = ['username' => $username, 'password' => $password];
-      $stmt = $db_conn->query($sql, $params);
-      if ($stmt) {
-        $user = $stmt->fetch(PDO::FETCH_ASSOC);
-
-        if ($user && $username === $user['Username'] && $password === $user['Password']) {
-          // Successful login
-          // $message = 'Login successful!';
-          // Redirect to a protected area or dashboard
-          if ($role === $user['Role']) {
-            header('Location: ../Admin/dashboard.php');
-            exit();
-          }else{
-            $message = 'Invalid Role.';
-            header('Location: Login.php?message=' . urlencode($message));
-          }
-        } else {
-          // Invalid credentials
-          $message = 'Invalid role, username or password.';
-          header('Location: Login.php?message=' . urlencode($message));
-        }
-      } else {
-        $message = 'An error occurred while querying the database.';
-      }
-    }
-  }
-}
-?>
-
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lato:wght@500;600;700;800;900&display=swap" />
 <title>Login</title>
 <style>
@@ -708,7 +650,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
   }
 </style>
-<form action="" method="POST">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.all.min.js"></script>
+<form id="loginForm" action="" method="POST">
   <div class="login">
     <div class="solution-content">
       <div class="solution-content-child"></div>
@@ -784,14 +729,50 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <div id="forget-password" class="reset-pass">
           <p><a href="Login-Reset-Password.php">Forgot Password?</a></p>
         </div>
-        <form action=" ">
-          <input type="submit" value="Sign in" style="cursor: pointer; width: 338px; height: 47px; background: #00C8D2; box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25); border-radius: 8px; font-family: 'Lato'; font-style: normal; font-weight: 800; font-size: 20px; line-height: 24px; color: #fdfdfd; border:none;">
-        </form>
+        <input name="sign_in" id="SignIn" type="submit" value="Sign in" style="cursor: pointer; width: 338px; height: 47px; background: #00C8D2; box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25); border-radius: 8px; font-family: 'Lato'; font-style: normal; font-weight: 800; font-size: 20px; line-height: 24px; color: #fdfdfd; border:none;">
         <div id="sign-up" class="sign-up">
           <p>Don't have an account yet?<span><a href="Sign-Up-Patient-Personal.php">Sign up</a></span></p>
         </div>
+    </div>
+  </div>
 </form>
-</div>
-</div>
-</form>
+<script>
+  $('#loginForm').on('submit', function(e) {
+    e.preventDefault(); // Prevent the form from submitting the traditional way
+
+    $.ajax({
+      type: 'POST',
+      url: 'Login-Auth.php', // Replace with the correct path to your PHP script
+      data: $(this).serialize(), // Serialize form data
+      dataType: 'json',
+      success: function(response) {
+        console.log('AJAX Success Response:', response);
+        if (response.status === 'success') {
+          Swal.fire({
+            icon: 'success',
+            title: response.message,
+            showConfirmButton: false,
+            timer: 2000
+          }).then(() => {
+            window.location.href = '../Admin/dashboard.php'; // Redirect after showing the success message
+          });
+        } else {
+          Swal.fire({
+            icon: 'error',
+            title: 'Oops...',
+            text: response.message
+          });
+        }
+      },
+      error: function(xhr, status, error) {
+        console.error('AJAX Error: ', status, error);
+        Swal.fire({
+          icon: 'error',
+          title: 'Oops...',
+          text: 'Something went wrong with the request.'
+        });
+      }
+    });
+  });
+</script>
 <script src="script.js"></script>
