@@ -1,5 +1,7 @@
-<?php include 'nav-side-bar/nav-side.php'; ?>
-    <link rel="stylesheet" href="css/Registration.css" />
+<?php include 'nav-side-bar/sidebar.php'; ?>
+<?php include 'nav-side-bar/navbar.php'; ?>
+
+<link rel="stylesheet" href="css/Registration.css" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lato:wght@500;600;700;800;900&display=swap"/>
     <div class="admin-registration">
       <form class="rectangle-parent">

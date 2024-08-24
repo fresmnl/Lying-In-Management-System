@@ -1,7 +1,9 @@
-<?php include 'nav-side-bar/nav-side.php'; ?>
+<?php include 'nav-side-bar/sidebar.php'; ?>
+<?php include 'nav-side-bar/navbar.php'; ?>
 <link rel="stylesheet" href="css/Dashboard.css" />
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lato:wght@500;600;700;800;900&display=swap"/>
     
+<title>Admin-Dashboard</title>
 <div class="admin-dashboard">
       <section class="layout">
         <div class="container">
