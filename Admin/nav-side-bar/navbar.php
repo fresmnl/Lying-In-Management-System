@@ -170,10 +170,10 @@
       }
 
       .header-container {
-        position: absolute;
-        right: 0;
+        position: fixed;
+        left: 17%;
         top: 0;
-        width: 80.563rem;
+        width: 82%;
         box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
         background-color: var(--color-gray-100);
         justify-content: space-between;

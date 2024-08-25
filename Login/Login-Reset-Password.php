@@ -510,17 +510,3 @@
   </div>
 </div>
 
-<script>
-  import Swal from "sweetalert2";
-
-  document.addEventListener("DOMContentLoaded", () => {
-    document.getElementById("SignIn").addEventListener("click", () => {
-      Swal.fire({
-        title: "Error!",
-        text: "Do you want to continue",
-        icon: "error",
-        confirmButtonText: "Cool",
-      });
-    });
-  });
-</script>
