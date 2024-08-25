@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 24, 2024 at 06:49 PM
+-- Generation Time: Aug 26, 2024 at 01:25 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -236,6 +236,22 @@ CREATE TABLE `group_notification` (
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `health_facility_info`
+--
+
+CREATE TABLE `health_facility_info` (
+  `Health_Facility_Id` varchar(25) NOT NULL,
+  `Account_Id` varchar(25) NOT NULL,
+  `Health_Facility_Name` varchar(255) NOT NULL,
+  `City_Municipality` varchar(255) NOT NULL,
+  `Landline_Number` varchar(255) NOT NULL,
+  `Mobile_Number` varchar(255) NOT NULL,
+  `Email` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `highrisk_patient`
 --
 
@@ -375,13 +391,6 @@ CREATE TABLE `patient_history` (
   `Others_Type` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
---
--- Dumping data for table `patient_history`
---
-
-INSERT INTO `patient_history` (`History_Id`, `Patient_Id`, `Previous_Operation`, `Operation_Date`, `Smoker`, `Packs_Per_Year`, `Drinker`, `Bottle_Per_Month`, `Hypertension`, `Asthma`, `Blood_Disorder`, `Heart_Disorder`, `Liver_Disorder`, `Kidney_Disorder`, `Pulmonary_Tuberculosis`, `Diabetes_Mellitus`, `Diabetes_Mellitus_Type`, `Cancer`, `Cancer_Type`, `Stage`, `Skin_Disease`, `Skin_Disease_Type`, `Allergy`, `Allergy_Type`, `Others`, `Others_Type`) VALUES
-(13, 'P202408-0001', '', '', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A');
-
 -- --------------------------------------------------------
 
 --
@@ -390,6 +399,7 @@ INSERT INTO `patient_history` (`History_Id`, `Patient_Id`, `Previous_Operation`,
 
 CREATE TABLE `patient_info` (
   `Patient_Id` varchar(25) NOT NULL,
+  `Account_Id` varchar(25) NOT NULL,
   `Health_Facility` varchar(255) NOT NULL,
   `Fname` varchar(255) NOT NULL,
   `Mname` varchar(255) NOT NULL,
@@ -402,7 +412,7 @@ CREATE TABLE `patient_info` (
   `Municipality_Address` varchar(255) NOT NULL,
   `Province_Address` varchar(255) NOT NULL,
   `Contact_No` varchar(255) NOT NULL,
-  `email` varchar(255) NOT NULL,
+  `Email` varchar(255) NOT NULL,
   `civil_status` varchar(255) NOT NULL,
   `sex` varchar(255) NOT NULL,
   `Educational_Attainment` varchar(255) NOT NULL,
@@ -414,13 +424,6 @@ CREATE TABLE `patient_info` (
   `Id_Type` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
---
--- Dumping data for table `patient_info`
---
-
-INSERT INTO `patient_info` (`Patient_Id`, `Health_Facility`, `Fname`, `Mname`, `Lname`, `fullname`, `Birthday`, `Age`, `Street_Address`, `Barangay_Address`, `Municipality_Address`, `Province_Address`, `Contact_No`, `email`, `civil_status`, `sex`, `Educational_Attainment`, `Employment_Status`, `Occupation`, `DSWD_NHTS`, `4PS_MEMBER`, `Identification`, `Id_Type`) VALUES
-('P202408-0001', 'RHU', 'CYRRON', 'MENDOZA', 'FABRAQUEL', 'CYRRON MENDOZA FABRAQUEL', '08/06/2019', 5, '0929 RIVERSIDE', 'LAMAO', 'LIMAY', 'BATAAN', '+639519858341', 'CYRRON@GMAIL.COM', 'SINGLE', 'FEMALE', 'COLLEGE GRADUATE', 'EMPLOYED', 'STUDENT', 'NO', 'NO', 'image.png', 'BARANGAY CLEARANCE');
-
 -- --------------------------------------------------------
 
 --
@@ -429,7 +432,7 @@ INSERT INTO `patient_info` (`Patient_Id`, `Health_Facility`, `Fname`, `Mname`, `
 
 CREATE TABLE `user_account` (
   `Account_Id` varchar(25) NOT NULL,
-  `Patient_Id` varchar(25) NOT NULL,
+  `User_Id` varchar(25) NOT NULL,
   `Username` varchar(255) NOT NULL,
   `Email` varchar(255) NOT NULL,
   `Password` varchar(255) NOT NULL,
@@ -440,8 +443,8 @@ CREATE TABLE `user_account` (
 -- Dumping data for table `user_account`
 --
 
-INSERT INTO `user_account` (`Account_Id`, `Patient_Id`, `Username`, `Email`, `Password`, `Role`) VALUES
-('A202408-0001', 'P202408-0001', 'CFabraquel2019', 'CYRRON@GMAIL.COM', 'Cyrron#0813', 'Patient');
+INSERT INTO `user_account` (`Account_Id`, `User_Id`, `Username`, `Email`, `Password`, `Role`) VALUES
+('A202408-0001', 'Admin01', 'Admin01', 'trusttracklyingin@gmail.com', 'trusttrack4-2023', 'Admin');
 
 --
 -- Indexes for dumped tables
@@ -518,6 +521,14 @@ ALTER TABLE `group_notification`
   ADD KEY `Account_Id` (`Account_Id`);
 
 --
+-- Indexes for table `health_facility_info`
+--
+ALTER TABLE `health_facility_info`
+  ADD PRIMARY KEY (`Health_Facility_Id`),
+  ADD KEY `Email` (`Email`),
+  ADD KEY `Account_Id` (`Account_Id`);
+
+--
 -- Indexes for table `highrisk_patient`
 --
 ALTER TABLE `highrisk_patient`
@@ -579,14 +590,14 @@ ALTER TABLE `patient_history`
 -- Indexes for table `patient_info`
 --
 ALTER TABLE `patient_info`
-  ADD PRIMARY KEY (`Patient_Id`);
+  ADD PRIMARY KEY (`Patient_Id`),
+  ADD KEY `Account_Id` (`Account_Id`);
 
 --
 -- Indexes for table `user_account`
 --
 ALTER TABLE `user_account`
-  ADD PRIMARY KEY (`Account_Id`),
-  ADD KEY `Patient_Id` (`Patient_Id`);
+  ADD PRIMARY KEY (`Account_Id`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -638,7 +649,7 @@ ALTER TABLE `lyingin_appointment`
 -- AUTO_INCREMENT for table `patient_history`
 --
 ALTER TABLE `patient_history`
-  MODIFY `History_Id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `History_Id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 
 --
 -- Constraints for dumped tables
@@ -663,6 +674,12 @@ ALTER TABLE `delivery`
   ADD CONSTRAINT `delivery_ibfk_1` FOREIGN KEY (`Admission_Id`) REFERENCES `admission` (`Admission_Id`),
   ADD CONSTRAINT `delivery_ibfk_2` FOREIGN KEY (`Doctor_Id`) REFERENCES `doctor` (`Doctor_Id`),
   ADD CONSTRAINT `delivery_ibfk_3` FOREIGN KEY (`Midwife_Id`) REFERENCES `midwife` (`Midwife_Id`);
+
+--
+-- Constraints for table `health_facility_info`
+--
+ALTER TABLE `health_facility_info`
+  ADD CONSTRAINT `health_facility_info_ibfk_1` FOREIGN KEY (`Account_Id`) REFERENCES `user_account` (`Account_Id`);
 
 --
 -- Constraints for table `highrisk_patient`
@@ -699,10 +716,10 @@ ALTER TABLE `patient_history`
   ADD CONSTRAINT `patient_history_ibfk_1` FOREIGN KEY (`Patient_Id`) REFERENCES `patient_info` (`Patient_Id`);
 
 --
--- Constraints for table `user_account`
+-- Constraints for table `patient_info`
 --
-ALTER TABLE `user_account`
-  ADD CONSTRAINT `user_account_ibfk_1` FOREIGN KEY (`Patient_Id`) REFERENCES `patient_info` (`Patient_Id`);
+ALTER TABLE `patient_info`
+  ADD CONSTRAINT `patient_info_ibfk_1` FOREIGN KEY (`Account_Id`) REFERENCES `user_account` (`Account_Id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
