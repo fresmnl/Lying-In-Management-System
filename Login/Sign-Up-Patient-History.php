@@ -25,8 +25,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   $_SESSION['educational_attainment'] = $db_conn->cleanStr($_POST['educational_attainment'] ?? '');
   $_SESSION['employment_status'] = $db_conn->cleanStr($_POST['employment_status'] ?? '');
   $_SESSION['occupation'] = $db_conn->cleanStr($_POST['occupation'] ?? '');
-  $_SESSION['dswd_nhts'] = $db_conn->cleanStr($_POST['dswd_nhts'] ?? '');
-  $_SESSION['4ps_member'] = $db_conn->cleanStr($_POST['4ps_member'] ?? '');
+  $_SESSION['dswd_nhts'] = strtoupper($db_conn->cleanStr($_POST['dswd_nhts'] ?? ''));
+  $_SESSION['4ps_member'] = strtoupper($db_conn->cleanStr($_POST['4ps_member'] ?? ''));
   $_SESSION['identification_type'] = $db_conn->cleanStr($_POST['identification_type'] ?? '');
   $_SESSION['identification_card'] = $db_conn->cleanStr($_POST['identification_card'] ?? '');
   $_SESSION['username'] = 
@@ -35,7 +35,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             strtolower(substr($db_conn->cleanStr($_POST['last_name'] ?? ''), 1)) . 
             substr($db_conn->cleanStr($_POST['birth_date'] ?? ''), -4);
   $_SESSION['patient_id'] = strtoupper($db_conn->generatePatientId($db_conn->NumberOfPatient()));
-  $_SESSION['account_id'] = strtoupper($db_conn->generateAccountId($db_conn->NumberOfPatient()));
+  $_SESSION['account_id'] = strtoupper($db_conn->generateAccountId($db_conn->NumberOfAccount()));
 
   $fullname = strtoupper($db_conn->cleanStr($_POST['first_name'] ?? ''));
   if (isset($_POST['middle_name']) && $_POST['middle_name'] !== "-") {

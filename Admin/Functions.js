@@ -12,6 +12,8 @@ RecordAccount =
   "/CapstoneProject/Lying-In-Management-System/Admin/Record-Account.php";
 RecordInformation =
   "/CapstoneProject/Lying-In-Management-System/Admin/Record-Info-New.php";
+RecordInformationAuth =
+  "/CapstoneProject/Lying-In-Management-System/Admin/Record-Info-Authorize.php";
 RecordNumber =
   "/CapstoneProject/Lying-In-Management-System/Admin/Record-Number.php";
 RecordHospital =
@@ -24,6 +26,7 @@ RecordAccountDeact =
 if (
   window.location.pathname == RecordAccount ||
   window.location.pathname == RecordInformation ||
+  window.location.pathname == RecordInformationAuth ||
   window.location.pathname == RecordNumber ||
   window.location.pathname == RecordHospital
 ) {

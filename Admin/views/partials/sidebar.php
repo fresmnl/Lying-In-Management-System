@@ -51,7 +51,7 @@
                                                                                                                                                       else echo 'text-white'; ?> flex items-center w-full h-10 transition duration-75 rounded-lg p-4 pl-14 group">Facility Account</a>
                </li>
                <li>
-                  <a href="Record-Info-New.php" class="flex items-center w-full p-4 h-10 transition duration-75 rounded-lg pl-14 group <?php if ($_SERVER['REQUEST_URI'] === '/CapstoneProject/Lying-In-Management-System/Admin/Record-Info-New.php') echo 'text-[#2D82B5] dark:bg-[#EDF1F6] shadow-[0_4px_6px_-1px_rgba(0,0,0,0.2)]';
+                  <a href="Record-Info-New.php" class="flex items-center w-full p-4 h-10 transition duration-75 rounded-lg pl-14 group <?php if ($_SERVER['REQUEST_URI'] === '/CapstoneProject/Lying-In-Management-System/Admin/Record-Info-New.php' || $_SERVER['REQUEST_URI'] === '/CapstoneProject/Lying-In-Management-System/Admin/Record-Info-Authorize.php') echo 'text-[#2D82B5] dark:bg-[#EDF1F6] shadow-[0_4px_6px_-1px_rgba(0,0,0,0.2)]';
                                                                                                                                              else echo 'text-white'; ?> hover:text-[#2D82B5] dark:hover:bg-[#EDF1F6] hover:shadow-[0_4px_6px_-1px_rgba(0,0,0,0.2)] dark:hover:text-[#2D82B5]">Facility Information</a>
 
                </li>

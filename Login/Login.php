@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lato:wght@500;600;700;800;900&display=swap" />
 <title>Login</title>
 <style>
@@ -686,9 +689,6 @@
             </select>
           </div>
         </div>
-        <?php if (isset($_GET['message'])): ?>
-          <div class="message"><?php echo htmlspecialchars($_GET['message']); ?></div>
-        <?php endif; ?>
         <div class="footer-container">
           <div class="footer-container-child"></div>
           <div class="username-label">
@@ -737,42 +737,68 @@
   </div>
 </form>
 <script>
-  $('#loginForm').on('submit', function(e) {
-    e.preventDefault(); // Prevent the form from submitting the traditional way
+  document.addEventListener('DOMContentLoaded', () => {
+    const form = document.getElementById('loginForm');
 
-    $.ajax({
-      type: 'POST',
-      url: 'Login-Auth.php', // Replace with the correct path to your PHP script
-      data: $(this).serialize(), // Serialize form data
-      dataType: 'json',
-      success: function(response) {
-        console.log('AJAX Success Response:', response);
-        if (response.status === 'success') {
-          Swal.fire({
-            icon: 'success',
-            title: response.message,
-            showConfirmButton: false,
-            timer: 2000
-          }).then(() => {
-            window.location.href = '../Admin/dashboard.php'; // Redirect after showing the success message
+    if (form) {
+      form.addEventListener('submit', function(event) {
+        event.preventDefault();
+
+        const formData = new FormData(this);
+
+        fetch('Login-Auth.php', { // Update this path to your PHP file
+            method: 'POST',
+            body: formData
+          })
+          .then(response => {
+            // Check if the response is OK and content-type is JSON
+            if (response.ok && response.headers.get('Content-Type').includes('application/json')) {
+              return response.json();
+            } else {
+              throw new Error('Invalid response from server');
+            }
+          })
+          .then(data => {
+            if (data.status === 'success') {
+              Swal.fire({
+                icon: 'success',
+                title: data.message,
+                text: `Role: ${data.role}`,
+                showConfirmButton: false,
+                timer: 2000
+              }).then(() => {
+                // Redirect after successful login
+                if (data.role === 'Admin') {
+                  window.location.href = '../Admin/Dashboard.php'; // Adjust the path as needed
+                } else if (data.role === 'Health Facility') {
+                  window.location.href = '../Health_Facility/Dashboard/Dashboard.php'; // Adjust the path as needed
+                } else {
+                  window.location.href = '../Patient/Dashboard.php'; // Adjust the path as needed
+                }
+              });
+            } else {
+              Swal.fire({
+                icon: 'error',
+                title: 'Error',
+                text: data.message,
+                confirmButtonText: 'OK'
+              });
+            }
+          })
+          .catch(error => {
+            Swal.fire({
+              icon: 'error',
+              title: 'Error',
+              text: 'An unexpected error occurred. Please try again later.',
+              confirmButtonText: 'OK'
+            });
+            console.error('Error:', error);
           });
-        } else {
-          Swal.fire({
-            icon: 'error',
-            title: 'Oops...',
-            text: response.message
-          });
-        }
-      },
-      error: function(xhr, status, error) {
-        console.error('AJAX Error: ', status, error);
-        Swal.fire({
-          icon: 'error',
-          title: 'Oops...',
-          text: 'Something went wrong with the request.'
-        });
-      }
-    });
+      });
+    } else {
+      console.error('Form element not found.');
+    }
   });
+  
 </script>
 <script src="script.js"></script>

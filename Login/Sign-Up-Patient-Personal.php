@@ -1,5 +1,5 @@
 <?php
-  session_start();
+session_start();
 ?>
 <!DOCTYPE html>
 <html>
@@ -233,7 +233,7 @@
                       <div class="frame-child2"></div>
                       <input name="age" type="hidden" value="" id="age">
                       <div class="calculated-from-birthdate" id="ageText">
-                      <?= htmlspecialchars($_SESSION['age'] ?? 'Calculated from birthdate', ENT_QUOTES) ?>
+                        <?= htmlspecialchars($_SESSION['age'] ?? 'Calculated from birthdate', ENT_QUOTES) ?>
                       </div>
                     </div>
                   </div>
@@ -266,8 +266,9 @@
                       class="xxx-yyy-zzzz"
                       placeholder="Ex. +639518743351"
                       type="tel"
-                      pattern="[+]{1}[0-9]{11,14}"
+                      maxlength="14"
                       name="contact_number"
+                      id="contactNumber"
                       value="<?= htmlspecialchars($_SESSION['contact_number'] ?? '', ENT_QUOTES) ?>"
                       required />
                   </div>
@@ -404,13 +405,13 @@
                   <div class="i-d-type-selection-parent">
                     <div class="i-d-type-selection">
                       <div class="i-d-type-dropdown">
-                        <input class="i-d-type-layer" type="radio" name="dswd_nhts" value="yes" id="yes-option" <?= isset($_SESSION['dswd_nhts']) && $_SESSION['dswd_nhts'] === "YES" ? "Checked":"" ?> required />
+                        <input class="i-d-type-layer" type="radio" name="dswd_nhts" value="yes" id="yes-option" <?= isset($_SESSION['dswd_nhts']) && $_SESSION['dswd_nhts'] === "YES" ? "Checked" : "" ?> required />
                       </div>
                       <div class="yes">Yes</div>
                     </div>
                     <div class="i-d-type-no">
                       <div class="i-d-type-no-dropdown">
-                        <input class="samay-patel" type="radio" name="dswd_nhts" value="no" id="no-option" <?= isset($_SESSION['dswd_nhts']) && $_SESSION['dswd_nhts'] === "NO" ? "Checked":"" ?> required />
+                        <input class="samay-patel" type="radio" name="dswd_nhts" value="no" id="no-option" <?= isset($_SESSION['dswd_nhts']) && $_SESSION['dswd_nhts'] === "NO" ? "Checked" : "" ?> required />
                       </div>
                       <div class="no">No</div>
                     </div>
@@ -421,13 +422,13 @@
                   <div class="membership-attachment-status">
                     <div class="membership-file-selection">
                       <div class="choose-file-dialog">
-                        <input class="choose-file-layer" type="radio" name="4ps_member" value="yes" id="yes-file" <?= isset($_SESSION['4ps_member']) && $_SESSION['4ps_member'] === "YES" ? "Checked":"" ?> required />
+                        <input class="choose-file-layer" type="radio" name="4ps_member" value="yes" id="yes-file" <?= isset($_SESSION['4ps_member']) && $_SESSION['4ps_member'] === "YES" ? "Checked" : "" ?> required />
                       </div>
                       <div class="yes1">Yes</div>
                     </div>
                     <div class="no-file-status">
                       <div class="no-file-dialog">
-                        <input class="no-file-layer" type="radio" name="4ps_member" value="no" id="no-file" <?= isset($_SESSION['4ps_member']) && $_SESSION['4ps_member'] === "NO" ? "Checked":"" ?> required />
+                        <input class="no-file-layer" type="radio" name="4ps_member" value="no" id="no-file" <?= isset($_SESSION['4ps_member']) && $_SESSION['4ps_member'] === "NO" ? "Checked" : "" ?> required />
                       </div>
                       <div class="no1">No</div>
                     </div>
@@ -509,7 +510,6 @@
     </form>
   </div>
 </body>
-
 </html>
 
 <script src="javascript/Sign-up.js"></script>

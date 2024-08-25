@@ -495,6 +495,16 @@ body {
     text-align: center;
     z-index: 1;
   }
+  .next {
+    flex: 1;
+    position: relative;
+    font-size: var(--font-size-xl);
+    font-weight: 800;
+    font-family: var(--font-lato);
+    color: var(--color-darkturquoise);
+    text-align: center;
+    z-index: 1;
+  }
   .rectangle-parent2 {
     flex: 0.8947;
     box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);

@@ -6,7 +6,7 @@ $db_conn = new Database("localhost", "root", "", "db_lyingin");
 
 session_start();
 
-header('Content-Type: application/json'); // Ensure the response is JSON
+// header('Content-Type: application/json'); // Ensure the response is JSON
 
 $response = ['status' => 'error', 'message' => ''];
 
@@ -133,13 +133,28 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             // Start a transaction
             $db_conn->startTransaction();
 
+            // Insert data into user_account table
+            $sqlAccount = "INSERT INTO `user_account`(`Account_Id`, `User_Id`, `Username`, `Email`, `Password`, `Role`) VALUES (:account_id, :patient_id, :username, :email, :password, :role)";
+
+            $paramsAccount = [
+                ':account_id' => $user_data['account_id'],
+                ':patient_id' => $user_data['patient_id'],
+                ':username' => $user_data['username'],
+                ':email' => $user_data['email_address'],
+                ':password' => $user_data['password'],
+                ':role' => $user_data['role']
+            ];
+
+            $db_conn->query($sqlAccount, $paramsAccount);
+
+
             // Insert data into the patient_info table
             $sqlUser = "INSERT INTO `patient_info` (
-                `Patient_Id`, `Health_Facility`, `Fname`, `Mname`, `Lname`, `fullname`, `Birthday`, `Age`, 
+                `Patient_Id`,`Account_Id`, `Health_Facility`, `Fname`, `Mname`, `Lname`, `fullname`, `Birthday`, `Age`, 
                 `Street_Address`, `Barangay_Address`, `Municipality_Address`, `Province_Address`, `Contact_No`, `email`, `civil_status`, 
                 `sex`, `Educational_Attainment`, `Employment_Status`, `Occupation`, `DSWD_NHTS`, `4PS_MEMBER`, `Identification`, `Id_Type`
             ) VALUES (
-                :patient_id, :health_facility, :first_name, :middle_name, :last_name, :fullname, :birth_date, :age, :street_address, 
+                :patient_id, :account_id, :health_facility, :first_name, :middle_name, :last_name, :fullname, :birth_date, :age, :street_address, 
                 :barangay_address, :municipality_address, :province_address, :contact_number, :email_address, :civil_status, 
                 :sex, :educational_attainment, :employment_status, :occupation, :dswd_nhts, :4ps_member, :identification_card, 
                 :identification_type
@@ -147,6 +162,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
             $paramsUser = [
                 ':patient_id' => $user_data['patient_id'],
+                ':account_id' => $user_data['account_id'],
                 ':health_facility' => $user_data['health_facility'],
                 ':first_name' => $user_data['first_name'],
                 ':middle_name' => $user_data['middle_name'],
@@ -215,20 +231,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             ];
 
             $db_conn->query($sqlProfile, $paramsProfile);
-
-            // Insert data into user_account table
-            $sqlAccount = "INSERT INTO `user_account`(`Account_Id`, `Patient_Id`, `Username`, `Email`, `Password`, `Role`) VALUES (:account_id, :patient_id, :username, :email, :password, :role)";
-
-            $paramsAccount = [
-                ':account_id' => $user_data['account_id'],
-                ':patient_id' => $user_data['patient_id'],
-                ':username' => $user_data['username'],
-                ':email' => $user_data['email_address'],
-                ':password' => $user_data['password'],
-                ':role' => $user_data['role']
-            ];
-
-            $db_conn->query($sqlAccount, $paramsAccount);
 
             // Commit the transaction
             $db_conn->proceed();
