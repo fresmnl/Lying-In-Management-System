@@ -21,7 +21,7 @@ if ($_SESSION['admin']['loggedin'] !== true && !isset($_SESSION['admin']['userna
   <body>
     <div class="admin-record-account">
       <section class="frame-parent">
-        <header class="rectangle-parent">
+        <header class="rectangle-parent" style="margin-left: 0.8rem;">
           <div class="frame-child"></div>
           <div class="new-account-wrapper">
             <a href="Record-Info-New.php" class="new-account">New Account</a>

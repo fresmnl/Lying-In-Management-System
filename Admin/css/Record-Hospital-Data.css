@@ -33,26 +33,19 @@ body {
     --padding-51xl: 4.375rem;
     --padding-xl: 1.25rem;
     --padding-16xl: 2.187rem;
-    --padding-8xs: 0.312rem;
-    --padding-9xs: 0.25rem;
-    --padding-7xs: 0.375rem;
-    --padding-10xs: 0.187rem;
-    --padding-smi: 0.812rem;
-    --padding-mini: 0.937rem;
-    --padding-6xl: 1.562rem;
+    --padding-11xs: 0.125rem;
+    --padding-xs: 0.75rem;
+    --padding-sm: 0.875rem;
+    --padding-12xs: 0.062rem;
     --padding-3xs: 0.625rem;
     --padding-base: 1rem;
-    --padding-11xs: 0.125rem;
-    --padding-12xs: 0.062rem;
-    --padding-2xs: 0.687rem;
-    --padding-sm: 0.875rem;
-    --padding-87xl: 6.625rem;
+    --padding-smi: 0.812rem;
+    --padding-mini: 0.937rem;
   
     /* Border radiuses */
-    --br-3xs: 10px;
     --br-5xs: 8px;
   }
-.frame-child {
+  .centimeter-wrapper-child {
     align-self: stretch;
     width: 78.563rem;
     position: relative;
@@ -61,80 +54,72 @@ body {
     display: none;
     max-width: 100%;
   }
-  .new-account {
+  .project-content-child {
+    height: 3.125rem;
+    width: 9.125rem;
+    position: relative;
+    background-color: var(--color-deepskyblue-100);
+    display: none;
+  }
+  .hospital-data {
     text-decoration: none;
     position: relative;
     font-weight: 600;
     color: inherit;
     display: inline-block;
-    min-width: 7.563rem;
-    white-space: nowrap;
-    z-index: 1;
-  }
-  .new-account-wrapper {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: flex-start;
-    padding: var(--padding-smi) 0 0;
-  }
-  .frame-item {
-    height: 3.125rem;
-    width: 12.063rem;
-    position: relative;
-    background-color: var(--color-deepskyblue-100);
-    display: none;
-  }
-  .authorized-account {
-    text-decoration: none;
-    position: relative;
-    font-weight: 600;
-    color: inherit;
+    min-width: 7.75rem;
     z-index: 2;
   }
-  .rectangle-group,
-  .rectangle-parent {
-    display: flex;
+  .project-content {
+    background-color: var(--color-deepskyblue-100);
     flex-direction: row;
+    padding: var(--padding-smi) var(--padding-3xs) var(--padding-smi)
+      var(--padding-xs);
+    white-space: nowrap;
+    z-index: 1;
+  }
+  .centimeter-wrapper,
+  .centimeter-wrapper-item,
+  .project-content {
+    display: flex;
     align-items: flex-start;
     justify-content: flex-start;
   }
-  .rectangle-group {
-    background-color: var(--color-deepskyblue-100);
-    padding: var(--padding-smi) var(--padding-9xs) var(--padding-smi) 0.5rem;
-    white-space: nowrap;
-    z-index: 1;
-    color: var(--color-gray-100);
+  .centimeter-wrapper-item {
+    width: 5.125rem;
+    border: 0;
+    outline: 0;
+    background-color: transparent;
+    height: 2.313rem;
+    flex-direction: column;
+    padding: var(--padding-smi) 0 0;
+    box-sizing: border-box;
+    font-family: var(--font-lato);
+    font-weight: 600;
+    font-size: var(--font-size-xl);
+    color: var(--color-darkslategray-100);
   }
-  .rectangle-parent {
+  .centimeter-wrapper {
     align-self: stretch;
     box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
     background-color: var(--color-aliceblue);
-    padding: 0 var(--padding-2xs);
-    box-sizing: border-box;
-    gap: 0.625rem;
-    top: 0;
-    z-index: 99;
-    position: sticky;
+    flex-direction: row;
+    gap: 0.875rem;
     max-width: 100%;
-    text-align: center;
-    font-size: var(--font-size-xl);
-    color: var(--color-darkslategray-100);
-    font-family: var(--font-lato);
     margin-left: 0.8rem;
   }
-  .information-of-health {
+  .total-number-of {
     flex: 1;
     position: relative;
     display: inline-block;
     max-width: 100%;
   }
-  .frame-inner,
-  .skills {
+  .frame-child,
+  .hospital-count {
     box-sizing: border-box;
     max-width: 100%;
   }
-  .skills {
+  .hospital-count {
     align-self: stretch;
     display: flex;
     flex-direction: row;
@@ -142,7 +127,7 @@ body {
     justify-content: flex-start;
     padding: 0 0 0 var(--padding-12xs);
   }
-  .frame-inner {
+  .frame-child {
     height: 3.125rem;
     width: 25.188rem;
     position: relative;
@@ -181,107 +166,122 @@ body {
     overflow: hidden;
     z-index: 2;
   }
-  .layer-1-wrapper,
-  .rectangle-container {
+  .rectangle-parent,
+  .search-icon,
+  .search-layer {
     display: flex;
     align-items: flex-start;
     justify-content: flex-start;
   }
-  .layer-1-wrapper {
+  .search-icon {
     flex-direction: column;
     padding: var(--padding-11xs) 0 0;
     margin-left: -2.438rem;
   }
-  .rectangle-container {
-    flex: 1;
+  .rectangle-parent,
+  .search-layer {
+    max-width: 100%;
+  }
+  .rectangle-parent {
+    width: 25.188rem;
     border-radius: var(--br-5xs);
     background-color: var(--color-aliceblue);
     border: 2px solid var(--color-darkturquoise);
     box-sizing: border-box;
     flex-direction: row;
-    padding: var(--padding-3xs) var(--padding-base) 0.75rem 1.375rem;
-    min-width: 16.375rem;
-    max-width: 100%;
+    padding: var(--padding-3xs) var(--padding-base) var(--padding-xs) 1.375rem;
     row-gap: 20px;
   }
-  .rectangle-div {
-    height: 3.125rem;
-    width: 8.625rem;
+  .search-layer {
+    align-self: stretch;
+    flex-direction: column;
+    gap: 1.062rem;
+  }
+  .showing-1- {
     position: relative;
-    border-radius: var(--br-3xs);
+    font-weight: 500;
+    white-space: pre-wrap;
+  }
+  .items-shown,
+  .search-button {
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+  }
+  .items-shown {
+    flex-direction: row;
+    padding: 0 var(--padding-12xs);
+    font-size: var(--font-size-sm);
+    color: var(--color-darkslategray-200);
+  }
+  .search-button {
+    flex: 1;
+    flex-direction: column;
+    gap: 42.5rem;
+    max-width: 100%;
+  }
+  .frame-item {
+    height: 3.125rem;
+    width: 11.2rem;
+    position: relative;
+    border-radius: var(--br-5xs);
     background-color: var(--color-darkturquoise);
     display: none;
   }
-  .all,
-  .layer-1-icon1 {
+  .add-hospital {
+    flex: 1;
     position: relative;
-    flex-shrink: 0;
+    font-weight: 800;
+    white-space: pre-wrap;
     z-index: 1;
   }
-  .all {
-    width: 2.875rem;
-    font-weight: 800;
-    display: inline-block;
-  }
-  .layer-1-icon1 {
-    width: 1.25rem;
-    height: 1.25rem;
-    overflow: hidden;
-  }
-  .quotes,
-  .rectangle-parent1 {
+  .rectangle-group,
+  .search-input-inner {
     display: flex;
-    flex-direction: column;
     align-items: flex-start;
     justify-content: flex-start;
-    padding: var(--padding-10xs) 0 0;
   }
-  .rectangle-parent1 {
-    width: 8.625rem;
-    border-radius: var(--br-3xs);
+  .rectangle-group {
+    align-self: stretch;
+    border-radius: var(--br-5xs);
     background-color: var(--color-darkturquoise);
     flex-direction: row;
-    justify-content: space-between;
-    padding: var(--padding-smi) var(--padding-mini) var(--padding-smi)
-      var(--padding-6xl);
-    box-sizing: border-box;
-    gap: var(--gap-xl);
+    padding: var(--padding-xs) 0 var(--padding-sm);
+    white-space: nowrap;
   }
-  .frame-container,
-  .frame-div,
-  .skills-parent {
+  .search-input-inner {
+    width: 11.25rem;
+    flex-direction: column;
+    padding: 2.625rem 0 0;
+    box-sizing: border-box;
+    text-align: center;
+    font-size: var(--font-size-xl);
+    color: var(--color-gray-100);
+  }
+  .search-bar,
+  .search-input {
     display: flex;
     align-items: flex-start;
     max-width: 100%;
   }
-  .frame-div {
+  .search-input {
     align-self: stretch;
     flex-direction: row;
     justify-content: flex-start;
-    gap: 0.687rem;
-    font-size: var(--font-size-xl);
-    color: var(--color-gray-100);
+    row-gap: 20px;
   }
-  .frame-container,
-  .skills-parent {
+  .search-bar {
+    width: 37.063rem;
     flex-direction: column;
-  }
-  .skills-parent {
-    align-self: stretch;
-    justify-content: flex-start;
-    gap: 1.062rem;
-  }
-  .frame-container {
-    width: 34.5rem;
     justify-content: flex-end;
-    padding: 0 0 var(--padding-10xs);
+    padding: 0 0 0.437rem;
     box-sizing: border-box;
   }
-  .number-of-accounts {
+  .number-of-hospitals {
     align-self: stretch;
     position: relative;
   }
-  .div {
+  .hospital-count-value {
     width: 10.25rem;
     position: relative;
     font-size: 2.813rem;
@@ -290,60 +290,23 @@ body {
     text-align: center;
     display: inline-block;
   }
-  .number-of-accounts-parent {
-    width: 11.188rem;
+  .number-details {
+    flex: 1;
     display: flex;
     flex-direction: column;
     align-items: flex-end;
     justify-content: flex-start;
     gap: var(--gap-5xs);
-    text-align: right;
-    font-size: var(--font-size-lg);
   }
-  .frame-group {
-    flex: 1;
-    display: flex;
-    flex-direction: row;
-    align-items: flex-end;
-    justify-content: space-between;
-    max-width: 100%;
-    gap: var(--gap-xl);
-  }
-  .frame-parent,
-  .frame-wrapper {
-    display: flex;
-    align-items: flex-start;
-    justify-content: flex-start;
-    max-width: 100%;
-  }
-  .frame-wrapper {
-    width: 76.313rem;
-    flex-direction: row;
-    padding: 0 var(--padding-51xl);
-    box-sizing: border-box;
-  }
-  .frame-parent {
+  .hospital-count-details {
     align-self: stretch;
-    flex-direction: column;
-    gap: 1.75rem;
-    text-align: left;
-    font-size: 1.375rem;
-    color: var(--color-darkslategray-100);
-    font-family: var(--font-lato);
-  }
-  .showing-1- {
-    position: relative;
-    font-weight: 500;
-    white-space: pre-wrap;
-  }
-  .showing-1-20-of-25-items-wrapper {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items: flex-start;
-    justify-content: flex-start;
-    padding: var(--padding-7xs) 0 0;
+    justify-content: flex-end;
+    padding: 0 var(--padding-11xs) 0 0;
   }
-  .frame-child1 {
+  .last-name-layout-child {
     position: absolute;
     top: 0;
     left: 0;
@@ -365,8 +328,8 @@ body {
     object-fit: contain;
     z-index: 1;
   }
-  .frame-child2,
-  .rectangle-parent2 {
+  .card-layout-child,
+  .last-name-layout {
     height: 1.875rem;
     width: 1.875rem;
     position: relative;
@@ -376,7 +339,7 @@ body {
     border-left: 1.5px solid var(--color-deepskyblue-100);
     box-sizing: border-box;
   }
-  .frame-child2 {
+  .card-layout-child {
     display: none;
   }
   .b {
@@ -384,11 +347,11 @@ body {
     position: relative;
     z-index: 1;
   }
-  .frame-child3,
-  .rectangle-parent3 {
+  .card-layout,
+  .layout-child {
     background-color: var(--color-deepskyblue-200);
   }
-  .rectangle-parent3 {
+  .card-layout {
     flex: 1;
     border-top: 1.5px solid var(--color-deepskyblue-100);
     border-bottom: 1.5px solid var(--color-deepskyblue-100);
@@ -397,9 +360,9 @@ body {
     flex-direction: row;
     align-items: flex-start;
     justify-content: flex-start;
-    padding: var(--padding-8xs) 0 var(--padding-9xs);
+    padding: 0.312rem 0 0.25rem;
   }
-  .frame-child3 {
+  .layout-child {
     position: absolute;
     top: 0;
     left: 0;
@@ -418,7 +381,7 @@ body {
     object-fit: contain;
     z-index: 1;
   }
-  .rectangle-parent4 {
+  .layout {
     height: 1.875rem;
     width: 1.875rem;
     position: relative;
@@ -426,99 +389,179 @@ body {
     border: 1.5px solid var(--color-deepskyblue-100);
     box-sizing: border-box;
   }
-  .frame-parent1,
-  .frame-parent2 {
+  .hospital-count-details-parent,
+  .last-name-layout-parent {
+    width: 5.625rem;
     display: flex;
     flex-direction: row;
     align-items: flex-start;
-  }
-  .frame-parent2 {
-    width: 5.625rem;
     justify-content: flex-start;
     text-align: center;
-    color: var(--color-darkslategray-100);
+    font-size: var(--font-size-sm);
   }
-  .frame-parent1 {
+  .hospital-count-details-parent {
+    width: 11.313rem;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 41.937rem;
+    text-align: right;
+    font-size: var(--font-size-lg);
+  }
+  .search-hospitals {
     flex: 1;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
     justify-content: space-between;
     max-width: 100%;
     gap: var(--gap-xl);
+    text-align: left;
+    font-size: 1.375rem;
+    color: var(--color-darkslategray-100);
+    font-family: var(--font-lato);
   }
-  .admin-record-account,
-  .admin-record-account-inner {
+  .admin-record-hospital-da,
+  .search-hospitals-wrapper {
+    max-width: 100%;
     display: flex;
     align-items: flex-start;
     justify-content: flex-start;
     box-sizing: border-box;
   }
-  .admin-record-account-inner {
-    width: 76.5rem;
+  .search-hospitals-wrapper {
+    width: 76.438rem;
     flex-direction: row;
-    padding: 0 4.437rem;
-    max-width: 100%;
+    padding: 0 var(--padding-51xl);
   }
-  .admin-record-account {
-    width: 100%;
-    position: absolute;
+  .admin-record-hospital-da {
     background-color: var(--color-gray-100);
     overflow: hidden;
     flex-direction: column;
     padding: var(--padding-51xl) 0 2.312rem 15.937rem;
-    gap: 41.937rem;
+    gap: 1.75rem;
     line-height: normal;
     letter-spacing: normal;
-    text-align: left;
-    font-size: var(--font-size-sm);
-    color: var(--color-darkslategray-200);
+    text-align: center;
+    font-size: var(--font-size-xl);
+    color: var(--color-gray-100);
     font-family: var(--font-lato);
   }
+  /* Add this CSS in your Record-Hospital-Data.css file */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal-content {
+  background-color: #fefefe;
+  margin: 10% auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+  max-width: 600px;
+  border-radius: 8px;
+}
+
+.close-btn {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close-btn:hover,
+.close-btn:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+.form-group input, .form-group select {
+  width: 100%;
+  padding: 10px;
+  margin: 5px 0;
+  box-sizing: border-box;
+}
+
+.modal-footer {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.cancel-btn, .add-btn {
+  padding: 10px 20px;
+  margin: 5px;
+  cursor: pointer;
+  border: none;
+  border-radius: 5px;
+}
+
+.cancel-btn {
+  background-color: #f44336;
+  color: white;
+}
+
+.add-btn {
+  background-color: #00C8D2;
+  color: white;
+}
+
   @media screen and (max-width: 1200px) {
-    .admin-record-account-inner,
-    .frame-wrapper {
+    .search-hospitals {
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    .search-hospitals-wrapper {
       padding-left: var(--padding-16xl);
       padding-right: var(--padding-16xl);
       box-sizing: border-box;
     }
   }
   @media screen and (max-width: 1050px) {
-    .div {
+    .hospital-count-value {
       font-size: 2.25rem;
-    }
-    .frame-group {
-      flex-wrap: wrap;
     }
   }
   @media screen and (max-width: 750px) {
-    .frame-div {
+    .search-input {
       flex-wrap: wrap;
     }
-    .admin-record-account {
-      gap: 20.938rem;
+    .admin-record-hospital-da {
       padding-left: 7.938rem;
       box-sizing: border-box;
     }
   }
   @media screen and (max-width: 450px) {
-    .information-of-health {
+    .centimeter-wrapper {
+      flex-wrap: wrap;
+    }
+    .total-number-of {
       font-size: var(--font-size-lg);
     }
-    .layer-1-wrapper {
+    .search-icon {
       margin-left: 0;
     }
-    .rectangle-container {
+    .rectangle-parent {
       flex-wrap: wrap;
     }
-    .all {
-      font-size: var(--font-size-base);
+    .search-button {
+      gap: 21.25rem;
     }
-    .div {
+    .hospital-count-value {
       font-size: 1.688rem;
     }
-    .frame-parent1 {
-      flex-wrap: wrap;
-    }
-    .admin-record-account {
-      gap: 10.5rem;
+    .admin-record-hospital-da {
       padding-left: var(--padding-xl);
       box-sizing: border-box;
     }
