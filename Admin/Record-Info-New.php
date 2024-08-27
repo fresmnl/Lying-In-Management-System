@@ -16,7 +16,46 @@ if ($_SESSION['admin']['loggedin'] !== true && !isset($_SESSION['admin']['userna
   rel="stylesheet"
   href="https://fonts.googleapis.com/css2?family=Lato:wght@500;600;700;800;900&display=swap" />
 </head>
+<style>
+  .accounts-table {
+    width: 100%;
+    overflow-x: auto; /* Enables horizontal scrolling */
+    /* Optional: Add padding or margin if needed */
+}
 
+/* Styling for the table */
+.simple-table {
+    width: 100%;
+    min-width: 1000px; /* Ensures the table is wide enough to trigger scrolling */
+    border-collapse: collapse;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    /* Optional: Add a margin to center the table if needed */
+}
+
+/* Styling for table headers and cells */
+.simple-table th, .simple-table td {
+    border: 1px solid #ddd; /* Add border to table cells */
+    padding: 8px;
+    text-align: left;
+    white-space: nowrap; /* Prevents text from wrapping */
+    color: #004168; /* Dark blue text color */
+}
+
+/* Header styling */
+.simple-table th {
+    background-color: rgba(0, 172, 206, 0.4); /* Light blue background */
+    font-weight: bold;
+}
+.simple-table td{
+  font-weight: none;
+}
+
+/* Alternate row coloring */
+.simple-table tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+</style>
 <body>
   <div class="admin-record-account">
     <section class="main">
@@ -58,6 +97,25 @@ if ($_SESSION['admin']['loggedin'] !== true && !isset($_SESSION['admin']['userna
           </div>
         </div>
       </div>
+      <main class="accounts-table" style="width: 68rem;margin-left: 4.4rem;">
+  <table class="simple-table">
+        <thead>
+            <tr>
+                <th>Action</th>
+                <th>Name of Health Facility</th>
+                <th>City or Municipality</th>
+                <th>Email Address</th>
+                <th>Telephone No.</th>
+                <th>Mobile No.</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                
+            </tr>
+        </tbody>
+    </table>
+  </main>
     </section>
     <div class="item-display">
       <div class="display-settings">
@@ -89,4 +147,5 @@ if ($_SESSION['admin']['loggedin'] !== true && !isset($_SESSION['admin']['userna
       </div>
     </div>
   </div>
+  
 </body>

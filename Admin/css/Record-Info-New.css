@@ -424,6 +424,7 @@ body {
   color: var(--color-darkslategray-200);
   font-family: var(--font-lato);
 }
+
 @media screen and (max-width: 1200px) {
   .health-facility-details-wrapper,
   .item-display {
