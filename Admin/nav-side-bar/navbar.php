@@ -227,14 +227,52 @@
         </div>
       </div>
     </div>
-    <button class="button-group">
-      <div class="icon-background"></div>
-      <img class="icon-image" alt="" src="./public/frame.svg" />
-      <div class="admin-id-wrapper">
-        <a class="admin-id" href="../Admin/admin-logout.php"><?= htmlspecialchars($_SESSION['admin']['username'] ?? '', ENT_QUOTES) ?></a>
+    <div class="flex flex-col relative">
+      <button id="profile" class="button-group">
+        <div class="icon-background"></div>
+        <img class="icon-image" alt="" src="./public/frame.svg" />
+        <div class="admin-id-wrapper">
+          <b class="admin-id"><?= htmlspecialchars($_SESSION['admin']['username'] ?? 'No User', ENT_QUOTES) ?></b>
+        </div>
+      </button>
+      <div id="logout" class="hidden absolute cursor-pointer top-11 py-3 px-10 w-max rounded-md text-[#FDFDFD] shadow-[0px_4px_6px_-1px_rgba(0,0,0,0.3)] bg-[#00C8D2] items-center justify-center">
+        Logout
       </div>
-    </button>
+    </div>
   </header>
+  <script>
+    var logoutPopup = document.getElementById('logout');
+    var profile = document.getElementById('profile');
+    var logoutLink = document.getElementById('logoutLink');
+    profile.addEventListener('click', () => {
+      if (logoutPopup.classList.contains('hidden')) {
+        logoutPopup.classList.remove('hidden'); 
+        logoutPopup.classList.add('flex'); 
+      } else {
+        logoutPopup.classList.add('hidden'); 
+        logoutPopup.classList.remove('flex'); 
+      }
+    });
+
+    logoutPopup.addEventListener('click', (event) => {
+      event.preventDefault(); // Prevent the default link behavior
+      Swal.fire({
+        title: 'Are you sure?',
+        text: 'Do you want to logout?',
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Yes, logout!',
+        cancelButtonText: 'Cancel'
+      }).then((result) => {
+        if (result.isConfirmed) {
+          // Redirect to logout page if confirmed
+          window.location.href = 'admin-logout.php';
+        }
+      });
+    });
+  </script>
 </body>
 
 </html>

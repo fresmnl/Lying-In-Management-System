@@ -746,12 +746,12 @@ session_start();
 
         const formData = new FormData(this);
 
-        fetch('Login-Auth.php', { // Update this path to your PHP file
+        fetch('Login-Auth.php', { 
             method: 'POST',
             body: formData
           })
           .then(response => {
-            // Check if the response is OK and content-type is JSON
+
             if (response.ok && response.headers.get('Content-Type').includes('application/json')) {
               return response.json();
             } else {
@@ -769,11 +769,11 @@ session_start();
               }).then(() => {
                 // Redirect after successful login
                 if (data.role === 'Admin') {
-                  window.location.href = '../Admin/Dashboard.php'; // Adjust the path as needed
+                  window.location.href = '../Admin/Dashboard.php'; 
                 } else if (data.role === 'Health Facility') {
-                  window.location.href = '../Health_Facility/Dashboard/Dashboard.php'; // Adjust the path as needed
+                  window.location.href = '../Health_Facility/Dashboard/Dashboard.php'; 
                 } else {
-                  window.location.href = '../Patient/Dashboard.php'; // Adjust the path as needed
+                  window.location.href = '../Patient/Dashboard.php'; 
                 }
               });
             } else {

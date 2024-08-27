@@ -1,12 +1,11 @@
 var contactNumber = document.getElementById("contactNumber");
 
 contactNumber.addEventListener("input", () => {
-  // let value = contactNumber.value.replace(/\D/g, "");
-  const prefix = '+63';
-        let currentValue = contactNumber.value;
-        if (!currentValue.startsWith(prefix)) {
-            contactNumber.value = prefix + currentValue.replace(prefix, '');
-        }
+  const prefix = "+63";
+  let currentValue = contactNumber.value;
+  if (!currentValue.startsWith(prefix)) {
+    contactNumber.value = prefix + currentValue.replace(prefix, "");
+  }
 });
 
 // Function to toggle visibility of dropdown

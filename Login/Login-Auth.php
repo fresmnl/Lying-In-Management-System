@@ -1,11 +1,12 @@
 <?php
 
-session_start();
 
 require '../Database/db-config.php';
 
 // Initialize database connection
 $db_conn = new Database("localhost", "root", "", "db_lyingin");
+
+session_start();
 
 header('Content-Type: application/json'); // Ensure the response is JSON
 
@@ -32,19 +33,25 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $user = $stmt->fetch(PDO::FETCH_ASSOC);
             if ($user && $password === $user['Password']) {
                 if ($role === "Admin") {
-
                     $_SESSION['admin']['loggedin'] = true;
                     $_SESSION['admin']['username'] = $user['Username'];
                     $_SESSION['admin']['role'] = $user['Role'];
                     $response['status'] = 'success';
                     $response['message'] = 'Login Successfully!';
                     $response['role'] = $role;
- 
                 } elseif ($role === "Patient") {
 
-                    $_SESSION['admin']['loggedin'] = true;
-                    $_SESSION['admin']['username'] = $user['Username'];
-                    $_SESSION['admin']['role'] = $user['Role'];
+                    // $_SESSION['admin']['loggedin'] = true;
+                    // $_SESSION['admin']['username'] = $user['Username'];
+                    // $_SESSION['admin']['role'] = $user['Role'];
+                    $response['status'] = 'success';
+                    $response['message'] = 'Login Successfully!';
+                    $response['role'] = $role;
+                } elseif ($role === "Health Facility") {
+
+                    // $_SESSION['admin']['loggedin'] = true;
+                    // $_SESSION['admin']['username'] = $user['Username'];
+                    // $_SESSION['admin']['role'] = $user['Role'];
                     $response['status'] = 'success';
                     $response['message'] = 'Login Successfully!';
                     $response['role'] = $role;

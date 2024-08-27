@@ -1,11 +1,16 @@
 
 <?php
 session_start();
-require '../Database/db-config.php';
 
-if ($_SESSION['admin']['loggedin'] !== true && !isset($_SESSION['admin']['username'])) {
+$username = $_SESSION['admin']['username'] ?? '';
+$isLoggedIn = $_SESSION['admin']['loggedin'] ?? '';
+
+if ($isLoggedIn !== true && !isset($username)) {
   header("Location: ../Login/Login.php");
 }
+
+require '../Database/db-config.php';
+
 
 // Initialize database connection
 $db_conn = new Database("localhost", "root", "", "db_lyingin");
@@ -117,43 +122,59 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   </form>
 </div>
 <script>
-  $('#SignUpForm').on('submit', function(e) {
-    e.preventDefault(); // Prevent the form from submitting the traditional way
+  document.addEventListener('DOMContentLoaded', () => {
+    const form = document.getElementById('SignUpForm'); 
 
-    $.ajax({
-      type: 'POST',
-      url: 'Registration-Process.php', // Replace with the correct path to your PHP script
-      data: $(this).serialize(), // Serialize form data
-      dataType: 'json',
-      success: function(response) {
-        console.log('AJAX Success Response:', response);
-        if (response.status === 'success') {
-          Swal.fire({
-            icon: 'success',
-            title: response.message,
-            showConfirmButton: false,
-            timer: 3000
-          }).then(() => {
-            window.location.href = 'Registration.php'; // Redirect after showing the success message
-          });
-        } else {
-          Swal.fire({
-            icon: 'error',
-            title: 'Oops...',
-            text: response.message
-          });
-        }
-      },
-      error: function(xhr, status, error) {
-        console.error('AJAX Error: ', status, error);
-        Swal.fire({
-          icon: 'error',
-          title: 'Oops...',
-          text: 'Something went wrong with the request.'
+    if (form) {
+        form.addEventListener('submit', function(event) {
+            event.preventDefault(); 
+
+            const formData = new FormData(this);
+
+            fetch('Registration-Process.php', { 
+                method: 'POST',
+                body: formData
+            })
+            .then(response => {
+                
+                if (response.ok && response.headers.get('Content-Type').includes('application/json')) {
+                    return response.json();
+                } else {
+                    throw new Error('Invalid response from server');
+                }
+            })
+            .then(data => {
+                if (data.status === 'success') {
+                    Swal.fire({
+                        icon: 'success',
+                        title: data.message,
+                        showConfirmButton: false,
+                        timer: 3000
+                    }).then(() => {
+                        window.location.href = 'Dashboard.php'; 
+                    });
+                } else {
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Oops...',
+                        text: data.message
+                    });
+                }
+            })
+            .catch(error => {
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Oops...',
+                    text: 'Something went wrong with the request.'
+                });
+                console.error('Error:', error);
+            });
         });
-      }
-    });
-  });
+    } else {
+        console.error('Form element not found.');
+    }
+});
+
 
   var passwordField = document.getElementById("passwordField");
   var passwordField2 = document.getElementById("passwordField2");

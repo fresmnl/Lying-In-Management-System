@@ -39,4 +39,3 @@ if (
   accountToggle.classList.remove("hidden");
 }
 
-
