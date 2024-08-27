@@ -95,7 +95,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         'password' => $_SESSION['password'] ?? '',
         'confirm_password' => $_SESSION['confirm_password'] ?? '',
         'agreement' => $_SESSION['agreement'] ?? '',
-        'role' => 'Patient'
+        'role' => 'Patient',
+        'date_created' => $db_conn->getCurrentDate()
     ];
 
     // Check if all required session data is set and not empty
@@ -134,7 +135,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $db_conn->startTransaction();
 
             // Insert data into user_account table
-            $sqlAccount = "INSERT INTO `user_account`(`Account_Id`, `User_Id`, `Username`, `Email`, `Password`, `Role`) VALUES (:account_id, :patient_id, :username, :email, :password, :role)";
+            $sqlAccount = "INSERT INTO `user_account`(`Account_Id`, `User_Id`, `Username`, `Email`, `Password`, `Role`, `Date_Created`) 
+                            VALUES (:account_id, :patient_id, :username, :email, :password, :role, :date_created)";
 
             $paramsAccount = [
                 ':account_id' => $user_data['account_id'],
@@ -142,7 +144,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 ':username' => $user_data['username'],
                 ':email' => $user_data['email_address'],
                 ':password' => $user_data['password'],
-                ':role' => $user_data['role']
+                ':role' => $user_data['role'],
+                ':date_created' => $user_data['date_created']
             ];
 
             $db_conn->query($sqlAccount, $paramsAccount);

@@ -105,17 +105,9 @@ class Database
     {
         $this->pdo->rollBack();
     }
-    function getAdminUsername($username, $role)
-    {
-        $sql = "SELECT FROM user_account WHERE Username = :username AND Role = :role";
-        $params = [':username' => $username, ':role' => $role];
-        $stmt = $this->query($sql, $params);
 
-        if ($stmt) {
-            $admin = $stmt->fetch(PDO::FETCH_ASSOC);
-            return $admin['Username'];
-        }else{
-            return "Data Parsing Error!";
-        }
+    function getCurrentDate($dataFormat = 'd/m/Y')
+    {
+        return Date($dataFormat);
     }
 }

@@ -3,13 +3,21 @@
 
 session_start();
 
+require '../Database/db-admin.php';
+
 if ($_SESSION['admin']['loggedin'] !== true && !isset($_SESSION['admin']['username'])) {
   header("Location: ../Login/Login.php");
 }
+
+$db_admin = new Admin();
+
+
+
+
 ?>
+<?php require 'views/structures/header.php'; ?>
 <!-- <?php include 'nav-side-bar/sidebar.php'; ?> -->
 <?php include 'nav-side-bar/navbar.php'; ?>
-<?php require 'views/structures/header.php'; ?>
 <!-- <?php require 'views/partials/navbar.php'; ?> -->
 <?php require 'views/partials/sidebar.php'; ?>
 
@@ -35,7 +43,7 @@ if ($_SESSION['admin']['loggedin'] !== true && !isset($_SESSION['admin']['userna
           </div>
           <div class="account-labels">
             <b class="total-health-facilities">Total Health Facilities</b>
-            <div class="where-your-money">25</div>
+            <div class="where-your-money"><?= htmlspecialchars($db_admin->getAllHealthFacilityAccount() ?? '', ENT_QUOTES) ?></div>
           </div>
         </div>
         <div class="metrics-labels1">
@@ -52,7 +60,7 @@ if ($_SESSION['admin']['loggedin'] !== true && !isset($_SESSION['admin']['userna
           </div>
           <div class="new-accounts-parent">
             <b class="new-accounts">New Accounts</b>
-            <div class="div">5</div>
+            <div class="div"><?= htmlspecialchars($db_admin->getNonVerifiedHealthFacilityAccount() ?? '', ENT_QUOTES) ?></div>
           </div>
         </div>
         <div class="metrics-labels2">
@@ -69,7 +77,7 @@ if ($_SESSION['admin']['loggedin'] !== true && !isset($_SESSION['admin']['userna
           </div>
           <div class="authorized-accounts-parent">
             <b class="authorized-accounts">Authorized Accounts</b>
-            <div class="div1">20</div>
+            <div class="div1"><?= htmlspecialchars($db_admin->getVerifiedHealthFacilityAccount() ?? '', ENT_QUOTES) ?></div>
           </div>
         </div>
       </div>
@@ -206,8 +214,8 @@ if ($_SESSION['admin']['loggedin'] !== true && !isset($_SESSION['admin']['userna
         <b class="name-of-health">Name of Health Facility</b>
       </div>
       <div class="patient-metrics">
-        <b class="previous-patients">Previous Patients</b>
-        <b class="ongoing-patients">Ongoing Patients</b>
+        <!-- <b class="previous-patients">Previous Patients</b>
+        <b class="ongoing-patients">Ongoing Patients</b> -->
         <b class="account">Account</b>
         <b class="successful-childbirth">Successful Childbirth</b>
       </div>
@@ -215,18 +223,18 @@ if ($_SESSION['admin']['loggedin'] !== true && !isset($_SESSION['admin']['userna
     <div class="table-header1">
       <div class="frame-parent1">
         <div class="number-label-parent">
-          <div class="number-label">1</div>
+          <!-- <div class="number-label">1</div> -->
           <div class="facility-name">
-            <div class="reyes-hernandez-maternity">
+            <!-- <div class="reyes-hernandez-maternity">
               Reyes-Hernandez Maternity & Lying-in Clinic
-            </div>
+            </div> -->
           </div>
-          <div class="empty-header">50</div>
+          <!-- <div class="empty-header">50</div> -->
         </div>
-        <div class="div5">50</div>
+        <!-- <div class="div5">50</div> -->
         <div class="ongoing-patients-header">
-          <div class="empty-header1">50</div>
-          <div class="empty-header2">12</div>
+          <!-- <div class="empty-header1">50</div>
+          <div class="empty-header2">12</div> -->
         </div>
       </div>
     </div>
@@ -234,26 +242,26 @@ if ($_SESSION['admin']['loggedin'] !== true && !isset($_SESSION['admin']['userna
     <div class="table-header2">
       <div class="frame-parent2">
         <div class="parent">
-          <div class="div6">2</div>
-          <div class="hermosa-lying-in-and">
+          <!-- <div class="div6">2</div> -->
+          <!-- <div class="hermosa-lying-in-and">
             Hermosa Lying-in and Health Center
-          </div>
+          </div> -->
         </div>
         <div class="empty-header-wrapper">
-          <div class="empty-header3">32</div>
+          <!-- <div class="empty-header3">32</div> -->
         </div>
         <div class="frame">
-          <div class="div7">32</div>
+          <!-- <div class="div7">32</div> -->
         </div>
         <div class="account-header">
-          <div class="empty-header4">32</div>
-          <div class="empty-header5">41</div>
+          <!-- <div class="empty-header4">32</div>
+          <div class="empty-header5">41</div> -->
         </div>
       </div>
     </div>
     <footer class="table-header3">
       <div class="table-header-item"></div>
-      <div class="see-more">See More...</div>
+      <a class="see-more cursor-pointer" href="Record-Number.php">See More...</a>
     </footer>
   </section>
 </div>
@@ -267,7 +275,6 @@ if ($_SESSION['admin']['loggedin'] !== true && !isset($_SESSION['admin']['userna
     const calendarDays = document.getElementById("calendar-days");
     const year = date.getFullYear();
     const month = date.getMonth();
-
     // Update month-year text
     monthYear.textContent = `${months[month]} ${year}`;
 
@@ -278,7 +285,6 @@ if ($_SESSION['admin']['loggedin'] !== true && !isset($_SESSION['admin']['userna
 
     // Clear existing days
     calendarDays.innerHTML = "";
-
     // Add empty cells for days before the first day
     for (let i = 0; i < firstDay; i++) {
       const cell = document.createElement('div');
@@ -309,6 +315,7 @@ if ($_SESSION['admin']['loggedin'] !== true && !isset($_SESSION['admin']['userna
 
   // Initial render
   renderCalendar(currentDate);
+
 </script>
 
 <?php require 'views/structures/footer.php'; ?>

@@ -43,17 +43,19 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 
     $user_data = [
-        'health_facility' => strtoupper($_SESSION['admin']['health_facility'] ?? ''),
-        'city_municipality' => strtoupper( $_SESSION['admin']['city_municipality'] ?? ''),
-        'telephone_number' => strtoupper($_SESSION['admin']['telephone_number'] ?? ''),
-        'email' => strtoupper($_SESSION['admin']['email'] ?? ''),
-        'contact_number' => strtoupper($_SESSION['admin']['contact_number'] ?? ''),
-        'health_facility_id' => strtoupper($_SESSION['admin']['health_facility_id'] ?? ''),
-        'account_id' => strtoupper( $_SESSION['admin']['account_id'] ?? ''),
-        'username' => strtoupper($_SESSION['admin']['username'] ?? ''),
-        'password' => strtoupper($_SESSION['admin']['password'] ?? ''),
-        'confirm_password' => strtoupper($_SESSION['admin']['confirm_password'] ?? ''),
-        'role' => 'Health Facility'
+        'health_facility' => strtoupper($_SESSION['hfacility']['health_facility'] ?? ''),
+        'city_municipality' => strtoupper( $_SESSION['hfacility']['city_municipality'] ?? ''),
+        'telephone_number' => strtoupper($_SESSION['hfacility']['telephone_number'] ?? ''),
+        'email' => strtoupper($_SESSION['hfacility']['email'] ?? ''),
+        'contact_number' => strtoupper($_SESSION['hfacility']['contact_number'] ?? ''),
+        'health_facility_id' => strtoupper($_SESSION['hfacility']['health_facility_id'] ?? ''),
+        'account_id' => strtoupper( $_SESSION['hfacility']['account_id'] ?? ''),
+        'username' => strtoupper($_SESSION['hfacility']['username'] ?? ''),
+        'password' => strtoupper($_SESSION['hfacility']['password'] ?? ''),
+        'confirm_password' => strtoupper($_SESSION['hfacility']['confirm_password'] ?? ''),
+        'role' => 'Health Facility',
+        'date_created' => $db_conn->getCurrentDate(),
+        'status' => 'Non Verified'
     ];
 
     // Check if all required session data is set and not empty
@@ -78,8 +80,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $db_conn->startTransaction();
 
             // Insert data into user_account table
-            $sqlAccount = "INSERT INTO `user_account`(`Account_Id`, `User_Id`, `Username`, `Email`, `Password`, `Role`) 
-            VALUES (:account_id, :health_facility_id, :username, :email, :password, :role)";
+            $sqlAccount = "INSERT INTO `user_account`(`Account_Id`, `User_Id`, `Username`, `Email`, `Password`, `Role` ,`Date_Created`, `Status`) 
+            VALUES (:account_id, :health_facility_id, :username, :email, :password, :role , :date_created, :status)";
 
             $paramsAccount = [
                 ':account_id' => $user_data['account_id'],
@@ -87,7 +89,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 ':username' => $user_data['username'],
                 ':email' => $user_data['email'],
                 ':password' => $user_data['password'],
-                ':role' => $user_data['role']
+                ':role' => $user_data['role'],
+                ':date_created' => $user_data['date_created'],
+                ':status' => $user_data['status']
             ];
 
             $db_conn->query($sqlAccount, $paramsAccount);
@@ -96,7 +100,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             // Insert data into the patient_info table
             $sqlUser = "INSERT INTO `health_facility_info`(`Health_Facility_Id`, `Account_Id`, `Health_Facility_Name`, 
                                     `City_Municipality`, `Landline_Number`, `Mobile_Number`, `Email`) 
-                                    VALUES (:health_facility_id, :account_id, :health_facility, :city_municipality, :telephone_number, :email, :contact_number)";
+                                    VALUES (:health_facility_id, :account_id, :health_facility, :city_municipality, :telephone_number, :contact_number, :email)";
 
             $paramsUser = [
                 ':health_facility_id' => $user_data['health_facility_id'],
@@ -104,8 +108,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 ':health_facility' => $user_data['health_facility'],
                 ':city_municipality' => $user_data['city_municipality'],
                 ':telephone_number' => $user_data['telephone_number'],
+                ':contact_number' => $user_data['contact_number'],
                 ':email' => $user_data['email'],
-                ':contact_number' => $user_data['contact_number']
             ];
 
             $db_conn->query($sqlUser, $paramsUser);
@@ -116,9 +120,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $response['message'] = 'Registered Successfully!';
             echo json_encode($response);
 
-            // header("Location: Login.php");
-            session_unset();
-            session_destroy();
+            unset($_SESSION['hfacility']);
+            // echo '<script>console.log('.json_encode($_SESSION).');</script>';
+            // session_destroy();
             exit();
         } catch (Exception $e) {
             // Roll back the transaction in case of an error
