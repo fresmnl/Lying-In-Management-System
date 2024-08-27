@@ -1,5 +1,14 @@
+<style>
+   #logo-sidebar{
+      width: 16.8rem;
+      background-color: #00ACCE;
+   }
+   #sidebar-container{
+      background-color: #00ACCE;
+   }
+</style>
 <aside id="logo-sidebar" class="fixed top-0 left-0 z-40 w-64 h-screen pt-2 transition-transform -translate-x-full border-r border-gray-200 sm:translate-x-0 bg-[#2d82b5]" aria-label="Sidebar">
-   <div class="logo">
+   <div class="logo" style="width: 16.8rem;">
       <img class="w-25" src="nav-side-bar/logo-side.png" alt="Logo">
    </div>
    <div id="sidebar-container" class="h-full px-3 pb-4 overflow-y-auto bg-[#2D82B5]">
@@ -60,7 +69,7 @@
                                                                                                                                           else echo 'text-white'; ?> hover:text-[#2D82B5] dark:hover:bg-[#EDF1F6] hover:shadow-[0_4px_6px_-1px_rgba(0,0,0,0.2)] dark:hover:text-[#2D82B5]">Numbers</a>
                </li>
                <li>
-                  <a href="Record-Hospital.php" class="flex items-center w-full p-4 h-10 transition duration-75 rounded-lg pl-14 group <?php if ($_SERVER['REQUEST_URI'] === '/CapstoneProject/Lying-In-Management-System/Admin/Record-Hospital.php') echo 'text-[#2D82B5] dark:bg-[#EDF1F6] shadow-[0_4px_6px_-1px_rgba(0,0,0,0.2)]';
+                  <a href="Record-Hospital-Data.php" class="flex items-center w-full p-4 h-10 transition duration-75 rounded-lg pl-14 group <?php if ($_SERVER['REQUEST_URI'] === '/CapstoneProject/Lying-In-Management-System/Admin/Record-Hospital.php') echo 'text-[#2D82B5] dark:bg-[#EDF1F6] shadow-[0_4px_6px_-1px_rgba(0,0,0,0.2)]';
                                                                                                                                                 else echo 'text-white'; ?> hover:text-[#2D82B5] dark:hover:bg-[#EDF1F6] hover:shadow-[0_4px_6px_-1px_rgba(0,0,0,0.2)] dark:hover:text-[#2D82B5]">Hospitals</a>
                </li>
             </ul>

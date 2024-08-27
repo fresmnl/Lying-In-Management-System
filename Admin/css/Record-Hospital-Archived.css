@@ -1,0 +1,393 @@
+body {
+    margin: 0;
+    line-height: normal;
+  }
+  
+  :root {
+    /* fonts */
+    --font-lato: Lato;
+  
+    /* font sizes */
+    --font-size-26xl: 2.813rem;
+    --font-size-8xl: 1.688rem;
+    --font-size-17xl: 2.25rem;
+    --font-size-xl: 1.25rem;
+    --font-size-base: 1rem;
+    --font-size-sm: 0.875rem;
+    --font-size-lg: 1.125rem;
+    --font-size-3xl: 1.375rem;
+  
+    /* Colors */
+    --color-gray-100: #fdfdfd;
+    --color-gray-200: rgba(253, 253, 253, 0.8);
+    --color-gray-300: rgba(253, 253, 253, 0.7);
+    --color-deepskyblue-100: #00acce;
+    --color-deepskyblue-200: rgba(0, 172, 206, 0.05);
+    --color-aliceblue: #edf1f6;
+    --color-darkturquoise: #00c8d2;
+    --color-firebrick: rgba(216, 60, 50, 0.8);
+    --color-darkslategray-100: #004268;
+    --color-darkslategray-200: #004168;
+    --color-darkslategray-300: rgba(0, 66, 104, 0.6);
+  
+    /* Gaps */
+    --gap-xl: 1.25rem;
+    --gap-5xs: 0.5rem;
+  
+    /* Paddings */
+    --padding-51xl: 4.375rem;
+    --padding-236xl: 15.937rem;
+    --padding-xl: 1.25rem;
+    --padding-108xl: 7.937rem;
+    --padding-16xl: 2.187rem;
+    --padding-xs: 0.75rem;
+    --padding-mid: 1.062rem;
+    --padding-smi: 0.812rem;
+    --padding-3xs: 0.625rem;
+    --padding-sm: 0.875rem;
+    --padding-mini: 0.937rem;
+    --padding-12xs: 0.062rem;
+    --padding-base: 1rem;
+    --padding-11xs: 0.125rem;
+  
+    /* Border radiuses */
+    --br-5xs: 8px;
+  }
+  .video-details-child {
+    align-self: stretch;
+    width: 78.563rem;
+    position: relative;
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+    background-color: var(--color-aliceblue);
+    display: none;
+    max-width: 100%;
+  }
+  .hospital-data {
+    text-decoration: none;
+    position: relative;
+    font-weight: 600;
+    color: inherit;
+    display: inline-block;
+    min-width: 7.75rem;
+    z-index: 1;
+  }
+  .current-data,
+  .video-details,
+  .video-details-item {
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+  }
+  .current-data {
+    flex-direction: column;
+    padding: var(--padding-smi) 0 0;
+  }
+  .video-details,
+  .video-details-item {
+    flex-direction: row;
+    box-sizing: border-box;
+  }
+  .video-details-item {
+    width: 6.438rem;
+    border: 0;
+    outline: 0;
+    background-color: var(--color-deepskyblue-100);
+    height: 3.125rem;
+    padding: var(--padding-smi);
+    font-family: var(--font-lato);
+    font-weight: 600;
+    font-size: var(--font-size-xl);
+    color: var(--color-gray-100);
+    z-index: 1;
+  }
+  .video-details {
+    align-self: stretch;
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+    background-color: var(--color-aliceblue);
+    padding: 0 var(--padding-xs);
+    gap: 0.687rem;
+    max-width: 100%;
+  }
+  .number-of-hospital {
+    text-decoration: none;
+    width: 11.188rem;
+    position: relative;
+    font-weight: 700;
+    color: inherit;
+    display: inline-block;
+  }
+  .archived-records {
+    width: 19.375rem;
+    position: relative;
+    display: inline-block;
+  }
+  .hospital-info-child {
+    width: 29.375rem;
+    height: 16.625rem;
+    position: relative;
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: var(--br-5xs);
+    background-color: var(--color-aliceblue);
+    display: none;
+    max-width: 100%;
+  }
+  .caudilla,
+  .mary-grace-pangan {
+    margin: 0;
+  }
+  .caudilla-mary-grace-container,
+  .name-of-hospital {
+    align-self: stretch;
+    position: relative;
+    z-index: 1;
+  }
+  .name-of-hospital {
+    font-size: var(--font-size-sm);
+    font-weight: 500;
+  }
+  .hospital-details {
+    align-self: stretch;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: 0.187rem;
+  }
+  .bataan-peninsula-medical,
+  .center {
+    margin: 0;
+  }
+  .address,
+  .bataan-peninsula-medical-container {
+    align-self: stretch;
+    position: relative;
+    z-index: 1;
+  }
+  .address {
+    font-size: var(--font-size-sm);
+    font-weight: 500;
+  }
+  .hospital-details1 {
+    align-self: stretch;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding: 0 0 var(--padding-3xs);
+    gap: 0.375rem;
+  }
+  .button-labels-child {
+    height: 3.125rem;
+    width: 14.375rem;
+    position: relative;
+    border-radius: var(--br-5xs);
+    background-color: var(--color-firebrick);
+    display: none;
+  }
+  .delete-permanently {
+    flex: 1;
+    position: relative;
+    font-weight: 800;
+    z-index: 2;
+  }
+  .button-labels {
+    flex: 1;
+    border-radius: var(--br-5xs);
+    background-color: var(--color-firebrick);
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding: var(--padding-smi) 0;
+    box-sizing: border-box;
+    min-width: 9.313rem;
+    white-space: nowrap;
+    z-index: 1;
+  }
+  .frame-child {
+    height: 3.125rem;
+    width: 9rem;
+    position: relative;
+    border-radius: var(--br-5xs);
+    background-color: var(--color-darkturquoise);
+    display: none;
+  }
+  .accept {
+    flex: 1;
+    position: relative;
+    font-size: var(--font-size-xl);
+    font-weight: 800;
+    font-family: var(--font-lato);
+    color: var(--color-gray-100);
+    text-align: center;
+    z-index: 1;
+  }
+  .rectangle-parent {
+    cursor: pointer;
+    border: 0;
+    padding: var(--padding-smi) 1.5rem;
+    background-color: var(--color-darkturquoise);
+    width: 9rem;
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: var(--br-5xs);
+    flex-direction: row;
+    box-sizing: border-box;
+    z-index: 1;
+  }
+  .rectangle-parent:hover {
+    background-color: #00adb8;
+  }
+  .action-buttons,
+  .hospital-info,
+  .hospital-item,
+  .rectangle-parent {
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+  }
+  .action-buttons {
+    align-self: stretch;
+    flex-direction: row;
+    gap: 3.875rem;
+    font-size: var(--font-size-xl);
+    color: var(--color-gray-100);
+  }
+  .hospital-info,
+  .hospital-item {
+    flex-direction: column;
+    max-width: 100%;
+  }
+  .hospital-info {
+    align-self: stretch;
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: var(--br-5xs);
+    background-color: var(--color-aliceblue);
+    padding: var(--padding-xs) var(--padding-mid) var(--padding-mid);
+    box-sizing: border-box;
+    gap: 1.437rem;
+    text-align: center;
+    font-size: var(--font-size-lg);
+  }
+  .hospital-item {
+    width: 29.375rem;
+    gap: 4.562rem;
+  }
+  .div {
+    align-self: stretch;
+    position: relative;
+    font-weight: 800;
+  }
+  .empty-state,
+  .hospital-list {
+    display: flex;
+    align-items: flex-start;
+  }
+  .empty-state {
+    width: 10.25rem;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding: 0.375rem 0 0;
+    box-sizing: border-box;
+    text-align: center;
+    font-size: var(--font-size-26xl);
+    color: var(--color-deepskyblue-100);
+  }
+  .hospital-list {
+    align-self: stretch;
+    flex-direction: row;
+    justify-content: space-between;
+    max-width: 100%;
+    gap: var(--gap-xl);
+    text-align: left;
+    font-size: var(--font-size-3xl);
+  }
+  .hospital-count-details {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: flex-start;
+    gap: 0.062rem;
+    max-width: 100%;
+  }
+  .admin-record-hospital-da,
+  .hospital-count-details-wrapper {
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    box-sizing: border-box;
+    color: var(--color-darkslategray-100);
+    font-family: var(--font-lato);
+  }
+  .hospital-count-details-wrapper {
+    width: 76.375rem;
+    flex-direction: row;
+    padding: 0 4.437rem;
+    max-width: 100%;
+    text-align: right;
+    font-size: var(--font-size-lg);
+  }
+  .admin-record-hospital-da {
+    width: 100%;
+    position: relative;
+    background-color: var(--color-gray-100);
+    overflow: hidden;
+    flex-direction: column;
+    padding: var(--padding-51xl) 0 28.437rem var(--padding-236xl);
+    gap: 1.187rem;
+    line-height: normal;
+    letter-spacing: normal;
+    text-align: center;
+    font-size: var(--font-size-xl);
+  }
+  @media screen and (max-width: 1200px) {
+    .hospital-count-details-wrapper {
+      padding-left: var(--padding-16xl);
+      padding-right: var(--padding-16xl);
+      box-sizing: border-box;
+    }
+  }
+  @media screen and (max-width: 1050px) {
+    .div {
+      font-size: var(--font-size-17xl);
+    }
+    .hospital-list {
+      flex-wrap: wrap;
+    }
+  }
+  @media screen and (max-width: 750px) {
+    .action-buttons {
+      flex-wrap: wrap;
+    }
+    .hospital-item {
+      gap: 2.25rem;
+    }
+    .admin-record-hospital-da {
+      padding-left: var(--padding-108xl);
+      box-sizing: border-box;
+    }
+  }
+  @media screen and (max-width: 450px) {
+    .hospital-data {
+      font-size: var(--font-size-base);
+    }
+    .video-details {
+      flex-wrap: wrap;
+    }
+    .archived-records {
+      font-size: var(--font-size-lg);
+    }
+    .accept {
+      font-size: var(--font-size-base);
+    }
+    .action-buttons {
+      gap: 1.938rem;
+    }
+    .div {
+      font-size: var(--font-size-8xl);
+    }
+    .admin-record-hospital-da {
+      padding-left: var(--padding-xl);
+      box-sizing: border-box;
+    }
+  }

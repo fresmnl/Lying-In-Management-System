@@ -281,7 +281,7 @@ body {
   font-size: 1.375rem;
   color: var(--color-darkslategray-100);
   font-family: var(--font-lato);
-  margin-left: 2rem;
+  margin-left: 0.8rem;
 }
 .showing-1- {
   position: relative;

@@ -96,7 +96,7 @@
             flex-shrink: 0;
             min-height: 1.563rem;
         }
-
+        
         @media screen and (max-width: 1200px) {
             .sidebar p{
                 display: none;
