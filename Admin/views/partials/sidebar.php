@@ -6,6 +6,15 @@
    #sidebar-container{
       background-color: #00ACCE;
    }
+   #side-title{
+      color: #fdfdfd;
+   }
+   #record-dropdown-toggle{
+      color: #fdfdfd;
+   }
+   #record-dropdown-toggle li a{
+      font-size: 20px;
+   }
 </style>
 <aside id="logo-sidebar" class="fixed top-0 left-0 z-40 w-64 h-screen pt-2 transition-transform -translate-x-full border-r border-gray-200 sm:translate-x-0 bg-[#2d82b5]" aria-label="Sidebar">
    <div class="logo" style="width: 16.8rem;">
@@ -41,7 +50,7 @@
                   <path d="M2.54797 5.02935V21.1652C3.00977 20.7476 3.61014 20.5163 4.23273 20.5162H18.6527V3.09735H4.47997C3.96773 3.09787 3.47662 3.30159 3.11442 3.66379C2.75221 4.026 2.54849 4.51711 2.54797 5.02935Z" fill="" />
                </svg>
 
-               <span id="side-title" class="flex-1 ms-3 whitespace-nowrap">Registration</span>
+               <span id="side-title" class="flex-1 ms-3 text-left rtl:text-right text-xl whitespace-nowrap hover:fill-[#2D82B5]">Registration</span>
             </a>
          </li>
          <li>
@@ -56,20 +65,20 @@
             </button>
             <ul id="record-dropdown-toggle" class="hidden my-2 space-y-2">
                <li>
-                  <a href="Record-Account.php" class=" hover:text-[#2D82B5] dark:hover:bg-[#EDF1F6] hover:shadow-[0_4px_6px_-1px_rgba(0,0,0,0.2)] <?php if ($_SERVER['REQUEST_URI'] === '/CapstoneProject/Lying-In-Management-System/Admin/Record-Account.php') echo 'text-[#2D82B5] dark:bg-[#EDF1F6] shadow-[0_4px_6px_-1px_rgba(0,0,0,0.2)]';
+                  <a id="side-title" href="Record-Account.php" class=" hover:text-[#2D82B5] dark:hover:bg-[#EDF1F6] hover:shadow-[0_4px_6px_-1px_rgba(0,0,0,0.2)] <?php if ($_SERVER['REQUEST_URI'] === '/CapstoneProject/Lying-In-Management-System/Admin/Record-Account.php') echo 'text-[#2D82B5] dark:bg-[#EDF1F6] shadow-[0_4px_6px_-1px_rgba(0,0,0,0.2)]';
                                                                                                                                                       else echo 'text-white'; ?> flex items-center w-full h-10 transition duration-75 rounded-lg p-4 pl-14 group">Facility Account</a>
                </li>
                <li>
-                  <a href="Record-Info-New.php" class="flex items-center w-full p-4 h-10 transition duration-75 rounded-lg pl-14 group <?php if ($_SERVER['REQUEST_URI'] === '/CapstoneProject/Lying-In-Management-System/Admin/Record-Info-New.php' || $_SERVER['REQUEST_URI'] === '/CapstoneProject/Lying-In-Management-System/Admin/Record-Info-Authorize.php') echo 'text-[#2D82B5] dark:bg-[#EDF1F6] shadow-[0_4px_6px_-1px_rgba(0,0,0,0.2)]';
-                                                                                                                                             else echo 'text-white'; ?> hover:text-[#2D82B5] dark:hover:bg-[#EDF1F6] hover:shadow-[0_4px_6px_-1px_rgba(0,0,0,0.2)] dark:hover:text-[#2D82B5]">Patient Account</a>
+                  <a id="side-title" href="Record-Info-New.php" class="flex items-center w-full p-4 h-10 transition duration-75 rounded-lg pl-14 group <?php if ($_SERVER['REQUEST_URI'] === '/CapstoneProject/Lying-In-Management-System/Admin/Record-Info-New.php' || $_SERVER['REQUEST_URI'] === '/CapstoneProject/Lying-In-Management-System/Admin/Record-Info-Authorize.php') echo 'text-[#2D82B5] dark:bg-[#EDF1F6] shadow-[0_4px_6px_-1px_rgba(0,0,0,0.2)]';
+                                                                                                                                             else echo 'text-white'; ?> hover:text-[#2D82B5] dark:hover:bg-[#EDF1F6] hover:shadow-[0_4px_6px_-1px_rgba(0,0,0,0.2)] dark:hover:text-[#2D82B5]">Facility Information</a>
 
                </li>
                <li>
-                  <a href="Record-Number.php" class="flex items-center w-full p-4 h-10 transition duration-75 rounded-lg pl-14 group <?php if ($_SERVER['REQUEST_URI'] === '/CapstoneProject/Lying-In-Management-System/Admin/Record-Number.php') echo 'text-[#2D82B5] dark:bg-[#EDF1F6] shadow-[0_4px_6px_-1px_rgba(0,0,0,0.2)]';
-                                                                                                                                          else echo 'text-white'; ?> hover:text-[#2D82B5] dark:hover:bg-[#EDF1F6] hover:shadow-[0_4px_6px_-1px_rgba(0,0,0,0.2)] dark:hover:text-[#2D82B5]">Numbers</a>
-               </li>
-               <li>
-                  <a href="Record-Hospital-Data.php" class="flex items-center w-full p-4 h-10 transition duration-75 rounded-lg pl-14 group <?php if ($_SERVER['REQUEST_URI'] === '/CapstoneProject/Lying-In-Management-System/Admin/Record-Hospital.php') echo 'text-[#2D82B5] dark:bg-[#EDF1F6] shadow-[0_4px_6px_-1px_rgba(0,0,0,0.2)]';
+                  <a id="side-title" href="Record-Number.php" class="flex items-center w-full p-4 h-10 transition duration-75 rounded-lg pl-14 group <?php if ($_SERVER['REQUEST_URI'] === '/CapstoneProject/Lying-In-Management-System/Admin/Record-Number.php') echo 'text-[#2D82B5] dark:bg-[#EDF1F6] shadow-[0_4px_6px_-1px_rgba(0,0,0,0.2)]';
+                                                                                                                                                         else echo 'text-white'; ?> hover:text-[#2D82B5] dark:hover:bg-[#EDF1F6] hover:shadow-[0_4px_6px_-1px_rgba(0,0,0,0.2)] dark:hover:text-[#2D82B5]">Numbers</a>
+                                                                                                                                                         </li>
+                   <li>
+                   <a id="side-title" href="Record-Hospital-Data.php" class="flex items-center w-full p-4 h-10 transition duration-75 rounded-lg pl-14 group <?php if ($_SERVER['REQUEST_URI'] === '/CapstoneProject/Lying-In-Management-System/Admin/Record-Hospital.php') echo 'text-[#2D82B5] dark:bg-[#EDF1F6] shadow-[0_4px_6px_-1px_rgba(0,0,0,0.2)]';
                                                                                                                                                 else echo 'text-white'; ?> hover:text-[#2D82B5] dark:hover:bg-[#EDF1F6] hover:shadow-[0_4px_6px_-1px_rgba(0,0,0,0.2)] dark:hover:text-[#2D82B5]">Hospitals</a>
                </li>
             </ul>

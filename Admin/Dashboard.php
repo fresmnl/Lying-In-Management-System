@@ -23,8 +23,6 @@ $db_admin = new Admin();
 
 <link rel="stylesheet" href="css/Dashboard.css" />
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lato:wght@500;600;700;800;900&display=swap" />
-
-<d>
     <div class="admin-dashboard1" >
       <div class="main">
         <div class="facilities-overview">
@@ -63,7 +61,7 @@ $db_admin = new Admin();
             </div>
             <div class="accounts-chart">
               <b class="total-health-facilities">Total Health Facilities</b>
-              <div class="empty-accounts"><?= htmlspecialchars($db_admin->getAllHealthFacilityAccount() ?? '', ENT_QUOTES) ?></div>
+              <div class="empty-accounts">0</div>
             </div>
           </div>
           <div class="rectangle-parent">
