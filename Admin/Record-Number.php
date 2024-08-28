@@ -16,7 +16,43 @@ if ($_SESSION['admin']['loggedin'] !== true && !isset($_SESSION['admin']['userna
   rel="stylesheet"
   href="https://fonts.googleapis.com/css2?family=Lato:wght@500;600;700;800;900&display=swap" />
 </head>
+<style>
+  .accounts-table {
+    width: 100%;
+    overflow-x: auto; /* Enables horizontal scrolling */
+    /* Optional: Add padding or margin if needed */
+}
 
+/* Styling for the table */
+.simple-table {
+    width: 100%;
+    min-width: 1000px; /* Ensures the table is wide enough to trigger scrolling */
+    border-collapse: collapse;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    /* Optional: Add a margin to center the table if needed */
+}
+
+/* Styling for table headers and cells */
+.simple-table th, .simple-table td {
+    border: 1px solid #ddd; /* Add border to table cells */
+    padding: 8px;
+    text-align: left;
+    white-space: nowrap; /* Prevents text from wrapping */
+    color: #004168; /* Dark blue text color */
+}
+
+/* Header styling */
+.simple-table th {
+    background-color: rgba(0, 172, 206, 0.4); /* Light blue background */
+    font-weight: bold;
+}
+
+/* Alternate row coloring */
+.simple-table tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+</style>
 <body>
   <div class="admin-record-account">
     <section class="left-panel">
@@ -46,34 +82,28 @@ if ($_SESSION['admin']['loggedin'] !== true && !isset($_SESSION['admin']['userna
         <div class="account-list">25</div>
       </nav>
     </section>
-    <div class="account-list-header">
-      <div class="account-list-body">
-        <div class="account-list-item">
-          <div class="showing-1-">showing 1 - 20 of 25 items</div>
-        </div>
-        <div class="account-list-item-actions">
-          <div class="account-list-item-action">
-            <div class="account-list-item-action-child"></div>
-            <img
-              class="account-list-item-action-icon"
-              loading="lazy"
-              alt=""
-              src="./public/vector.svg" />
-          </div>
-          <div class="image-caption">
-            <div class="image-caption-child"></div>
-            <b class="b">1</b>
-          </div>
-          <div class="rectangle-container">
-            <div class="frame-inner"></div>
-            <img
-              class="vector-icon"
-              loading="lazy"
-              alt=""
-              src="./public/vector-1.svg" />
-          </div>
-        </div>
-      </div>
-    </div>
   </div>
+  <main class="accounts-table" style=" width: 68rem;margin-left: 23rem;">
+  <table class="simple-table">
+        <thead>
+            <tr>
+                <th>Facility ID</th>
+                <th>Name of Health Facility</th>
+                <th>Successful Childbirth</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>HF2024-01</td>
+                <td>Caudilla, Mary Grace Pangan</td>
+                <td>rhmLyingInClinic</td>
+            </tr>
+            <tr>
+                <td>HF2024-02</td>
+                <td>Magdato, Leah Jean</td>
+                <td>hermosaLHC</td>
+            </tr>
+        </tbody>
+    </table>
+  </main>
 </body>

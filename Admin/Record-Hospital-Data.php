@@ -49,6 +49,41 @@ if ($_SESSION['admin']['loggedin'] !== true && !isset($_SESSION['admin']['userna
       cursor: pointer;
     }
 
+    .accounts-table {
+    width: 100%;
+    overflow-x: auto; /* Enables horizontal scrolling */
+    /* Optional: Add padding or margin if needed */
+}
+
+/* Styling for the table */
+.simple-table {
+    width: 100%;
+    min-width: 1000px; /* Ensures the table is wide enough to trigger scrolling */
+    border-collapse: collapse;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    /* Optional: Add a margin to center the table if needed */
+}
+
+/* Styling for table headers and cells */
+.simple-table th, .simple-table td {
+    border: 1px solid #ddd; /* Add border to table cells */
+    padding: 8px;
+    text-align: left;
+    white-space: nowrap; /* Prevents text from wrapping */
+    color: #004168; /* Dark blue text color */
+}
+
+/* Header styling */
+.simple-table th {
+    background-color: rgba(0, 172, 206, 0.4); /* Light blue background */
+    font-weight: bold;
+}
+
+/* Alternate row coloring */
+.simple-table tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
   </style>
 </head>
 <body>
@@ -79,7 +114,6 @@ if ($_SESSION['admin']['loggedin'] !== true && !isset($_SESSION['admin']['userna
                 </div>
               </div>
               <div class="showing-1-20-of-25-items-wrapper">
-                <div class="showing-1-">showing 1 - 20 of 25 items</div>
               </div>
             </div>
             <div class="frame-wrapper1">
@@ -102,24 +136,11 @@ if ($_SESSION['admin']['loggedin'] !== true && !isset($_SESSION['admin']['userna
             </div>
           </div>
           <div class="frame-parent1">
-            <div class="rectangle-parent1">
-              <div class="frame-child2"></div>
-              <img class="vector-icon" loading="lazy" alt="" src="./public/vector.svg" />
-            </div>
-            <div class="rectangle-parent2">
-              <div class="frame-child3"></div>
-              <b class="b">1</b>
-            </div>
-            <div class="rectangle-parent3">
-              <div class="frame-child4"></div>
-              <img class="vector-icon1" loading="lazy" alt="" src="./public/vector-1.svg" />
-            </div>
           </div>
         </div>
       </section>
     </main>
   </div>
-
   <!-- Pop-up content -->
   <div id="popup" class="popup-overlay">
     <div class="popup-content">
@@ -142,6 +163,54 @@ if ($_SESSION['admin']['loggedin'] !== true && !isset($_SESSION['admin']['userna
       </div>
     </div>
   </div>
+  <main class="accounts-table" style=" width: 71rem;margin-left: 20rem;position: absolute;top: 17rem;">
+  <table class="simple-table">
+        <thead>
+            <tr>
+                <th>No.</th>
+                <th>Hospital ID</th>
+                <th>Name of Hospital</th>
+                <th>Address</th>
+                <th>Sector</th>
+                <th>Email Address</th>
+                <th>Landline No.</th>
+                <th>Mobile No.</th>
+                <th>Head</th>
+                <th>Action</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>1</td>
+                <td>H202401-01</td>
+                <td>Bataan Peninsula Medical Center</td>
+                <td>San Ramon, Dinalupihan</td>
+                <td>Private</td>
+                <td>bpmc0813@gmail.com</td>
+                <td>1234-5678</td>
+                <td>+63 (912) 550 7012</td>
+                <td>Caudilla, Mary Grace Pangan</td>
+                <td><button style="background-color:#00ACCE; padding: 8px; border-radius: 5px; color:#fdfdfd;">Edit</button></td>
+                <td><button style="background-color:#00ACCE; padding: 8px; border-radius: 5px; color:#fdfdfd;">Archive</button></td>
+
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>H202402-02</td>
+                <td>Isaac & Catalina Medical Center</td>
+                <td>Calero Street, Ibayo, Balanga</td>
+                <td>Private</td>
+                <td>icmcbalanga@gmail.com</td>
+                <td>1234-5678</td>
+                <td>+63 (912) 550 7012</td>
+                <td>Caudilla, Mary Grace Pangan</td>
+                <td><button style="background-color:#00ACCE; padding: 8px; border-radius: 5px; color:#fdfdfd;">Edit</button></td>
+                <td><button style="background-color:#00ACCE; padding: 8px; border-radius: 5px; color:#fdfdfd;">Archive</button></td>
+            </tr>
+        </tbody>
+    </table>
+  </main>
 
   <script>
     document.addEventListener('DOMContentLoaded', function() {

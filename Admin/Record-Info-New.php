@@ -47,27 +47,18 @@ if ($_SESSION['admin']['loggedin'] !== true && !isset($_SESSION['admin']['userna
     background-color: rgba(0, 172, 206, 0.4); /* Light blue background */
     font-weight: bold;
 }
-.simple-table td{
-  font-weight: none;
-}
 
 /* Alternate row coloring */
 .simple-table tr:nth-child(even) {
     background-color: #f9f9f9;
 }
+
+
 </style>
 <body>
   <div class="admin-record-account">
     <section class="main">
       <header class="rectangle-parent">
-        <div class="frame-child"></div>
-        <button class="new-account-details">
-          <div class="new-account-details-child"></div>
-          <a href="Record-Info-New.php" class="new-account">New Account</a>
-        </button>
-        <div class="authorized-account-wrapper">
-          <a href="Record-Info-Authorize.php" class="authorized-account">Authorized Account</a>
-        </div>
       </header>
       <div class="health-facility-details-wrapper">
         <div class="health-facility-details">
@@ -75,7 +66,7 @@ if ($_SESSION['admin']['loggedin'] !== true && !isset($_SESSION['admin']['userna
             <div class="search-input-fields-parent">
               <div class="search-input-fields">
                 <h3 class="information-of-health">
-                  Information of Health Facility for New Account
+                Account of Patients
                 </h3>
               </div>
               <div class="rectangle-group">
@@ -97,55 +88,38 @@ if ($_SESSION['admin']['loggedin'] !== true && !isset($_SESSION['admin']['userna
           </div>
         </div>
       </div>
-      <main class="accounts-table" style="width: 68rem;margin-left: 4.4rem;">
+    </section>
+  </div>
+  <main class="accounts-table" style=" width: 68rem;margin-left: 21rem;">
   <table class="simple-table">
         <thead>
             <tr>
                 <th>Action</th>
-                <th>Name of Health Facility</th>
-                <th>City or Municipality</th>
-                <th>Email Address</th>
-                <th>Telephone No.</th>
-                <th>Mobile No.</th>
+                <th>Action</th>
+                <th>Patient ID</th>
+                <th>Name of Patient</th>
+                <th>Username</th>
+                <th>Password</th>
             </tr>
         </thead>
         <tbody>
             <tr>
-                
+                <td><button style="background-color:#00ACCE; padding: 8px; border-radius: 5px; color:#fdfdfd;">Deactivate</button></td>
+                <td><button style="background-color:#00ACCE; padding: 8px; border-radius: 5px; color:#fdfdfd;">View</button></td>
+                <td>P2024-01</td>
+                <td>Caudilla, Mary Grace Pangan</td>
+                <td>rhmLyingInClinic</td>
+                <td>●●●●●●●●</td>
+            </tr>
+            <tr>
+                <td><button style="background-color:#00ACCE; padding: 8px; border-radius: 5px; color:#fdfdfd;">Deactivate</button></td>
+                <td><button style="background-color:#00ACCE; padding: 8px; border-radius: 5px; color:#fdfdfd;">View</button></td>
+                <td>P2024-02</td>
+                <td>Magdato, Leah Jean</td>
+                <td>hermosaLHC</td>
+                <td>●●●●●●●●</td>
             </tr>
         </tbody>
     </table>
   </main>
-    </section>
-    <div class="item-display">
-      <div class="display-settings">
-        <div class="display-options">
-          <div class="showing-1-">showing 1 - 20 of 25 items</div>
-        </div>
-        <div class="display-items">
-          <div class="item-structure">
-            <div class="item-structure-child"></div>
-            <img
-              class="item-content-icon"
-              loading="lazy"
-              alt=""
-              src="./public/vector.svg" />
-          </div>
-          <div class="item-structure1">
-            <div class="item-structure-item"></div>
-            <b class="b">1</b>
-          </div>
-          <div class="item-structure2">
-            <div class="item-structure-inner"></div>
-            <img
-              class="vector-icon"
-              loading="lazy"
-              alt=""
-              src="./public/vector-1.svg" />
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  
 </body>
