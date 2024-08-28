@@ -569,6 +569,44 @@ if ($_SESSION['admin']['loggedin'] !== true && !isset($_SESSION['admin']['userna
     top: 2rem;
     left: 9rem;
   }
+ /* Container for enabling horizontal scroll */
+/* Container for enabling horizontal scroll */
+.accounts-table {
+    width: 100%;
+    overflow-x: auto; /* Enables horizontal scrolling */
+    /* Optional: Add padding or margin if needed */
+}
+
+/* Styling for the table */
+.simple-table {
+    width: 100%;
+    min-width: 1000px; /* Ensures the table is wide enough to trigger scrolling */
+    border-collapse: collapse;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    /* Optional: Add a margin to center the table if needed */
+}
+
+/* Styling for table headers and cells */
+.simple-table th, .simple-table td {
+    border: 1px solid #ddd; /* Add border to table cells */
+    padding: 8px;
+    text-align: left;
+    white-space: nowrap; /* Prevents text from wrapping */
+    color: #004168; /* Dark blue text color */
+}
+
+/* Header styling */
+.simple-table th {
+    background-color: rgba(0, 172, 206, 0.4); /* Light blue background */
+    font-weight: bold;
+}
+
+/* Alternate row coloring */
+.simple-table tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
 
   @media screen and (max-width: 1050px) {
     .facility-account {
@@ -654,55 +692,59 @@ if ($_SESSION['admin']['loggedin'] !== true && !isset($_SESSION['admin']['userna
       <div class="count-value">25</div>
     </div>
   </header>
-  <main class="accounts-table">
-    <section class="table-header">
-      <div class="login-form-container">
-        <div class="login-form-container-child"></div>
-        <div class="facility-account">
-          <div class="facility-account-child"></div>
-          <div class="facility-name">
-            <b class="no">No.</b>
-            <b class="name-of-rhu">Name of RHU</b>
-          </div>
-          <div class="credentials">
-            <b class="date-created">Date Created</b>
-            <div class="credentials-fields">
-              <b class="username">Username</b>
-            </div>
-            <div class="credentials-fields1">
-              <b class="password">Password</b>
-            </div>
-            <div class="status-and-action">
-              <b class="status">Status</b>
-              <b class="action">Action</b>
-            </div>
-          </div>
-        </div>
-      </div>
-      <footer class="table-footer">
-        <div class="pagination">
-          <div class="showing-1-">showing 1 - 20 of 25 items</div>
-        </div>
-        <div class="navigation">
-          <div class="navigation-buttons">
-            <div class="navigation-buttons-child"></div>
-            <img
-              class="vector-icon"
-              loading="lazy"
-              alt=""
-              src="./public/vector.svg" />
-          </div>
-          <div class="rectangle-container">
-            <div class="frame-inner"></div>
-            <b class="b">1</b>
-          </div>
-          <div class="example-labels">
-            <div class="example-labels-child"></div>
-            <img class="vector-icon1" alt="" src="./public/vector-1.svg" />
-          </div>
-        </div>
-      </footer>
-    </section>
+  <main class="accounts-table" style=" width: 68rem;">
+  <table class="simple-table">
+        <thead>
+            <tr>
+                <th>Action</th>
+                <th>Action</th>
+                <th>Facility ID</th>
+                <th>Name of Health Facility</th>
+                <th>Username</th>
+                <th>Password</th>
+                <th>Date Created</th>
+                <th>Status</th>
+                <th>City or Municipality</th>
+                <th>Email Address</th>
+                <th>Telephone No.</th>
+                <th>Mobile No.</th>
+                <th>Name of Owner</th>
+                <th>Name of Head of the Facility</th>
+                <th>Designation</th>
+                <th>DOH License Number</th>
+                <th>Ownership</th>
+                <th>Institutional Character</th>
+                <th>Bed Capacity</th>
+                <th>Location</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><button style="background-color:#00ACCE; padding: 8px; border-radius: 5px; color:#fdfdfd;">Deactivate</button></td>
+                <td><button style="background-color:#00ACCE; padding: 8px; border-radius: 5px; color:#fdfdfd;">View</button></td>
+                <td>HF2024-01</td>
+                <td>Reyes-Hernandez Maternity & Lying-in Clinic</td>
+                <td>rhmLyingInClinic</td>
+                <td>●●●●●●●●</td>
+                <td>01/01/2024</td>
+                <td><svg width="8" height="8" viewBox="0 0 8 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M4 8C6.20914 8 8 6.20914 8 4C8 1.79086 6.20914 0 4 0C1.79086 0 0 1.79086 0 4C0 6.20914 1.79086 8 4 8Z" fill="#36DE83"/>
+                </svg>  Active</td>
+                <td>Mariveles</td>
+                <td>rhmLyingInClinic@email.com</td>
+                <td>1234-5678</td>
+                <td>+63 (912) 550 7012</td>
+                <td>Fresally Jorda Manalo</td>
+                <td>Leah Jean - Magdato</td>
+                <td>Midwife</td>
+                <td>LH-04-1234-23</td>
+                <td>Government</td>
+                <td>Free-Standing</td>
+                <td>5</td>
+                <td>Brgy. Batangas II, Mariveles</td>
+            </tr>
+        </tbody>
+    </table>
   </main>
 </div>
 </body>
