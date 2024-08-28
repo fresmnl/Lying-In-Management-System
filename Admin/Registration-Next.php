@@ -1,4 +1,3 @@
-
 <?php
 session_start();
 
@@ -11,10 +10,8 @@ if ($isLoggedIn !== true && !isset($username)) {
 
 require '../Database/db-config.php';
 
-
 // Initialize database connection
 $db_conn = new Database("localhost", "root", "", "db_lyingin");
-
 
 // error_log(print_r($_POST, true));
 // error_log(print_r($_SESSION, true));
@@ -22,22 +19,40 @@ $db_conn = new Database("localhost", "root", "", "db_lyingin");
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   // error_log(print_r($_POST, true));
 
-  $_SESSION['hfacility']['health_facility'] = strtoupper($db_conn->cleanStr($_POST['health_facility']));
+  $_SESSION['hfacility']['username'] = $db_conn->generateUniqueHealthFacilityUsername($db_conn->cleanStr($_POST['health_facility']));
   $_SESSION['hfacility']['city_municipality'] = strtoupper($db_conn->cleanStr($_POST['city_municipality']));
   $_SESSION['hfacility']['telephone_number'] = strtoupper($db_conn->cleanStr($_POST['telephone_number']));
-  $_SESSION['hfacility']['email'] = strtoupper($db_conn->cleanStr($_POST['email']));
+  $_SESSION['hfacility']['email'] = $db_conn->cleanStr($_POST['email']);
   $_SESSION['hfacility']['contact_number'] = strtoupper($db_conn->cleanStr($_POST['contact_number']));
   $_SESSION['hfacility']['health_facility_id'] = strtoupper($db_conn->generateHealthFacilityId($db_conn->NumberOfHealthFacility()));
   $_SESSION['hfacility']['account_id'] = strtoupper($db_conn->generateAccountId($db_conn->NumberOfAccount()));
   // echo "<script>console.log(" . json_encode($_SESSION['admin']) . ");</script>";
+
+
+  $email = $_SESSION['hfacility']['email'];
+  if ($db_conn->emailExists($email)) {
+    // Redirect with error query parameter
+    header('Location: Registration.php?error=email_exists');
+    exit();
+  } else {
+    // Redirect with success query parameter
+    header('Location: ' . $_SERVER['PHP_SELF']);
+    exit();
+  }
+  if (isset($_POST['clear'])) {
+    unset($_SESSION);
+    header('Location: ' . $_SERVER['PHP_SELF']);
+  }
 }
+
+
 
 
 ?>
 
+<?php require 'views/structures/header.php'; ?>
 <!-- <?php include 'nav-side-bar/sidebar.php'; ?> -->
 <?php include 'nav-side-bar/navbar.php'; ?>
-<?php require 'views/structures/header.php'; ?>
 <!-- <?php require 'views/partials/navbar.php'; ?> -->
 <?php require 'views/partials/sidebar.php'; ?>
 
@@ -62,7 +77,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             name="username"
             type="text"
             value="<?= htmlspecialchars($_SESSION['hfacility']['username'] ?? '', ENT_QUOTES) ?>"
-            required />
+            readonly />
         </div>
       </div>
     </div>
@@ -112,7 +127,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     </div>
     <div class="navigation">
       <div class="actions">
-          <a class="back" href="Registration.php">Back</a>
+        <a class="back" href="Registration.php">Back</a>
         <div class="submission">
           <input type="reset" class="clear" value="Clear">
           <input type="submit" class="next" value="Next">
@@ -123,57 +138,57 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 </div>
 <script>
   document.addEventListener('DOMContentLoaded', () => {
-    const form = document.getElementById('SignUpForm'); 
+    const form = document.getElementById('SignUpForm');
 
     if (form) {
-        form.addEventListener('submit', function(event) {
-            event.preventDefault(); 
+      form.addEventListener('submit', function(event) {
+        event.preventDefault();
 
-            const formData = new FormData(this);
+        const formData = new FormData(this);
 
-            fetch('Registration-Process.php', { 
-                method: 'POST',
-                body: formData
-            })
-            .then(response => {
-                
-                if (response.ok && response.headers.get('Content-Type').includes('application/json')) {
-                    return response.json();
-                } else {
-                    throw new Error('Invalid response from server');
-                }
-            })
-            .then(data => {
-                if (data.status === 'success') {
-                    Swal.fire({
-                        icon: 'success',
-                        title: data.message,
-                        showConfirmButton: false,
-                        timer: 3000
-                    }).then(() => {
-                        window.location.href = 'Dashboard.php'; 
-                    });
-                } else {
-                    Swal.fire({
-                        icon: 'error',
-                        title: 'Oops...',
-                        text: data.message
-                    });
-                }
-            })
-            .catch(error => {
-                Swal.fire({
-                    icon: 'error',
-                    title: 'Oops...',
-                    text: 'Something went wrong with the request.'
-                });
-                console.error('Error:', error);
+        fetch('Registration-Process.php', {
+            method: 'POST',
+            body: formData
+          })
+          .then(response => {
+
+            if (response.ok && response.headers.get('Content-Type').includes('application/json')) {
+              return response.json();
+            } else {
+              throw new Error('Invalid response from server');
+            }
+          })
+          .then(data => {
+            if (data.status === 'success') {
+              Swal.fire({
+                icon: 'success',
+                title: data.message,
+                showConfirmButton: false,
+                timer: 3000
+              }).then(() => {
+                window.location.href = 'Dashboard.php';
+              });
+            } else {
+              Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: data.message
+              });
+            }
+          })
+          .catch(error => {
+            Swal.fire({
+              icon: 'error',
+              title: 'Oops...',
+              text: 'Something went wrong with the request.'
             });
-        });
+            console.error('Error:', error);
+          });
+      });
     } else {
-        console.error('Form element not found.');
+      console.error('Form element not found.');
     }
-});
+  });
 
 
   var passwordField = document.getElementById("passwordField");

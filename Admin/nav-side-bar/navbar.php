@@ -171,9 +171,9 @@
 
     .header-container {
       position: fixed;
-      left: 17%;
+      left: 17.7%;
       top: 0;
-      width: 100%;
+      width: 85%;
       box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
       background-color: var(--color-gray-100);
       justify-content: space-between;

@@ -661,6 +661,7 @@ body {
     display: flex;
     align-items: flex-start;
     justify-content: flex-start;
+    
   }
   .rectangle-container {
     align-self: stretch;
@@ -676,6 +677,7 @@ body {
     flex-direction: column;
     padding: 0 var(--padding-10xs) 0 0;
     box-sizing: border-box;
+    flex-grow: 1;
     gap: var(--gap-8xs);
   }
   .middle-name {
@@ -743,6 +745,7 @@ body {
   .middle-name-label-parent {
     width: 14.563rem;
     flex-direction: column;
+    flex-grow: 1;
     gap: 0.343rem;
     color: var(--color-darkslategray-200);
   }
@@ -808,6 +811,7 @@ body {
     width: 14.375rem;
     flex-direction: column;
     justify-content: flex-start;
+    flex-grow: 1;
     gap: var(--gap-8xs);
   }
   .rectangle-parent {
@@ -818,7 +822,7 @@ body {
     border: 2.5px solid var(--color-deepskyblue);
     flex-direction: row;
     flex-wrap: wrap;
-    justify-content: center;
+    justify-content: space-evenly;
     padding: var(--padding-6xl) var(--padding-19xl) var(--padding-4xs)
       var(--padding-20xl);
     gap: 1rem;
@@ -834,8 +838,8 @@ body {
     align-self: stretch;
     display: flex;
     flex-direction: row;
-    align-items: flex-start;
-    justify-content: flex-start;
+    align-items: space-between;
+    justify-content: space-between;
     padding: 0 0 var(--padding-xs);
   }
   .left-column-child {
@@ -1082,7 +1086,7 @@ body {
   padding: 10px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
   z-index: 1000; /* Ensure it appears above other content */
-  width: 326px;
+  width: 350px;
 }
 
 .calendar-header {

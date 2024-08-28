@@ -12,7 +12,9 @@ class Admin
     private $password = ''; // Database password
     private $role = "Health Facility";
     private $verified = "Verified";
-    private $non_verified = "Non Verified";
+    const UNAUTHORIZED = "Unauthorized";
+
+    const AUTHORIZED = "Authorized";
     public function __construct()
     {
         $this->db_admin = new Database(
@@ -34,14 +36,14 @@ class Admin
     function getVerifiedHealthFacilityAccount()
     {
         $sql = "SELECT COUNT(*) FROM user_account WHERE Role = :role AND Status = :verified";
-        $params = [':role' => $this->role, ':verified' => $this->verified];
+        $params = [':role' => $this->role, ':verified' => $this::AUTHORIZED];
         $stmt = $this->db_admin->query($sql, $params);
         return $stmt->fetchColumn();
     }
-    function getNonVerifiedHealthFacilityAccount()
+    function getUnauthorizedHealthFacilityAccount()
     {
-        $sql = "SELECT COUNT(*) FROM user_account WHERE Role = :role AND Status = :non_verified";
-        $params = [':role' => $this->role, ':non_verified' => $this->non_verified];
+        $sql = "SELECT COUNT(*) FROM user_account WHERE Role = :role AND Status = :unauthorized";
+        $params = [':role' => $this->role, ':unauthorized' => $this::UNAUTHORIZED];
         $stmt = $this->db_admin->query($sql, $params);
         return $stmt->fetchColumn();
     }

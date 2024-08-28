@@ -343,7 +343,7 @@ body {
     z-index: 1;
   }
   .email-address-wrapper {
-    width: 8.125rem;
+    width: 9rem;
     display: flex;
     flex-direction: row;
     align-items: flex-start;
@@ -361,6 +361,23 @@ body {
     box-sizing: border-box;
     display: none;
   }
+  .select-rhu{
+    border: 0;
+    outline: 0;
+    font-weight: 500;
+    font-family: var(--font-lato);
+    font-size: var(--font-size-lg);
+    background-color: transparent;
+    flex: 1;
+    position: relative;
+    color: var(--color-darkslategray-200);
+    text-align: left;
+    display: inline-block;
+    min-width: 8rem;
+    /* padding: 8.5px; */
+    z-index: 1;
+  }
+  
   .examplegmailcom,
   .xxx-yyy-zzzz {
     width: 14.125rem;

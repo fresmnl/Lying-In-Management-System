@@ -17,7 +17,7 @@ $db_admin = new Admin();
 ?>
 <?php require 'views/structures/header.php'; ?>
 <!-- <?php include 'nav-side-bar/sidebar.php'; ?> -->
-<?php include 'nav-side-bar/navbar.php'; ?>
+<!-- <?php include 'nav-side-bar/navbar.php'; ?> -->
 <!-- <?php require 'views/partials/navbar.php'; ?> -->
 <?php require 'views/partials/sidebar.php'; ?>
 
@@ -54,13 +54,13 @@ $db_admin = new Admin();
               <img
                 class="frame-icon"
                 loading="lazy"
-                alt=""
+                alt=""  
                 src="images/new-accounts.png" />
             </div>
           </div>
           <div class="new-accounts-parent">
             <b class="new-accounts">New Accounts</b>
-            <div class="div"><?= htmlspecialchars($db_admin->getNonVerifiedHealthFacilityAccount() ?? '', ENT_QUOTES) ?></div>
+            <div class="div"><?= htmlspecialchars($db_admin->getUnauthorizedHealthFacilityAccount() ?? '', ENT_QUOTES) ?></div>
           </div>
         </div>
         <div class="metrics-labels2">

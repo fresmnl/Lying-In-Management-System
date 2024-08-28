@@ -42,7 +42,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 
     $user_data = [
-        'health_facility' => strtoupper($_SESSION['health_facility'] ?? ''),
         'middle_name' => strtoupper($_SESSION['middle_name'] ?? 'N/A'),
         'last_name' => strtoupper($_SESSION['last_name'] ?? ''),
         'first_name' => strtoupper($_SESSION['first_name'] ?? ''),
@@ -50,7 +49,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         'civil_status' => strtoupper($_SESSION['civil_status'] ?? ''),
         'birth_date' => strtoupper($_SESSION['birth_date'] ?? ''),
         'age' => strtoupper($_SESSION['age'] ?? ''),
-        'email_address' => strtoupper($_SESSION['email_address'] ?? ''),
+        'email_address' => $_SESSION['email_address'] ?? '',
         'contact_number' => strtoupper($_SESSION['contact_number'] ?? ''),
         'street_address' => strtoupper($_SESSION['street_address'] ?? ''),
         'barangay_address' => strtoupper($_SESSION['barangay_address'] ?? ''),
@@ -95,13 +94,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         'password' => $_SESSION['password'] ?? '',
         'confirm_password' => $_SESSION['confirm_password'] ?? '',
         'agreement' => $_SESSION['agreement'] ?? '',
-        'role' => 'Patient',
-        'date_created' => $db_conn->getCurrentDate()
+        'role' => DATABASE::PATIENT,
+        'date_created' => $db_conn->getCurrentDate(),
+        'status' => DATABASE::NON_VERIFIED
     ];
 
     // Check if all required session data is set and not empty
     $required_keys = [
-        'health_facility',
         'middle_name',
         'last_name',
         'first_name',
@@ -135,8 +134,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $db_conn->startTransaction();
 
             // Insert data into user_account table
-            $sqlAccount = "INSERT INTO `user_account`(`Account_Id`, `User_Id`, `Username`, `Email`, `Password`, `Role`, `Date_Created`) 
-                            VALUES (:account_id, :patient_id, :username, :email, :password, :role, :date_created)";
+            $sqlAccount = "INSERT INTO `user_account`(`Account_Id`, `User_Id`, `Username`, `Email`, `Password`, `Role`, `Date_Created`, `Status`) 
+                            VALUES (:account_id, :patient_id, :username, :email, :password, :role, :date_created, :status)";
 
             $paramsAccount = [
                 ':account_id' => $user_data['account_id'],
@@ -145,7 +144,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 ':email' => $user_data['email_address'],
                 ':password' => $user_data['password'],
                 ':role' => $user_data['role'],
-                ':date_created' => $user_data['date_created']
+                ':date_created' => $user_data['date_created'],
+                ':status' => $user_data['status']
             ];
 
             $db_conn->query($sqlAccount, $paramsAccount);
@@ -157,7 +157,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 `Street_Address`, `Barangay_Address`, `Municipality_Address`, `Province_Address`, `Contact_No`, `email`, `civil_status`, 
                 `sex`, `Educational_Attainment`, `Employment_Status`, `Occupation`, `DSWD_NHTS`, `4PS_MEMBER`, `Identification`, `Id_Type`
             ) VALUES (
-                :patient_id, :account_id, :health_facility, :first_name, :middle_name, :last_name, :fullname, :birth_date, :age, :street_address, 
+                :patient_id, :account_id, '', :first_name, :middle_name, :last_name, :fullname, :birth_date, :age, :street_address, 
                 :barangay_address, :municipality_address, :province_address, :contact_number, :email_address, :civil_status, 
                 :sex, :educational_attainment, :employment_status, :occupation, :dswd_nhts, :4ps_member, :identification_card, 
                 :identification_type
@@ -166,7 +166,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $paramsUser = [
                 ':patient_id' => $user_data['patient_id'],
                 ':account_id' => $user_data['account_id'],
-                ':health_facility' => $user_data['health_facility'],
                 ':first_name' => $user_data['first_name'],
                 ':middle_name' => $user_data['middle_name'],
                 ':last_name' => $user_data['last_name'],

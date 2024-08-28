@@ -46,7 +46,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         'health_facility' => strtoupper($_SESSION['hfacility']['health_facility'] ?? ''),
         'city_municipality' => strtoupper( $_SESSION['hfacility']['city_municipality'] ?? ''),
         'telephone_number' => strtoupper($_SESSION['hfacility']['telephone_number'] ?? ''),
-        'email' => strtoupper($_SESSION['hfacility']['email'] ?? ''),
+        'email' => $_SESSION['hfacility']['email'] ?? '',
         'contact_number' => strtoupper($_SESSION['hfacility']['contact_number'] ?? ''),
         'health_facility_id' => strtoupper($_SESSION['hfacility']['health_facility_id'] ?? ''),
         'account_id' => strtoupper( $_SESSION['hfacility']['account_id'] ?? ''),
@@ -55,7 +55,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         'confirm_password' => strtoupper($_SESSION['hfacility']['confirm_password'] ?? ''),
         'role' => 'Health Facility',
         'date_created' => $db_conn->getCurrentDate(),
-        'status' => 'Non Verified'
+        'status' => DATABASE::UNAUTHORIZED
     ];
 
     // Check if all required session data is set and not empty
