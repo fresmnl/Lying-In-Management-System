@@ -8,7 +8,6 @@ session_start();
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
-  $_SESSION['health_facility'] = $db_conn->cleanStr($_POST['health_facility'] ?? '');
   $_SESSION['middle_name'] = $db_conn->cleanStr($_POST['middle_name'] ?? '');
   $_SESSION['last_name'] = $db_conn->cleanStr($_POST['last_name'] ?? '');
   $_SESSION['first_name'] =$db_conn->cleanStr($_POST['first_name'] ?? '');
@@ -49,6 +48,17 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
   $_SESSION['fullname'] = $fullname;
 
+  // Check if email address exists
+  $email = $_SESSION['email_address'];
+  if ($db_conn->emailExists($email)) {
+      // Redirect with error query parameter
+      header('Location: Sign-Up-Patient-Personal.php?error=email_exists');
+      exit();
+  } else {
+      // Redirect with success query parameter
+      header('Location: ' . $_SERVER['PHP_SELF']);
+      exit();
+  }
 
 
   // Handle file upload

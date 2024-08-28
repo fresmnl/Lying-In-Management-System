@@ -1,13 +1,24 @@
 <?php
 session_start();
+
+require '../Database/db-config.php';
+
+// Initialize database connection
+$db_conn = new Database("localhost", "root", "", "db_lyingin");
+
+
+
 ?>
 <!DOCTYPE html>
 <html>
 <meta charset="utf-8" />
 <meta name="viewport" content="initial-scale=1, width=device-width" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
+<!-- <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> -->
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.all.min.js"></script>
 <link rel="stylesheet" href="css/Sign-Up-Patient.css" />
 <link rel="icon" type="image/x-icon" href="../Admin/images/webpage-logo.png">
-<link rel="stylesheet" href="css/global.css" />
+<link rel="stylesheet" href="../src/output.css" />
 <link
   rel="stylesheet"
   href="https://fonts.googleapis.com/css2?family=Lato:wght@500;600;700;800;900&display=swap" />
@@ -98,7 +109,7 @@ session_start();
           </div>
           <div class="name-and-r-h-u">
             <div class="rectangle-parent">
-              <div class="frame-child"></div>
+              <!-- <div class="frame-child"></div>
               <div class="designated-r-h-u-label-parent">
                 <div class="designated-r-h-u-label">
                   <b class="designated-rhu-name">Health Facility</b>
@@ -107,17 +118,27 @@ session_start();
                   <div class="frame-item"></div>
                   <div class="r-h-u-dropdown">
 
-                    <!-- Dropdown using select -->
+                    Dropdown using select
                     <select id="dropdownSelect" name="health_facility" class="select-rhu" required>
                       <option value="">Select Health Facility</option>
+                      <?php $HealthfacilityNames = $db_conn->getHealthFacilityNames();
+
+                      if (empty($HealthfacilityNames)) {
+                        echo '<option value="">No facilities available' . $HealthfacilityNames . '</option>';
+                      } else {
+                        foreach ($HealthfacilityNames as $healthfacilityName) {
+                          echo '<option value="' . $healthfacilityName['Name'] . '">' . $healthfacilityName['Name'] . '</option>';
+                        }
+                      }
+                      ?>
                       <option <?= isset($_SESSION['health_facility']) && $_SESSION['health_facility'] === "RHU" ? "selected" : "" ?> value="RHU">RHU</option>
                     </select>
                   </div>
                 </div>
-              </div>
+              </div> -->
               <div class="name-fields">
                 <div class="name-labels">
-                  <b class="first-name">First Name</b>
+                  <b class="first-name">First Name<span class="font-bold text-[#ff0000] ml-1">*</span></b>
                 </div>
                 <div class="rectangle-container">
                   <div class="frame-inner"></div>
@@ -132,7 +153,7 @@ session_start();
               </div>
               <div class="middle-name-label-parent">
                 <div class="middle-name-label">
-                  <b class="middle-name">Middle Name</b>
+                  <b class="middle-name">Middle Name<span class="font-bold text-[#ff0000] ml-1">*</span></b>
                 </div>
                 <div class="rectangle-container">
                   <div class="frame-inner"></div>
@@ -152,7 +173,7 @@ session_start();
               </div>
               <div class="name-fields1">
                 <div class="last-name-wrapper">
-                  <b class="last-name">Last Name</b>
+                  <b class="last-name">Last Name<span class="font-bold text-[#ff0000] ml-1">*</span></b>
                 </div>
                 <div class="rectangle-parent1">
                   <div class="frame-child1"></div>
@@ -174,7 +195,7 @@ session_start();
                 <div class="contact-details">
                   <div class="sex-and-status">
                     <div class="sex-field">
-                      <b class="sex">Sex</b>
+                      <b class="sex">Sex<span class="font-bold text-[#ff0000] ml-1">*</span></b>
                     </div>
                     <div class="r-h-u-dropdown">
                       <!-- Dropdown using select -->
@@ -187,7 +208,7 @@ session_start();
                     </div>
                   </div>
                   <div class="civil-status">
-                    <b class="civil-status1">Civil Status</b>
+                    <b class="civil-status1">Civil Status<span class="font-bold text-[#ff0000] ml-1">*</span></b>
                     <div class="r-h-u-dropdown">
                       <!-- Dropdown using select -->
                       <select id="dropdownSex" name="civil_status" class="select-rhu" required> //TO DO - duplicate id name
@@ -203,7 +224,7 @@ session_start();
                 <div class="right-column">
                   <div class="birthdate-and-age">
                     <div class="birthdate-field">
-                      <b class="birthdate">Birthdate</b>
+                      <b class="birthdate">Birthdate<span class="font-bold text-[#ff0000] ml-1">*</span></b>
                     </div>
                     <div class="birthdate-input">
                       <div class="birthdate-input-child"></div>
@@ -243,7 +264,7 @@ session_start();
                 <div class="left-column-item"></div>
                 <div class="frame-parent">
                   <div class="email-address-wrapper">
-                    <b class="email-address">Email Address</b>
+                    <b class="email-address">Email Address<span class="font-bold text-[#ff0000] ml-1">*</span></b>
                   </div>
                   <div class="frame-div">
                     <div class="frame-child3"></div>
@@ -258,7 +279,7 @@ session_start();
                 </div>
                 <div class="frame-group">
                   <div class="phone-number-wrapper">
-                    <b class="phone-number">Phone Number</b>
+                    <b class="phone-number">Phone Number<span class="font-bold text-[#ff0000] ml-1">*</span></b>
                   </div>
                   <div class="rectangle-parent3">
                     <div class="frame-child4"></div>
@@ -283,13 +304,13 @@ session_start();
               <div class="address-fields">
                 <div class="street-and-barangay">
                   <div class="street">
-                    <b class="no-street">No. & Street</b>
+                    <b class="no-street">No. & Street<span class="font-bold text-[#ff0000] ml-1">*</span></b>
                     <div class="city-province">
                       <div class="barangay-field">
-                        <b class="barangay">Barangay</b>
+                        <b class="barangay">Barangay<span class="font-bold text-[#ff0000] ml-1">*</span></b>
                       </div>
-                      <b class="city-or-municipality">City or Municipality</b>
-                      <b class="province">Province</b>
+                      <b class="city-or-municipality">City or Municipality<span class="font-bold text-[#ff0000] ml-1">*</span></b>
+                      <b class="province">Province<span class="font-bold text-[#ff0000] ml-1">*</span></b>
                     </div>
                   </div>
                 </div>
@@ -348,7 +369,7 @@ session_start();
               <div class="occupation-education-fields">
                 <div class="occupation-and-education-title">
                   <div style="width: 24rem;">
-                    <b class="educational-attainment">Educational Attainment</b>
+                    <b class="educational-attainment">Educational Attainment<span class="font-bold text-[#ff0000] ml-1">*</span></b>
                     <div class="r-h-u-dropdown">
                       <!-- Dropdown using select -->
                       <select id="dropdownEducation" name="educational_attainment" class="select-rhu" required>
@@ -366,11 +387,12 @@ session_start();
                   </div>
                   <div style="width: 24rem;">
                     <div class="employment-status-wrapper">
-                      <b class="employment-status">Employment Status</b>
+                      <b class="employment-status">Employment Status<span class="font-bold text-[#ff0000] ml-1">*</span></b>
                       <div class="r-h-u-dropdown">
                         <!-- Dropdown using select -->
                         <select id="dropdownEmployment" name="employment_status" class="select-rhu" required>
                           <option value="">Select a status</option>
+                          <option <?= isset($_SESSION['employment_status']) && $_SESSION['employment_status'] === "Student" ? "selected" : "" ?> value="Student">Student</option>
                           <option <?= isset($_SESSION['employment_status']) && $_SESSION['employment_status'] === "Unemployed" ? "selected" : "" ?> value="Unemployed">Unemployed</option>
                           <option <?= isset($_SESSION['employment_status']) && $_SESSION['employment_status'] === "Employed" ? "selected" : "" ?> value="Employed">Employed</option>
                           <option <?= isset($_SESSION['employment_status']) && $_SESSION['employment_status'] === "Part-time" ? "selected" : "" ?> value="Part-time">Part-time</option>
@@ -382,7 +404,7 @@ session_start();
                     </div>
                   </div>
                   <div style="width: 24rem;">
-                    <b class="occupation">Occupation</b>
+                    <b class="occupation">Occupation<span class="font-bold text-[#ff0000] ml-1">*</span></b>
                     <div class="occupation-input">
                       <div class="occupation-input-child"></div>
                       <input
@@ -401,7 +423,7 @@ session_start();
               <div class="d-s-w-d-match">
                 <div class="d-s-w-d-match-child"></div>
                 <div class="d-s-w-d-match-details">
-                  <b class="dswd-nhts">DSWD NHTS?</b>
+                  <b class="dswd-nhts">DSWD NHTS?<span class="font-bold text-[#ff0000] ml-1">*</span></b>
                   <div class="i-d-type-selection-parent">
                     <div class="i-d-type-selection">
                       <div class="i-d-type-dropdown">
@@ -418,7 +440,7 @@ session_start();
                   </div>
                 </div>
                 <div class="membership-attachment">
-                  <b class="ps-member">4Ps Member?</b>
+                  <b class="ps-member">4Ps Member?<span class="font-bold text-[#ff0000] ml-1">*</span></b>
                   <div class="membership-attachment-status">
                     <div class="membership-file-selection">
                       <div class="choose-file-dialog">
@@ -445,7 +467,7 @@ session_start();
                     </div>
                   </div>
                   <div class="id-type-wrapper">
-                    <b class="id-type">ID Type</b>
+                    <b class="id-type">ID Type<span class="font-bold text-[#ff0000] ml-1">*</span></b>
                   </div>
                   <div class="r-h-u-dropdown">
                     <!-- Dropdown using select -->
@@ -470,7 +492,7 @@ session_start();
                 </div>
                 <div class="frame-parent1">
                   <div class="attach-file-wrapper">
-                    <b class="attach-file">Attach File</b>
+                    <b class="attach-file">Attach File<span class="font-bold text-[#ff0000] ml-1">*</span></b>
                   </div>
                   <div class="rectangle-parent7">
                     <div class="frame-child8"></div>
@@ -482,26 +504,10 @@ session_start();
                 </div>
               </div>
             </div>
-            <div class="steps-container-inner">
-              <div class="username-input-parent">
-                <div class="username-input">
-                  <b class="username">Username</b>
-                </div>
-                <div class="generated-username">
-                  <div class="auto-username">
-                    <div class="auto-username-child"></div>
-                    <input
-                      class="auto-generated-username"
-                      placeholder="Auto-Generated Username"
-                      type="text"
-                      name="username"
-                      disabled />
-                  </div>
-                  <div class="username-actions">
-                    <input type="reset" value="Clear" style="cursor: pointer; width: 144px; height: 50px; background: #fdfdfd; box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25); border-radius: 8px; font-family: 'Lato'; font-style: normal; font-weight: 800; font-size: 20px; line-height: 24px; color: #00C8D2; border: 2px solid #00C8D2;">
-                    <input type="submit" name="next" value="Next" style="cursor: pointer; width: 144px; height: 50px; background: #00C8D2; box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25); border-radius: 8px; font-family: 'Lato'; font-style: normal; font-weight: 800; font-size: 20px; line-height: 24px; color: #FDFDFD; border: none;">
-                  </div>
-                </div>
+            <div class="steps-container-inner justify-end">
+              <div class="username-actions">
+                <input type="reset" value="Clear" style="cursor: pointer; width: 144px; height: 50px; background: #fdfdfd; box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25); border-radius: 8px; font-family: 'Lato'; font-style: normal; font-weight: 800; font-size: 20px; line-height: 24px; color: #00C8D2; border: 2px solid #00C8D2;">
+                <input type="submit" name="next" value="Next" style="cursor: pointer; width: 144px; height: 50px; background: #00C8D2; box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25); border-radius: 8px; font-family: 'Lato'; font-style: normal; font-weight: 800; font-size: 20px; line-height: 24px; color: #FDFDFD; border: none;">
               </div>
             </div>
           </div>
@@ -510,7 +516,32 @@ session_start();
     </form>
   </div>
 </body>
-</html>
 
+</html>
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const urlParams = new URLSearchParams(window.location.search);
+
+    if (urlParams.has('error')) {
+      const errorType = urlParams.get('error');
+      if (errorType === 'email_exists') {
+        Swal.fire({
+          icon: 'error',
+          title: 'Oops...',
+          text: 'The email address is already registered.'
+        });
+      }
+    } else if (urlParams.has('success')) {
+      const successType = urlParams.get('success');
+      if (successType === 'email_available') {
+        Swal.fire({
+          icon: 'success',
+          title: 'Success!',
+          text: 'Email address is available.'
+        });
+      }
+    }
+  });
+</script>
 <script src="javascript/Sign-up.js"></script>
 <script src="javascript/calendar-personal.js"></script>

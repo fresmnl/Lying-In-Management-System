@@ -352,6 +352,9 @@ session_start();
     z-index: 1;
     margin-bottom: 1.625rem;
   }
+  .footer-container.username-input{
+    margin-top: 2rem;
+  }
 
   .frame-child {
     height: 3.125rem;
@@ -519,7 +522,7 @@ session_start();
   .form-parent {
     margin: 0;
     position: absolute;
-    top: 2rem;
+    top: 4rem;
     left: 4.375rem;
     width: 28.75rem;
     flex-direction: column;
@@ -675,21 +678,20 @@ session_start();
             </div>
           </div>
         </div>
-        <div class="role-selection">
-          <!-- <div class="role-selection-child"></div> -->
+        <!-- <div class="role-selection">
+          <div class="role-selection-child"></div>
           <div class="password-wrapper">
             <div class="placeholder-wrapper">
               <img class="placeholder-icon" alt="" src="images/role.svg" />
             </div>
             <select name="role" id="role" onchange="handleSelectChange()">
               <option value="Select a role">Select a role</option>
-              <option value="Admin">Admin</option>
               <option value="Health Facility">Health Facility</option>
               <option value="Patient">Patient</option>
             </select>
           </div>
-        </div>
-        <div class="footer-container">
+        </div> -->
+        <div class="footer-container username-input">
           <div class="footer-container-child"></div>
           <div class="username-label">
             <img class="layer-1-icon" alt="" src="images/usename.svg" />

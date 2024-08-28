@@ -9,6 +9,14 @@ class Database
     private $database;
     private $pdo;
 
+    const NON_VERIFIED = 'Non-Verified';
+    const UNAUTHORIZED = 'Unauthorized';
+    const VERIFIED = 'Verified';
+    const PATIENT = 'Patient';
+    const ADMIN = 'Admin';
+    const HEALTH_FACILITY = 'Health Facility';
+    
+
     public function __construct($host, $username, $password, $database)
     {
         $this->host = $host;
@@ -109,5 +117,51 @@ class Database
     function getCurrentDate($dataFormat = 'd/m/Y')
     {
         return Date($dataFormat);
+    }
+    function emailExists($email)
+    {
+        $sql = "SELECT * FROM user_account WHERE Email = :email";
+        $stmt = $this->query($sql, [':email' => $email]);
+        return $stmt->fetchColumn() > 0;
+    }
+    function getHealthFacilityNames()
+    {
+        $sql = "SELECT Health_Facility_Name FROM health_facility_info";
+        $stmt = $this->query($sql);
+
+        $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+        $names = [];
+
+        foreach ($rows as $row) {
+            if (isset($row['Name'])) {
+                $names[] = $row['Name'];
+            }
+        }
+
+        return $names;
+    }
+    function generateUniqueHealthFacilityUsername($clinicName)
+    {
+        $normalized = strtoupper(preg_replace('/[^A-Z0-9\s\-]/', '', $clinicName));
+        $nameParts = preg_split('/[\s\-]+/', $normalized);
+        $idPrefix = '';
+
+        if (isset($nameParts[0])) {
+            $idPrefix .= substr($nameParts[0], 0, 2); 
+        }
+
+        for ($i = 1; $i < count($nameParts); $i++) {
+            if (strlen($nameParts[$i]) > 0) {
+                $idPrefix .= $nameParts[$i][0]; 
+            }
+        }
+        $idPrefix = str_pad($idPrefix, 4, '0');
+        $year = date('Y');
+        $month = date('m');
+        $suffix = $year . $month; 
+        $uniqueId = $idPrefix . '-' . $suffix;
+
+        return $uniqueId;
     }
 }

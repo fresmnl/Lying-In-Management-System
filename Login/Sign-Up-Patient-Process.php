@@ -1,5 +1,8 @@
 <?php
 
+//NOTE: This file is no longer being used
+//NOTE: It is only used for testing and reference purposes
+
 session_start();
 
 require '../Database/db-config.php';

@@ -17,7 +17,7 @@ $db_admin = new Admin();
 ?>
 <?php require 'views/structures/header.php'; ?>
 <!-- <?php include 'nav-side-bar/sidebar.php'; ?> -->
-<?php include 'nav-side-bar/navbar.php'; ?>
+<!-- <?php include 'nav-side-bar/navbar.php'; ?> -->
 <!-- <?php require 'views/partials/navbar.php'; ?> -->
 <?php require 'views/partials/sidebar.php'; ?>
 
@@ -64,6 +64,43 @@ $db_admin = new Admin();
               <div class="empty-accounts">0</div>
             </div>
           </div>
+          <div class="account-labels">
+            <b class="total-health-facilities">Total Health Facilities</b>
+            <div class="where-your-money"><?= htmlspecialchars($db_admin->getAllHealthFacilityAccount() ?? '', ENT_QUOTES) ?></div>
+          </div>
+        </div>
+        <div class="metrics-labels1">
+          <div class="metrics-labels-item"></div>
+          <div class="metrics-labels-inner">
+            <div class="rectangle-parent">
+              <div class="frame-child"></div>
+              <img
+                class="frame-icon"
+                loading="lazy"
+                alt=""  
+                src="images/new-accounts.png" />
+            </div>
+          </div>
+          <div class="new-accounts-parent">
+            <b class="new-accounts">New Accounts</b>
+            <div class="div"><?= htmlspecialchars($db_admin->getUnauthorizedHealthFacilityAccount() ?? '', ENT_QUOTES) ?></div>
+          </div>
+        </div>
+        <div class="metrics-labels2">
+          <div class="rectangle-div"></div>
+          <div class="frame-div">
+            <div class="rectangle-group">
+              <div class="frame-item"></div>
+              <img
+                class="frame-icon1"
+                loading="lazy"
+                alt=""
+                src="images/authorized-accounts.png" />
+            </div>
+          </div>
+          <div class="authorized-accounts-parent">
+            <b class="authorized-accounts">Authorized Accounts</b>
+            <div class="div1"><?= htmlspecialchars($db_admin->getVerifiedHealthFacilityAccount() ?? '', ENT_QUOTES) ?></div>
           <div class="rectangle-parent">
             <div class="frame-child"></div>
             <div class="frame-wrapper">

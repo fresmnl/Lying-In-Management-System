@@ -17,7 +17,7 @@ RecordInformationAuth =
 RecordNumber =
   "/CapstoneProject/Lying-In-Management-System/Admin/Record-Number.php";
 RecordHospital =
-  "/CapstoneProject/Lying-In-Management-System/Admin/Record-Hospital.php";
+  "/CapstoneProject/Lying-In-Management-System/Admin/Record-Hospital-Data.php";
 RecordAccountEdit =
   "/CapstoneProject/Lying-In-Management-System/Admin/Record-Account-Edit.php";
 RecordAccountDeact =

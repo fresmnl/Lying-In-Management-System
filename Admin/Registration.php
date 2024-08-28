@@ -25,7 +25,7 @@ if ($isLoggedIn !== true && !isset($username)) {
     </button>
     <div class="facility-name-input">
       <div class="facility-name-instructions">
-        <b class="name-of-health">Name of Health Facility</b>
+        <b class="name-of-health">Name of Health Facility<span class="font-bold text-[#ff0000] ml-1">*</span></b>
         <div class="complete-name">
           <div class="complete-name-child"></div>
           <input
@@ -43,17 +43,24 @@ if ($isLoggedIn !== true && !isset($username)) {
         <div class="city-municipality-input">
           <div class="city-email">
             <div class="city-municipality-field">
-              <b class="citymunicipality">City/Municipality</b>
+              <b class="citymunicipality">City/Municipality<span class="font-bold text-[#ff0000] ml-1">*</span></b>
             </div>
             <div class="rectangle-container">
-              <div class="frame-inner"></div>
-              <input
-                class="city"
-                placeholder="Enter the City/Municipality"
-                type="text"
-                name="city_municipality"
-                value="<?= htmlspecialchars($_SESSION['hfacility']['city_municipality'] ?? '', ENT_QUOTES) ?>"
-                required />
+              <select id="dropdownSelect" name="city_municipality" class="select-rhu" required>
+                <option value="">Select Health Facility</option>
+                <option <?= isset($_SESSION['hfacility']['city_municipality']) && $_SESSION['hfacility']['city_municipality'] === "BALANGA CITY" ? "selected" : "" ?> value="Balanga City">Balanga City</option>
+                <option <?= isset($_SESSION['hfacility']['city_municipality']) && $_SESSION['hfacility']['city_municipality'] === "ABUCAY" ? "selected" : "" ?> value="Abucay">Abucay</option>
+                <option <?= isset($_SESSION['hfacility']['city_municipality']) && $_SESSION['hfacility']['city_municipality'] === "BAGAC" ? "selected" : "" ?> value="Bagac">Bagac</option>
+                <option <?= isset($_SESSION['hfacility']['city_municipality']) && $_SESSION['hfacility']['city_municipality'] === "DINALUPIHAN" ? "selected" : "" ?> value="Dinalupihan">Dinalupihan</option>
+                <option <?= isset($_SESSION['hfacility']['city_municipality']) && $_SESSION['hfacility']['city_municipality'] === "HERMOSA" ? "selected" : "" ?> value="Hermosa">Hermosa</option>
+                <option <?= isset($_SESSION['hfacility']['city_municipality']) && $_SESSION['hfacility']['city_municipality'] === "LIMAY" ? "selected" : "" ?> value="Limay">Limay</option>
+                <option <?= isset($_SESSION['hfacility']['city_municipality']) && $_SESSION['hfacility']['city_municipality'] === "MARIVELES" ? "selected" : "" ?> value="Mariveles">Mariveles</option>
+                <option <?= isset($_SESSION['hfacility']['city_municipality']) && $_SESSION['hfacility']['city_municipality'] === "MORONG" ? "selected" : "" ?> value="Morong">Morong</option>
+                <option <?= isset($_SESSION['hfacility']['city_municipality']) && $_SESSION['hfacility']['city_municipality'] === "ORANI" ? "selected" : "" ?> value="Orani">Orani</option>
+                <option <?= isset($_SESSION['hfacility']['city_municipality']) && $_SESSION['hfacility']['city_municipality'] === "ORION" ? "selected" : "" ?> value="Orion">Orion</option>
+                <option <?= isset($_SESSION['hfacility']['city_municipality']) && $_SESSION['hfacility']['city_municipality'] === "PILAR" ? "selected" : "" ?> value="Pilar">Pilar</option>
+                <option <?= isset($_SESSION['hfacility']['city_municipality']) && $_SESSION['hfacility']['city_municipality'] === "SAMAL" ? "selected" : "" ?> value="Samal">Samal</option>
+              </select>
             </div>
           </div>
           <div class="landline-no-parent">
@@ -67,15 +74,14 @@ if ($isLoggedIn !== true && !isset($username)) {
                 maxlength="8"
                 name="telephone_number"
                 id="phoneNumber"
-                value="<?= htmlspecialchars($_SESSION['hfacility']['telephone_number'] ?? '', ENT_QUOTES) ?>"
-                required />
+                value="<?= htmlspecialchars($_SESSION['hfacility']['telephone_number'] ?? '', ENT_QUOTES) ?>" />
             </div>
           </div>
         </div>
         <div class="city-municipality-input1">
           <div class="frame-parent">
             <div class="email-address-wrapper">
-              <b class="email-address">Email Address</b>
+              <b class="email-address">Email Address<span class="font-bold text-[#ff0000] ml-1">*</span></b>
             </div>
             <div class="group-div">
               <div class="rectangle-div"></div>
@@ -90,7 +96,7 @@ if ($isLoggedIn !== true && !isset($username)) {
           </div>
           <div class="frame-group">
             <div class="mobile-no-wrapper">
-              <b class="mobile-no">Mobile No.</b>
+              <b class="mobile-no">Mobile No.<span class="font-bold text-[#ff0000] ml-1">*</span></b>
             </div>
             <div class="rectangle-parent1">
               <div class="frame-child1"></div>
@@ -112,7 +118,7 @@ if ($isLoggedIn !== true && !isset($username)) {
       <div class="clear-next">
         <div class="rectangle-parent2">
           <div class="frame-child2"></div>
-          <input type="reset" class="clear" value="Clear">
+          <input type="reset" class="clear" name="clear" value="Clear">
         </div>
         <div class="rectangle-parent3">
           <div class="frame-child3"></div>
@@ -123,6 +129,30 @@ if ($isLoggedIn !== true && !isset($username)) {
   </form>
 </div>
 <script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const urlParams = new URLSearchParams(window.location.search);
+
+    if (urlParams.has('error')) {
+      const errorType = urlParams.get('error');
+      if (errorType === 'email_exists') {
+        Swal.fire({
+          icon: 'error',
+          title: 'Oops...',
+          text: 'The email address is already registered.'
+        });
+      }
+    } else if (urlParams.has('success')) {
+      const successType = urlParams.get('success');
+      if (successType === 'email_available') {
+        Swal.fire({
+          icon: 'success',
+          title: 'Success!',
+          text: 'Email address is available.'
+        });
+      }
+    }
+  });
+
   var phoneNumber = document.getElementById('phoneNumber');
 
   phoneNumber.addEventListener('input', () => {

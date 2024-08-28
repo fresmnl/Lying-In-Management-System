@@ -12,8 +12,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   $_SESSION['operation_date'] = $db_conn->cleanStr($_POST['operation_date'] ?? 'N/A');
   $_SESSION['smoker'] = $db_conn->cleanStr($_POST['smoker'] ?? 'N/A');
   $_SESSION['drinker'] = $db_conn->cleanStr($_POST['drinker'] ?? 'N/A');
-  $_SESSION['pack_per_year'] = $db_conn->cleanStr($_POST['pack_per_year'] ?? 'N/A');
-  $_SESSION['bottle_per_month'] = $db_conn->cleanStr($_POST['bottle_per_month'] ?? 'N/A');
+  $_SESSION['pack_per_year'] = $db_conn->cleanStr($_POST['pack_per_year'] ?? '');
+  $_SESSION['bottle_per_month'] = $db_conn->cleanStr($_POST['bottle_per_month'] ?? '');
   $_SESSION['drug_user'] = $db_conn->cleanStr($_POST['drug_user'] ?? 'N/A');
   $_SESSION['hypertension'] = $db_conn->cleanStr($_POST['hypertension'] ?? 'N/A');
   $_SESSION['asthma'] = $db_conn->cleanStr($_POST['asthma'] ?? 'N/A');
@@ -142,7 +142,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 </div>
                 <div class="user-pass-container1">
                   <div class="password-wrapper">
-                    <b class="password">Password</b>
+                    <b class="password">Password<span class="font-bold text-[#ff0000] ml-1">*</span></b>
                   </div>
                   <div class="rectangle-group relative">
                     <div class="frame-item"></div>
@@ -170,7 +170,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 </div>
                 <div class="user-pass-container2">
                   <div class="confirm-password-wrapper">
-                    <b class="confirm-password">Confirm Password</b>
+                    <b class="confirm-password">Confirm Password<span class="font-bold text-[#ff0000] ml-1">*</span></b>
                   </div>
                   <div class="rectangle-container relative">
                     <div class="frame-inner"></div>
