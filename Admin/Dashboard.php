@@ -1,3 +1,8 @@
+<!-- <?php include 'nav-side-bar/sidebar.php'; ?> -->
+<?php include 'nav-side-bar/navbar.php'; ?>
+<?php require 'views/structures/header.php'; ?>
+<!-- <?php require 'views/partials/navbar.php'; ?> -->
+<?php require 'views/partials/sidebar.php'; ?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -16,6 +21,7 @@
     @tailwind utilities;
     body {
       @apply leading-[normal] m-0;
+    height: 59rem;
     }
     *,
     ::before,
@@ -343,7 +349,7 @@
         </div>
       </section>
   </div>
-      <div class="relative flex flex-col break-words bg-white mb-6 shadow-lg rounded ]" style="border: 2px solid #00ACCE;position: absolute;left: 22.6rem; width:68rem;">
+      <div class="relative flex flex-col break-words bg-white mb-6 shadow-lg rounded ]" style="border: 2px solid #00ACCE;    position: absolute;left: 22.6rem; width:68rem;">
     <div class="rounded-t mb-0 px-4 py-3 border-0"  style="background-color:#00C8D2;">
       <div class="flex flex-wrap items-center">
         <div class="relative w-full px-4 max-w-full flex-grow flex-1">
