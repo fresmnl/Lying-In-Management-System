@@ -333,7 +333,7 @@ body {
     background-color: var(--color-gray-100);
     overflow: hidden;
     flex-direction: column;
-    padding: var(--padding-51xl) 0 28.437rem var(--padding-236xl);
+    padding-left: 16rem;
     gap: 1.187rem;
     line-height: normal;
     letter-spacing: normal;

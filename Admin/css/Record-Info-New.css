@@ -415,7 +415,7 @@ body {
   background-color: var(--color-gray-100);
   overflow: hidden;
   flex-direction: column;
-  padding: var(--padding-51xl) 0 2.312rem 15.937rem;
+  padding: 0 0 2.312rem 15.937rem;
   gap: 41.937rem;
   line-height: normal;
   letter-spacing: normal;

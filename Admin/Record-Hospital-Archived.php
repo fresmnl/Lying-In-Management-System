@@ -20,7 +20,7 @@ if ($_SESSION['admin']['loggedin'] !== true && !isset($_SESSION['admin']['userna
   </head>
   <body>
     <div class="admin-record-hospital-da">
-      <div class="video-details" style="margin-left: 0.8rem;">
+      <div class="video-details">
         <div class="video-details-child"></div>
         <div class="current-data">
           <a href="Record-Hospital-Data.php" class="hospital-data">Hospital Data</a>

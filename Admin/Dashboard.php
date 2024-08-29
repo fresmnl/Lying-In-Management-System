@@ -3,9 +3,10 @@
 <?php require 'views/structures/header.php'; ?>
 <!-- <?php require 'views/partials/navbar.php'; ?> -->
 <?php require 'views/partials/sidebar.php'; ?>
+<link rel="stylesheet" href="../src/output.css">
 <div>
   <div
-    class="w-full relative bg-[#fdfdfd] overflow-hidden flex flex-col items-center justify-start pt-[6.25rem] pb-[1.25rem] pl-[15rem] pr-[1.25rem] box-border gap-[1.312rem] leading-[normal] tracking-[normal] lg:pl-[7.5rem] lg:box-border mq750:pl-[3.75rem] mq750:box-border mq450:pl-[1.25rem] mq450:box-border">
+    class="z-20 w-full relative bg-[#fdfdfd] overflow-hidden flex flex-col items-center justify-start  pb-[1.25rem] pl-[15rem] pr-[1.25rem] box-border gap-[1.312rem] leading-[normal] tracking-[normal] lg:pl-[7.5rem] lg:box-border mq750:pl-[3.75rem] mq750:box-border mq450:pl-[1.25rem] mq450:box-border" style="margin-left: 5rem; position: absolute;top: 7rem;">
     <section
       class="w-[67.5rem] flex flex-row items-start justify-start gap-[1.25rem] max-w-full text-center text-[1.125rem] text-[#004268] font-[Lato] mq1050:flex-wrap">
       <div
@@ -186,7 +187,7 @@
       <div class="grid gap-[1.4rem]">
         <div class="w-[26rem] border-2 border-500 p-0 rounded-md" style="border-color:#00ACCE; background-color:#00ACCE;">
           <div class="bg-white shadow-lg rounded-lg overflow-hidden">
-            <div id="month" class=" font-semibold flex items-center justify-between px-6 py-3">
+            <div id="month" class=" font-semibold flex items-center justify-between px-6 py-3" style=" background-color:#00ACCE;">
               <button id="prevMonth" class="text-white">◄</button>
               <h2 id="currentMonth" class="text-white"></h2>
               <button id="nextMonth" class="text-white">►</button>
@@ -196,16 +197,6 @@
             </div>
             <div id="myModal" class="modal hidden fixed inset-0 flex items-center justify-center z-50">
               <div class="modal-overlay absolute inset-0 bg-black opacity-50"></div>
-
-              <div class="modal-container bg-white w-11/12 md:max-w-md mx-auto rounded shadow-lg z-50 overflow-y-auto">
-                <div class="modal-content py-4 text-left px-6">
-                  <div class="flex justify-between items-center pb-3">
-                    <p class="text-2xl font-bold">Selected Date</p>
-                    <button id="closeModal" class="modal-close px-3 py-1 rounded-full bg-gray-200 hover:bg-gray-300 focus:outline-none focus:ring">✕</button>
-                  </div>
-                  <div id="modalDate" class="text-xl font-semibold"></div>
-                </div>
-              </div>
             </div>
           </div>
         </div>
@@ -242,18 +233,15 @@
             </div>
           </div>
         </div>
-      </div>
-  </div>
   </section>
-</div>
-<div class="relative flex flex-col break-words bg-white mb-6 shadow-lg rounded ]" style="border: 2px solid #00ACCE;    position: absolute;left: 22.6rem; width:68rem;">
+<div class="relative flex flex-col break-words bg-white mb-6 shadow-lg rounded ]" style="border: 2px solid #00ACCE; width:68rem;">
   <div class="rounded-t mb-0 px-4 py-3 border-0" style="background-color:#00C8D2;">
     <div class="flex flex-wrap items-center">
       <div class="relative w-full px-4 max-w-full flex-grow flex-1">
         <h3 class="text-xl font-semibold text-base" style="color:white;">List of Health Facilities</h3>
       </div>
       <div class="relative w-full px-4 max-w-full flex-grow flex-1 text-right">
-        <button id="button" class=" text-xs font-bold uppercase px-5 py-2 rounded outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150" type="button">See More</button>
+        <button id="button" class=" text-xs font-bold uppercase px-5 py-2 rounded outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150" type="button"  style="background-color: white; padding: 10px 20px 10px 20px;color: #00ACCE;">See More</button>
       </div>
     </div>
   </div>
@@ -288,6 +276,9 @@
         </tr>
       </tbody>
     </table>
+  </div>
+  </div>
+  </div>
   </div>
   <script>
     // Function to generate the calendar for a specific month and year
@@ -363,41 +354,5 @@
         currentYear++;
       }
       generateCalendar(currentYear, currentMonth);
-    });
-
-    // Function to show the modal with the selected date
-    function showModal(selectedDate) {
-      const modal = document.getElementById('myModal');
-      const modalDateElement = document.getElementById('modalDate');
-      modalDateElement.innerText = selectedDate;
-      modal.classList.remove('hidden');
-    }
-
-    // Function to hide the modal
-    function hideModal() {
-      const modal = document.getElementById('myModal');
-      modal.classList.add('hidden');
-    }
-
-    // Event listener for date click events
-    const dayElements = document.querySelectorAll('.cursor-pointer');
-    dayElements.forEach(dayElement => {
-      dayElement.addEventListener('click', () => {
-        const day = parseInt(dayElement.innerText);
-        const selectedDate = new Date(currentYear, currentMonth, day);
-        const options = {
-          weekday: 'long',
-          year: 'numeric',
-          month: 'long',
-          day: 'numeric'
-        };
-        const formattedDate = selectedDate.toLocaleDateString(undefined, options);
-        showModal(formattedDate);
-      });
-    });
-
-    // Event listener for closing the modal
-    document.getElementById('closeModal').addEventListener('click', () => {
-      hideModal();
     });
   </script>

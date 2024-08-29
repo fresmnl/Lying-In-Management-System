@@ -1,246 +1,62 @@
-<!DOCTYPE html>
-<html>
+<link rel="stylesheet" href="../src/output.css">
 
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="initial-scale=1, width=device-width" />
-  <!-- <link rel="stylesheet" href="./global.css" />
-  <link rel="stylesheet" href="./index.css" /> -->
-  <link
-    rel="stylesheet"
-    href="https://fonts.googleapis.com/css2?family=Lato:wght@500;600;700;800;900&display=swap" />
-  <style>
-    body {
-      margin: 0;
-      line-height: normal;
-    }
-
-    :root {
-      /* fonts */
-      --font-lato: Lato;
-
-      /* font sizes */
-      --font-size-lg: 1.125rem;
-      --font-size-sm: 0.875rem;
-
-      /* Colors */
-      --color-gray-100: #fdfdfd;
-      --color-gray-200: rgba(253, 253, 253, 0.8);
-      --color-gray-300: rgba(253, 253, 253, 0.7);
-      --color-deepskyblue: #00acce;
-      --color-aliceblue: #edf1f6;
-      --color-darkslategray-100: #004168;
-
-      /* Paddings */
-      --padding-sm: 0.875rem;
-      --padding-87xl: 6.625rem;
-      --padding-smi: 0.812rem;
-      --padding-2xs: 0.687rem;
-      --padding-12xs: 0.062rem;
-      --padding-xl: 1.25rem;
-      --padding-mini: 0.937rem;
-
-      /* Border radiuses */
-      --br-5xs: 8px;
-    }
-
-    .header-background {
-      height: 4.25rem;
-      width: 78.563rem;
-      position: relative;
-      box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
-      background-color: var(--color-gray-100);
-      display: none;
-      max-width: 100%;
-    }
-
-    .admin-name {
-      font-weight: 800;
-      color: #00c8d2;
-    }
-
-    .subtext,
-    .welcome-text {
-      position: relative;
-      white-space: nowrap;
-      z-index: 1;
-    }
-
-    .welcome-text {
-      text-decoration: none;
-      color: inherit;
-    }
-
-    .subtext {
-      font-size: var(--font-size-sm);
-      font-weight: 500;
-      text-align: right;
-    }
-
-    .welcome-wrapper,
-    .admin-welcome-container {
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-      justify-content: flex-start;
-      margin-left: 0;
-    }
-
-    .admin-welcome-container {
-      gap: 0.062rem;
-    }
-
-    .welcome-wrapper {
-      padding: var(--padding-12xs) 0 0;
-    }
-
-    .icon-background {
-      height: 2.5rem;
-      width: 8.688rem;
-      position: relative;
-      border-radius: var(--br-5xs);
-      background-color: var(--color-aliceblue);
-      border: 2px solid var(--color-deepskyblue);
-      box-sizing: border-box;
-      display: none;
-    }
-
-    .admin-id,
-    .icon-image {
-      position: relative;
-      z-index: 2;
-    }
-
-    .icon-image {
-      height: 1.438rem;
-      width: 1.438rem;
-      overflow: hidden;
-      flex-shrink: 0;
-      min-height: 1.438rem;
-    }
-
-    .admin-id {
-      text-decoration: none;
-      align-self: stretch;
-      font-size: var(--font-size-lg);
-      font-weight: 600;
-      font-family: var(--font-lato);
-      color: rgba(0, 66, 104, 0.8);
-      text-align: right;
-      display: inline-block;
-      min-width: 5.563rem;
-    }
-
-    .admin-id-wrapper {
-      width: 5.563rem;
-      display: flex;
-      flex-direction: column;
-      align-items: flex-end;
-      justify-content: flex-start;
-      padding: var(--padding-12xs) 0 0;
-      box-sizing: border-box;
-    }
-
-    .page-container,
-    .button-group,
-    .header-container {
-      display: flex;
-      flex-direction: row;
-      align-items: flex-start;
-      box-sizing: border-box;
-    }
-
-    .button-group {
-      cursor: pointer;
-      border: 2px solid var(--color-deepskyblue);
-      padding: 0.312rem 0.625rem 0.375rem var(--padding-2xs);
-      background-color: var(--color-aliceblue);
-      width: 8.688rem;
-      border-radius: var(--br-5xs);
-      justify-content: flex-end;
-      gap: 0.125rem;
-      z-index: 1;
-      margin-left: auto;
-    }
-
-    .page-container,
-    .header-container {
-      background-color: var(--color-gray-100);
-      max-width: 100%;
-    }
-
-    .header-container {
-      position: fixed;
-      left: 17.7%;
-      top: 0;
-      width: 85%;
-      box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
-      background-color: var(--color-gray-100);
-      justify-content: space-between;
-      padding: var(--padding-sm) var(--padding-87xl) var(--padding-smi) 3.187rem;
-      z-index: 99;
-      text-align: center;
-      font-size: var(--font-size-lg);
-      color: var(--color-darkslategray-100);
-      font-family: var(--font-lato);
-    }
-
-    .page-container {
-      width: 94.5rem;
-      height: 61.375rem;
-      overflow: hidden;
-      justify-content: flex-end;
-      padding: 0 0 57.125rem;
-      line-height: normal;
-      letter-spacing: normal;
-    }
-
-    @media screen and (max-width: 1200px) {
-      .header-container {
-        padding-left: 1.563rem;
-        padding-right: 3.313rem;
-        box-sizing: border-box;
-      }
-    }
-
-    @media screen and (max-width: 600px) {
-      .header-container {
-        padding-right: 1.625rem;
-        box-sizing: border-box;
-      }
-    }
-  </style>
-</head>
-
-<body>
-  <header class="header-container">
-    <div class="header-background"></div>
-    <div class="welcome-wrapper">
-      <div class="admin-welcome-container">
-        <a class="welcome-text">
-          <b>Welcome Back, </b>
-          <span class="admin-name">Admin</span>
-          <b>!</b>
-        </a>
-        <div class="subtext">
-          Have a nice day keeping the system in check.
+<header
+  class="flex-1 shadow-[0px_4px_4px_rgba(0,_0,_0,_0.25)] bg-[#fdfdfd] flex flex-row items-start justify-center py-[0.875rem] pl-[13.75rem] pr-[1.25rem] box-border gap-[45.25rem] top-[0] sticky max-w-full text-center text-[1.125rem] text-[#004168] font-[Lato] lg:gap-[22.625rem] lg:pl-[6.875rem] lg:box-border mq450:gap-[5.625rem] mq450:pl-[1.25rem] mq450:box-border mq750:gap-[11.313rem] mq750:pl-[3.438rem] mq750:box-border z-10 h-[4.25rem]"
+  style="gap: 46rem;"
+>
+        <div
+          class="h-[4.25rem] w-[94.5rem] relative shadow-[0px_4px_4px_rgba(0,_0,_0,_0.25)] bg-[#fdfdfd] hidden max-w-full"
+        ></div>
+        <div
+          class="flex flex-col items-start justify-start pt-[0.062rem] px-[0rem] pb-[0rem]"
+        >
+          <div class="flex flex-col items-start justify-start gap-[0.062rem]">
+            <a
+              class="[text-decoration:none] relative whitespace-nowrap z-[1] text-[inherit]"
+            >
+              <b>Welcome Back, </b>
+              <span class="font-extrabold text-[#00c8d2]">Admin</span>
+              <b>!</b>
+            </a>
+            <div
+              class="relative text-[0.75rem] font-medium whitespace-nowrap z-[1]"
+            >
+              Have a nice day keeping the system in check.
+            </div>
+          </div>
         </div>
-      </div>
-    </div>
-    <div class="flex flex-col relative">
-      <button id="profile" class="button-group">
-        <div class="icon-background"></div>
-        <img class="icon-image" alt="" src="./public/frame.svg" />
-        <div class="admin-id-wrapper">
-          <b class="admin-id"><?= htmlspecialchars($_SESSION['admin']['username'] ?? 'No User', ENT_QUOTES) ?></b>
-        </div>
-      </button>
-      <div id="logout" class="hidden absolute cursor-pointer top-11 py-3 px-10 w-max rounded-md text-[#FDFDFD] shadow-[0px_4px_6px_-1px_rgba(0,0,0,0.3)] bg-[#00C8D2] items-center justify-center">
+        <button
+          class="cursor-pointer border-[#00acce] border-[2px] border-solid pt-[0.312rem] pb-[0.375rem] pl-[0.687rem] pr-[0.625rem] bg-[#edf1f6] w-[8.688rem] rounded-[8px] box-border flex flex-row items-start justify-start gap-[0.125rem] z-[1]"
+        >
+          <div
+            class="h-[2.5rem] w-[8.688rem] relative rounded-[8px] bg-[#edf1f6] border-[#00acce] border-[2px] border-solid box-border hidden"
+          ></div>
+          <svg width="23" height="23" viewBox="0 0 23 23" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <g clip-path="url(#clip0_1_55)">
+            <path d="M11.5 0C5.14805 0 0 5.14805 0 11.5C0 17.852 5.14805 23 11.5 23C17.852 23 23 17.852 23 11.5C23 5.14805 17.852 0 11.5 0ZM11.5 5.75C13.2865 5.75 14.7344 7.19828 14.7344 8.98438C14.7344 10.7705 13.2879 12.2188 11.5 12.2188C9.71391 12.2188 8.26562 10.7705 8.26562 8.98438C8.26562 7.19828 9.71211 5.75 11.5 5.75ZM11.5 20.125C9.12228 20.125 6.96738 19.1578 5.4041 17.5963C6.13184 15.7182 7.92871 14.375 10.0625 14.375H12.9375C15.0731 14.375 16.87 15.7173 17.5959 17.5963C16.0326 19.1592 13.8764 20.125 11.5 20.125Z" fill="#004168" fill-opacity="0.8"/>
+            </g>
+            <defs>
+            <clipPath id="clip0_1_55">
+            <rect width="23" height="23" fill="white"/>
+            </clipPath>
+            </defs>
+          </svg>
+          <div id="profile"
+            class="w-[5.563rem] flex flex-col items-start justify-start pt-[0.062rem] px-[0rem] pb-[0rem] box-border"
+          >
+            <a
+              class="[text-decoration:none] self-stretch relative text-[1.125rem] font-semibold font-[Lato] text-[rgba(0,66,104,0.8)] text-right inline-block min-w-[5.563rem] z-[2]"
+              ><?= htmlspecialchars($_SESSION['admin']['username'] ?? 'No User', ENT_QUOTES) ?></a
+            >
+          </div>
+          <div id="logout" class="hidden absolute cursor-pointer top-15 py-3 px-10 w-max rounded-md text-[#FDFDFD] shadow-[0px_4px_6px_-1px_rgba(0,0,0,0.3)] bg-[#00C8D2] items-center justify-center" style="top: 0.6rem; left:88rem;">
         Logout
       </div>
+        </button>
+      </header>
     </div>
-  </header>
-  <script>
+
+    <script>
     var logoutPopup = document.getElementById('logout');
     var profile = document.getElementById('profile');
     var logoutLink = document.getElementById('logoutLink');
@@ -273,6 +89,3 @@
       });
     });
   </script>
-</body>
-
-</html>

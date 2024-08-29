@@ -415,19 +415,18 @@
 }
 .admin-record-hospital-daa {
   width: 100%;
-  position: relative;
-  background-color: #fdfdfd;
-  overflow: hidden;
-  flex-direction: column;
-  padding: 4.375rem 0 2.312rem 15.937rem;
-  gap: 1.75rem;
-  line-height: normal;
-  letter-spacing: normal;
-  text-align: center;
-  font-size: 1.25rem;
-  color: #fdfdfd;
-  font-family: Lato;
-  top: 0.6rem;
+    position: relative;
+    background-color: #fdfdfd;
+    overflow: hidden;
+    flex-direction: column;
+    padding: 0 0 2.312rem 14.937rem;
+    gap: 1.75rem;
+    line-height: normal;
+    letter-spacing: normal;
+    text-align: center;
+    font-size: 1.25rem;
+    color: #fdfdfd;
+    font-family: Lato;
     left: 0.9rem;
 }
 .popup-overlay {
