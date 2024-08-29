@@ -2,8 +2,7 @@
 module.exports = {
   content: [
     "./Admin/**/*.{html,js,php}",
-    "./Login/**/*.{html,js,php}",
-    "./*.{html,js,php}"
+    "./Login/**/*.{html,js,php}"
   ],
   theme: {
       screens: {
