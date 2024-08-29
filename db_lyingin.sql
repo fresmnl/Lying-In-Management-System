@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 26, 2024 at 01:25 AM
+-- Generation Time: Aug 29, 2024 at 02:55 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -249,6 +249,16 @@ CREATE TABLE `health_facility_info` (
   `Email` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Dumping data for table `health_facility_info`
+--
+
+INSERT INTO `health_facility_info` (`Health_Facility_Id`, `Account_Id`, `Health_Facility_Name`, `City_Municipality`, `Landline_Number`, `Mobile_Number`, `Email`) VALUES
+('HF202408-01', 'A202408-0002', 'CYRRON  HEALTH FACILITY', 'BALANGA', '132-4536', '+6387564534325', 'SAMPLE@GMAIL.COM'),
+('HF202408-02', 'A202408-0003', 'RH20-202408', 'BAGAC', '324-5672', '+6313245678982', 'SAMPLE1@GMAIL.COM'),
+('HF202408-03', 'A202408-0004', 'C100-202408', 'MORONG', '213-4567', '+6323456723456', 'adsfg@gmail.com'),
+('HF202408-04', 'A202408-0006', '4300-202408', 'ORANI', '234-5678', '+6312345678324', '34567@gmail.com');
+
 -- --------------------------------------------------------
 
 --
@@ -391,6 +401,13 @@ CREATE TABLE `patient_history` (
   `Others_Type` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Dumping data for table `patient_history`
+--
+
+INSERT INTO `patient_history` (`History_Id`, `Patient_Id`, `Previous_Operation`, `Operation_Date`, `Smoker`, `Packs_Per_Year`, `Drinker`, `Bottle_Per_Month`, `Hypertension`, `Asthma`, `Blood_Disorder`, `Heart_Disorder`, `Liver_Disorder`, `Kidney_Disorder`, `Pulmonary_Tuberculosis`, `Diabetes_Mellitus`, `Diabetes_Mellitus_Type`, `Cancer`, `Cancer_Type`, `Stage`, `Skin_Disease`, `Skin_Disease_Type`, `Allergy`, `Allergy_Type`, `Others`, `Others_Type`) VALUES
+(29, 'P202408-0001', '', '', 'N/A', '', 'N/A', '', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A');
+
 -- --------------------------------------------------------
 
 --
@@ -424,6 +441,13 @@ CREATE TABLE `patient_info` (
   `Id_Type` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Dumping data for table `patient_info`
+--
+
+INSERT INTO `patient_info` (`Patient_Id`, `Account_Id`, `Health_Facility`, `Fname`, `Mname`, `Lname`, `fullname`, `Birthday`, `Age`, `Street_Address`, `Barangay_Address`, `Municipality_Address`, `Province_Address`, `Contact_No`, `Email`, `civil_status`, `sex`, `Educational_Attainment`, `Employment_Status`, `Occupation`, `DSWD_NHTS`, `4PS_MEMBER`, `Identification`, `Id_Type`) VALUES
+('P202408-0001', 'A202408-0005', '', 'DSFGHJ', 'ASDFGH', 'ASDFGH', 'DSFGHJ ASDFGH ASDFGH', '08/01/1996', 28, '234567', '234567', '234567', '34567', '+6334567897654', 'sdfgh@gmail.com', 'MARRIED', 'FEMALE', 'SENIOR HIGHSCHOOL', 'UNEMPLOYED', '32456789', 'NO', 'NO', 'image.png', 'UNIFIED MULTI-PURPOSE ID (UMID)');
+
 -- --------------------------------------------------------
 
 --
@@ -436,15 +460,22 @@ CREATE TABLE `user_account` (
   `Username` varchar(255) NOT NULL,
   `Email` varchar(255) NOT NULL,
   `Password` varchar(255) NOT NULL,
-  `Role` varchar(12) NOT NULL
+  `Role` varchar(25) NOT NULL,
+  `Date_Created` varchar(255) NOT NULL,
+  `Status` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `user_account`
 --
 
-INSERT INTO `user_account` (`Account_Id`, `User_Id`, `Username`, `Email`, `Password`, `Role`) VALUES
-('A202408-0001', 'Admin01', 'Admin01', 'trusttracklyingin@gmail.com', 'trusttrack4-2023', 'Admin');
+INSERT INTO `user_account` (`Account_Id`, `User_Id`, `Username`, `Email`, `Password`, `Role`, `Date_Created`, `Status`) VALUES
+('A202408-0001', 'ADMIN01', 'Admin01', 'trusttracklyingin@gmail.com', 'trusttrack4-2023', 'Admin', '26/08/2024', 'Admin'),
+('A202408-0002', 'HF202408-01', 'ASGFD2345', 'SAMPLE@GMAIL.COM', 'CYRRON#0813', 'Health Facility', '27/08/2024', 'Unauthorized'),
+('A202408-0003', 'HF202408-02', 'RH20-202408', 'SAMPLE1@GMAIL.COM', 'CYRRON#0813', 'Health Facility', '27/08/2024', 'Unauthorized'),
+('A202408-0004', 'HF202408-03', 'C100-202408', 'adsfg@gmail.com', 'CYRRON#0813', 'Health Facility', '29/08/2024', 'Unauthorized'),
+('A202408-0005', 'P202408-0001', 'DAsdfgh1996', 'sdfgh@gmail.com', 'Cyrron#0813', 'Patient', '29/08/2024', 'Non-Verified'),
+('A202408-0006', 'HF202408-04', '4300-202408', '34567@gmail.com', 'CYRRON#0813', 'Health Facility', '29/08/2024', 'Unauthorized');
 
 --
 -- Indexes for dumped tables
@@ -649,7 +680,7 @@ ALTER TABLE `lyingin_appointment`
 -- AUTO_INCREMENT for table `patient_history`
 --
 ALTER TABLE `patient_history`
-  MODIFY `History_Id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+  MODIFY `History_Id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
 
 --
 -- Constraints for dumped tables
