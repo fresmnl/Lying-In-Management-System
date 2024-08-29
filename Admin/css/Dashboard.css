@@ -508,14 +508,15 @@ body {
   display: flex;
   justify-content: flex-start;
 }
-.group {
+/* TODO: Conflict with sidebar */
+/* .group { 
   width: 17.75rem;
   flex-direction: row;
   align-items: flex-start;
   text-align: left;
   font-size: var(--font-size-16xl);
   color: var(--color-darkturquoise);
-}
+} */
 .ownership-types {
   flex: 1;
   border-radius: var(--br-5xs);

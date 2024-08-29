@@ -20,6 +20,7 @@
       </div>
     </div>
 
+<<<<<<< HEAD
     <div class="block w-full overflow-x-auto">
       <table class="items-center w-full border-collapse" style="background-color:#ECFCFF;">
         <thead>
@@ -52,3 +53,19 @@
       </table>
     </div>
   </div>
+=======
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="src/output.css">
+</head>
+
+<body>
+
+<h1 class="text-2xl text-red-600 font-bold">hello world</h1>
+
+</body>
+
+</html>
+>>>>>>> f62f88b182ec5b678fdbe9b3b3f08a7471eb15c9

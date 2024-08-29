@@ -18,6 +18,8 @@ RecordNumber =
   "/CapstoneProject/Lying-In-Management-System/Admin/Record-Number.php";
 RecordHospital =
   "/CapstoneProject/Lying-In-Management-System/Admin/Record-Hospital-Data.php";
+RecordHospitalArchive =
+  "/CapstoneProject/Lying-In-Management-System/Admin/Record-Hospital-Archived.php";
 RecordAccountEdit =
   "/CapstoneProject/Lying-In-Management-System/Admin/Record-Account-Edit.php";
 RecordAccountDeact =
@@ -28,7 +30,8 @@ if (
   window.location.pathname == RecordInformation ||
   window.location.pathname == RecordInformationAuth ||
   window.location.pathname == RecordNumber ||
-  window.location.pathname == RecordHospital
+  window.location.pathname == RecordHospital ||
+  window.location.pathname == RecordHospitalArchive
 ) {
   recordToggle.classList.remove("hidden");
 }
@@ -38,4 +41,3 @@ if (
 ) {
   accountToggle.classList.remove("hidden");
 }
-
