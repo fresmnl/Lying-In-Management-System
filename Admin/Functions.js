@@ -1,13 +1,21 @@
+var registrationToggle = document.getElementById("register-dropdown-toggle");
+function RegisterToggleCollapse() {
+  registrationToggle.classList.toggle("hidden");
+}
+
 var recordToggle = document.getElementById("record-dropdown-toggle");
 function RecordToggleCollapse() {
   recordToggle.classList.toggle("hidden");
 }
 
 var accountToggle = document.getElementById("account-dropdown-toggle");
+
 function AccountToggleCollapse() {
   accountToggle.classList.toggle("hidden");
 }
 
+HFRegistration =
+  "/CapstoneProject/Lying-In-Management-System/Admin/Registration.php";
 RecordAccount =
   "/CapstoneProject/Lying-In-Management-System/Admin/Record-Account.php";
 RecordInformation =
@@ -25,6 +33,7 @@ RecordAccountEdit =
 RecordAccountDeact =
   "/CapstoneProject/Lying-In-Management-System/Admin/Record-Account-Deact.php";
 
+
 if (
   window.location.pathname == RecordAccount ||
   window.location.pathname == RecordInformation ||
@@ -40,4 +49,10 @@ if (
   window.location.pathname == RecordAccountDeact
 ) {
   accountToggle.classList.remove("hidden");
+}
+if (
+  window.location.pathname == HFRegistration ||
+  window.location.pathname == PatientRegistration
+) {
+  registrationToggle.classList.remove("hidden");
 }

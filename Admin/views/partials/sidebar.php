@@ -23,35 +23,39 @@
    <div id="sidebar-container" class="h-full px-3 pb-4 overflow-y-auto bg-[#00ACCE]">
 
       <ul class="space-y-6 font-medium text-xl">
-      <li>
+         <li>
             <a href="Dashboard.php" class="flex items-center p-2 rounded-lg mt-10 hover:text-[#2D82B5] hover:fill-[#2D82B5] dark:hover:bg-[#EDF1F6] hover:shadow-[0_4px_6px_-1px_rgba(0,0,0,0.2)] <?php if ($_SERVER['REQUEST_URI'] === '/CapstoneProject/Lying-In-Management-System/Admin/Dashboard.php') echo ' text-[#2D82B5] fill-[#2D82B5] dark:bg-[#EDF1F6] shadow-[0_4px_6px_-1px_rgba(0,0,0,0.2)]';
-                                                                                                                                                                                                         else echo 'text-white fill-[#fff]' ?>">
+                                                                                                                                                                                                   else echo 'text-white fill-[#fff]' ?>">
                <svg class="w-5" fill="" viewBox="0 0 25 25" xmlns="http://www.w3.org/2000/svg">
                   <g clip-path="url(#a)">
                      <path d="m1.3889 13.889h8.3333c0.76388 0 1.3889-0.625 1.3889-1.3889v-11.111c0-0.76389-0.625-1.3889-1.3889-1.3889h-8.3333c-0.76389 0-1.3889 0.625-1.3889 1.3889v11.111c0 0.7639 0.625 1.3889 1.3889 1.3889zm0 11.111h8.3333c0.76388 0 1.3889-0.625 1.3889-1.3889v-5.5555c0-0.7639-0.625-1.3889-1.3889-1.3889h-8.3333c-0.76389 0-1.3889 0.625-1.3889 1.3889v5.5555c0 0.7639 0.625 1.3889 1.3889 1.3889zm13.889 0h8.3333c0.7639 0 1.3889-0.625 1.3889-1.3889v-11.111c0-0.7639-0.625-1.3889-1.3889-1.3889h-8.3333c-0.7639 0-1.3889 0.625-1.3889 1.3889v11.111c0 0.7639 0.625 1.3889 1.3889 1.3889zm-1.3889-23.611v5.5556c0 0.76389 0.625 1.3889 1.3889 1.3889h8.3333c0.7639 0 1.3889-0.625 1.3889-1.3889v-5.5556c0-0.76389-0.625-1.3889-1.3889-1.3889h-8.3333c-0.7639 0-1.3889 0.625-1.3889 1.3889z" fill="" />
                   </g>
-                  <defs>
-                     <clipPath id="a">
-                        <rect width="25" height="25" fill="" />
-                     </clipPath>
-                  </defs>
                </svg>
                <span id="side-title" class="ms-3">Dashboard</span>
             </a>
          </li>
          <li>
-            <a id="registration" href="Registration.php" aria-controls="dropdown-example" data-collapse-toggle="dropdown-example" class="flex items-center p-2 rounded-lg hover:fill-[#2D82B5] hover:text-[#2D82B5] dark:hover:bg-[#EDF1F6] group hover:shadow-[0_4px_6px_-1px_rgba(0,0,0,0.2)] <?php if ($_SERVER['REQUEST_URI'] === '/CapstoneProject/Lying-In-Management-System/Admin/Registration.php') echo ' text-[#2D82B5] fill-[#2D82B5] dark:bg-[#EDF1F6] shadow-[0_4px_6px_-1px_rgba(0,0,0,0.2)]';
-                                                                                                                                                                                                                                                                                                else echo 'text-white fill-[#fff]' ?>">
-               <svg width="28" height="28" viewBox="0 0 28 28" fill="" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M23.2708 24.5047L25.1334 21.3867H21.4088L23.2708 24.5047Z" fill="" />
-                  <path d="M25.4531 7.13831H21.0887V20.5467H25.4531V7.13831Z" fill="" />
-                  <path d="M25.4531 3.09625H21.0887V6.29833H25.4531V3.09625Z" fill="" />
-                  <path d="M18.6536 24.9037V21.3561H4.23357C3.79383 21.3566 3.37162 21.5286 3.05681 21.8356C2.74199 22.1427 2.55943 22.5604 2.54797 23V23.2601C2.55942 23.6996 2.74188 24.1172 3.05652 24.4241C3.37117 24.7311 3.79316 24.9032 4.23273 24.9037H18.6536Z" fill="" />
-                  <path d="M2.54797 5.02935V21.1652C3.00977 20.7476 3.61014 20.5163 4.23273 20.5162H18.6527V3.09735H4.47997C3.96773 3.09787 3.47662 3.30159 3.11442 3.66379C2.75221 4.026 2.54849 4.51711 2.54797 5.02935Z" fill="" />
+            <button type="button" onclick="RegisterToggleCollapse()" class="flex items-center w-full p-2 text-base transition duration-75 rounded-lg fill-[#fff] hover:fill-[#2D82B5] group hover:text-[#2D82B5] dark:hover:bg-[#EDF1F6] text-white hover:shadow-[0_4px_6px_-1px_rgba(0,0,0,0.2)]" aria-controls="dropdown-toggle" data-collapse-toggle="dropdown-toggle">
+               <svg width="25" height="25" viewBox="0 0 28 28" fill="" xmlns="http://www.w3.org/2000/svg">
+                  <g clip-path="url(#clip0_8_5883)">
+                     <path d="M3.875 6.45833V24.5417C3.875 25.969 5.03104 27.125 6.45833 27.125H24.5417C25.969 27.125 27.125 25.969 27.125 24.5417V6.45833C27.125 5.03104 25.969 3.875 24.5417 3.875H6.45833C5.03104 3.875 3.875 5.03104 3.875 6.45833ZM19.375 11.625C19.375 13.7692 17.6377 15.5 15.5 15.5C13.3623 15.5 11.625 13.7692 11.625 11.625C11.625 9.48729 13.3623 7.75 15.5 7.75C17.6377 7.75 19.375 9.48729 19.375 11.625ZM7.75 21.9583C7.75 19.375 12.9167 17.9542 15.5 17.9542C18.0833 17.9542 23.25 19.375 23.25 21.9583V23.25H7.75V21.9583Z" fill="" />
+                  </g>
                </svg>
-
-               <span id="side-title" class="flex-1 ms-3 text-left rtl:text-right text-xl whitespace-nowrap hover:fill-[#2D82B5]">Registration</span>
-            </a>
+               <span id="side-title" class="flex-1 ms-3 text-left rtl:text-right text-xl whitespace-nowrap hover:fill-[#2D82B5]">Account</span>
+               <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
+                  <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 4 4 4-4" />
+               </svg>
+            </button>
+            <ul id="register-dropdown-toggle" class="hidden my-2 space-y-2 text-base">
+               <li>
+                  <a id="side-title" href="Registration.php" class=" hover:text-[#2D82B5] dark:hover:bg-[#EDF1F6] hover:shadow-[0_4px_6px_-1px_rgba(0,0,0,0.2)] <?php if ($_SERVER['REQUEST_URI'] === '/CapstoneProject/Lying-In-Management-System/Admin/Registration.php') echo 'text-[#2D82B5] dark:bg-[#EDF1F6] shadow-[0_4px_6px_-1px_rgba(0,0,0,0.2)]';
+                                                                                                                                                                  else echo 'text-white'; ?> flex items-center w-full h-10 transition duration-75 rounded-lg p-4 pl-14 group">HF Registration</a>
+               </li>
+               <li>
+                  <a id="side-title" href="Patient-Verification.php" class="flex items-center w-full p-4 h-10 transition duration-75 rounded-lg pl-14 group <?php if ($_SERVER['REQUEST_URI'] === '/CapstoneProject/Lying-In-Management-System/Admin/Record-Info-New.php' || $_SERVER['REQUEST_URI'] === '/CapstoneProject/Lying-In-Management-System/Admin/Patient-Verification.php') echo 'text-[#2D82B5] dark:bg-[#EDF1F6] shadow-[0_4px_6px_-1px_rgba(0,0,0,0.2)]';
+                                                                                                                                                            else echo 'text-white'; ?> hover:text-[#2D82B5] dark:hover:bg-[#EDF1F6] hover:shadow-[0_4px_6px_-1px_rgba(0,0,0,0.2)] dark:hover:text-[#2D82B5]">Patient Verification</a>
+               </li>
+            </ul>
          </li>
          <li>
             <button type="button" onclick="RecordToggleCollapse()" class="flex items-center w-full p-2 text-base transition duration-75 rounded-lg fill-[#fff] hover:fill-[#2D82B5] group hover:text-[#2D82B5] dark:hover:bg-[#EDF1F6] text-white hover:shadow-[0_4px_6px_-1px_rgba(0,0,0,0.2)]" aria-controls="dropdown-toggle" data-collapse-toggle="dropdown-toggle">
@@ -70,7 +74,7 @@
                </li>
                <li>
                   <a id="side-title" href="Record-Info-New.php" class="flex items-center w-full p-4 h-10 transition duration-75 rounded-lg pl-14 group <?php if ($_SERVER['REQUEST_URI'] === '/CapstoneProject/Lying-In-Management-System/Admin/Record-Info-New.php' || $_SERVER['REQUEST_URI'] === '/CapstoneProject/Lying-In-Management-System/Admin/Record-Info-Authorize.php') echo 'text-[#2D82B5] dark:bg-[#EDF1F6] shadow-[0_4px_6px_-1px_rgba(0,0,0,0.2)]';
-                                                                                                                                                         else echo 'text-white'; ?> hover:text-[#2D82B5] dark:hover:bg-[#EDF1F6] hover:shadow-[0_4px_6px_-1px_rgba(0,0,0,0.2)] dark:hover:text-[#2D82B5]">Facility Information</a>
+                                                                                                                                                         else echo 'text-white'; ?> hover:text-[#2D82B5] dark:hover:bg-[#EDF1F6] hover:shadow-[0_4px_6px_-1px_rgba(0,0,0,0.2)] dark:hover:text-[#2D82B5]">Patient Account</a>
 
                </li>
                <li>
@@ -93,7 +97,7 @@
                   <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 4 4 4-4" />
                </svg>
             </button>
-            <ul id="account-dropdown-toggle" class="hidden my-2 space-y-2">
+            <ul id="account-dropdown-toggle" class="hidden my-2 space-y-2 text-base">
                <li>
                   <a href="Record-Account-Edit.php" class=" hover:text-[#2D82B5] dark:hover:bg-[#EDF1F6] hover:shadow-[0_4px_6px_-1px_rgba(0,0,0,0.2)] <?php if ($_SERVER['REQUEST_URI'] === '/CapstoneProject/Lying-In-Management-System/Admin/Record-Account-Edit.php') echo 'text-[#2D82B5] dark:bg-[#EDF1F6] shadow-[0_4px_6px_-1px_rgba(0,0,0,0.2)]';
                                                                                                                                                          else echo 'text-white'; ?> flex items-center w-full h-10 transition duration-75 rounded-lg p-4 pl-14 group">Edit Account</a>

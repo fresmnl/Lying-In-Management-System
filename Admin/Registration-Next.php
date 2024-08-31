@@ -18,8 +18,8 @@ $db_conn = new Database("localhost", "root", "", "db_lyingin");
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   // error_log(print_r($_POST, true));
-  $_SESSION['hfacility']['health_facility'] = $db_conn->generateUniqueHealthFacilityUsername($db_conn->cleanStr($_POST['health_facility']));
-  $_SESSION['hfacility']['username'] =   $_SESSION['hfacility']['health_facility'];
+  $_SESSION['hfacility']['health_facility'] = strtoupper($db_conn->cleanStr($_POST['health_facility']));  
+  $_SESSION['hfacility']['username'] = $db_conn->generateUniqueHealthFacilityUsername($_SESSION['hfacility']['health_facility']);
   $_SESSION['hfacility']['city_municipality'] = strtoupper($db_conn->cleanStr($_POST['city_municipality']));
   $_SESSION['hfacility']['telephone_number'] = strtoupper($db_conn->cleanStr($_POST['telephone_number']));
   $_SESSION['hfacility']['email'] = $db_conn->cleanStr($_POST['email']);

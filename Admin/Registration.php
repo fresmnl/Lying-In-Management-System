@@ -1,10 +1,8 @@
 <?php
 
 session_start();
-$username = $_SESSION['admin']['username'] ?? '';
-$isLoggedIn = $_SESSION['admin']['loggedin'] ?? '';
 
-if ($isLoggedIn !== true && !isset($username)) {
+if ($_SESSION['admin']['username'] !== true && !isset($_SESSION['admin']['loggedin'])) {
   header("Location: ../Login/Login.php");
   // echo '<script>console.log('.json_encode($_SESSION).');</script>';
 }

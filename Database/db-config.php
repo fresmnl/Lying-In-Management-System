@@ -124,23 +124,6 @@ class Database
         $stmt = $this->query($sql, [':email' => $email]);
         return $stmt->fetchColumn() > 0;
     }
-    function getHealthFacilityNames()
-    {
-        $sql = "SELECT Health_Facility_Name FROM health_facility_info";
-        $stmt = $this->query($sql);
-
-        $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
-
-        $names = [];
-
-        foreach ($rows as $row) {
-            if (isset($row['Name'])) {
-                $names[] = $row['Name'];
-            }
-        }
-
-        return $names;
-    }
     function generateUniqueHealthFacilityUsername($clinicName)
     {
         $normalized = strtoupper(preg_replace('/[^A-Z0-9\s\-]/', '', $clinicName));

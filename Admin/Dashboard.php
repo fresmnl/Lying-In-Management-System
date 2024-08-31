@@ -1,9 +1,22 @@
+<?php
+
+session_start();
+require '../Database/db-admin.php';
+
+$db_admin = new Admin();
+
+
+if ($_SESSION['admin']['username'] !== true && !isset($_SESSION['admin']['loggedin'])) {
+  header("Location: ../Login/Login.php");
+  // echo '<script>console.log('.json_encode($_SESSION).');</script>';
+}
+?>
 <!-- <?php include 'nav-side-bar/sidebar.php'; ?> -->
-<?php include 'nav-side-bar/navbar.php'; ?>
 <?php require 'views/structures/header.php'; ?>
+<?php include 'nav-side-bar/navbar.php'; ?>
 <!-- <?php require 'views/partials/navbar.php'; ?> -->
 <?php require 'views/partials/sidebar.php'; ?>
-<link rel="stylesheet" href="../src/output.css">
+
 <div>
   <div
     class="z-20 w-full relative bg-[#fdfdfd] overflow-hidden flex flex-col items-center justify-start  pb-[1.25rem] pl-[15rem] pr-[1.25rem] box-border gap-[1.312rem] leading-[normal] tracking-[normal] lg:pl-[7.5rem] lg:box-border mq750:pl-[3.75rem] mq750:box-border mq450:pl-[1.25rem] mq450:box-border" style="margin-left: 5rem; position: absolute;top: 7rem;">
@@ -57,7 +70,7 @@
               <b class="self-stretch relative z-[1]">Total Health Facilities</b>
               <div
                 class="self-stretch relative text-[2.813rem] font-extrabold text-[#00acce] z-[1] mq450:text-[1.688rem] mq1050:text-[2.25rem]">
-                25
+                <?= htmlspecialchars($db_admin->getAllHealthFacilityAccount() ?? '', ENT_QUOTES) ?>
               </div>
             </div>
           </div>
@@ -81,7 +94,7 @@
               <b class="self-stretch relative z-[1]">New Accounts</b>
               <div
                 class="self-stretch relative text-[2.813rem] font-extrabold text-[#00acce] z-[1] mq450:text-[1.688rem] mq1050:text-[2.25rem]">
-                5
+                <?= htmlspecialchars($db_admin->getUnauthorizedHealthFacilityAccount() ?? '', ENT_QUOTES) ?>
               </div>
             </div>
           </div>
@@ -107,7 +120,7 @@
               <b class="self-stretch relative z-[1]">Authorized Accounts</b>
               <div
                 class="self-stretch relative text-[2.813rem] font-extrabold text-[#00acce] z-[1] mq450:text-[1.688rem] mq1050:text-[2.25rem]">
-                20
+                <?= htmlspecialchars($db_admin->getAuthorizedHealthFacilityAccount() ?? '', ENT_QUOTES) ?>
               </div>
             </div>
           </div>
@@ -195,7 +208,7 @@
             <div class="h-[15.2rem] grid grid-cols-7 gap-2 p-4" id="calendar">
               <!-- Calendar Days Go Here -->
             </div>
-            <div id="myModal" class="modal hidden fixed inset-0 flex items-center justify-center z-50">
+            <div id="myModal" class="modal hidden fixed inset-0 items-center justify-center z-50">
               <div class="modal-overlay absolute inset-0 bg-black opacity-50"></div>
             </div>
           </div>
@@ -229,130 +242,136 @@
             </div>
             <div
               class="self-stretch relative text-[4.688rem] font-extrabold text-[#00c8d2] z-[1] mq450:text-[2.813rem] mq1050:text-[3.75rem]">
-              32
+              <?= htmlspecialchars($db_admin->getAllPatient() ?? '', ENT_QUOTES) ?>
             </div>
           </div>
         </div>
-  </section>
-<div class="relative flex flex-col break-words bg-white mb-6 shadow-lg rounded ]" style="border: 2px solid #00ACCE; width:68rem;">
-  <div class="rounded-t mb-0 px-4 py-3 border-0" style="background-color:#00C8D2;">
-    <div class="flex flex-wrap items-center">
-      <div class="relative w-full px-4 max-w-full flex-grow flex-1">
-        <h3 class="text-xl font-semibold text-base" style="color:white;">List of Health Facilities</h3>
+    </section>
+    <div class="relative flex flex-col break-words bg-white mb-6 shadow-lg rounded ]" style="border: 2px solid #00ACCE; width:68rem;">
+      <div class="rounded-t mb-0 px-4 py-3 border-0" style="background-color:#00C8D2;">
+        <div class="flex flex-wrap items-center">
+          <div class="relative w-full px-4 max-w-full flex-grow flex-1">
+            <h3 class="text-xl font-semibold" style="color:white;">List of Health Facilities</h3>
+          </div>
+          <div class="relative w-full px-4 max-w-full flex-grow flex-1 text-right">
+            <button id="button" class=" text-xs font-bold uppercase px-5 py-2 rounded outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150" type="button" style="background-color: white; padding: 10px 20px 10px 20px;color: #00ACCE;">See More</button>
+          </div>
+        </div>
       </div>
-      <div class="relative w-full px-4 max-w-full flex-grow flex-1 text-right">
-        <button id="button" class=" text-xs font-bold uppercase px-5 py-2 rounded outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150" type="button"  style="background-color: white; padding: 10px 20px 10px 20px;color: #00ACCE;">See More</button>
+
+      <div class="block w-full overflow-x-auto">
+        <table class="items-center w-full border-collapse" style="background-color:#ECFCFF;">
+          <thead>
+            <tr>
+              <th class="px-6 bg-blueGray-50 align-middle border border-solid border-blueGray-100 py-3 text-base uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left" style="color:#004168;">
+                No.
+              </th>
+              <th class="px-6 bg-blueGray-50 text-blueGray-500 align-middle border border-solid border-blueGray-100 py-3 text-base uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left" style="color:#004168;">
+                Name of Health Facility
+              </th>
+              <th class="px-6 bg-blueGray-50 text-blueGray-500 align-middle border border-solid border-blueGray-100 py-3 text-base uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left" style="color:#004168;">
+                Successful Childbirth
+              </th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <?php
+            $names = $db_admin->getHealthFacilityNames();
+            $counter = 1;
+            $successful_birth = 0;
+            foreach ($names as $name) : ?>
+              <tr>
+                <th class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-sm-400 whitespace-nowrap p-4 text-left" style="color:#004168;">
+                  <?=$counter++;?>
+                </th>
+                <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-sm-400 whitespace-nowrap p-4 " style="color:#004168;">
+                <?= htmlspecialchars($name ?? '', ENT_QUOTES); ?>
+              </td>
+                <td class="border-t-0 px-6 align-center border-l-0 border-r-0 text-sm-400 whitespace-nowrap p-4" style="color:#004168;">
+                <?= htmlspecialchars($successful_birth ?? '0', ENT_QUOTES); ?>
+                </td>
+              </tr>
+            <?php endforeach; ?>
+          </tbody>
+        </table>
       </div>
     </div>
   </div>
+</div>
+<script>
+  // Function to generate the calendar for a specific month and year
+  function generateCalendar(year, month) {
+    const calendarElement = document.getElementById('calendar');
+    const currentMonthElement = document.getElementById('currentMonth');
 
-  <div class="block w-full overflow-x-auto">
-    <table class="items-center w-full border-collapse" style="background-color:#ECFCFF;">
-      <thead>
-        <tr>
-          <th class="px-6 bg-blueGray-50 align-middle border border-solid border-blueGray-100 py-3 text-base uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left" style="color:#004168;">
-            No.
-          </th>
-          <th class="px-6 bg-blueGray-50 text-blueGray-500 align-middle border border-solid border-blueGray-100 py-3 text-base uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left" style="color:#004168;">
-            Name of Health Facility
-          </th>
-          <th class="px-6 bg-blueGray-50 text-blueGray-500 align-middle border border-solid border-blueGray-100 py-3 text-base uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left" style="color:#004168;">
-            Successful Childbirth
-          </th>
-        </tr>
-      </thead>
+    // Create a date object for the first day of the specified month
+    const firstDayOfMonth = new Date(year, month, 1);
+    const daysInMonth = new Date(year, month + 1, 0).getDate();
 
-      <tbody>
-        <tr>
-          <th class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-sm-400 whitespace-nowrap p-4 text-left" style="color:#004168;">
-            1
-          </th>
-          <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-sm-400 whitespace-nowrap p-4 " style="color:#004168;">
-            Reyes-Hernandez Maternity & Lying-in Clinic
-          </td>
-          <td class="border-t-0 px-6 align-center border-l-0 border-r-0 text-sm-400 whitespace-nowrap p-4" style="color:#004168;">
-            12
-          </td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-  </div>
-  </div>
-  </div>
-  <script>
-    // Function to generate the calendar for a specific month and year
-    function generateCalendar(year, month) {
-      const calendarElement = document.getElementById('calendar');
-      const currentMonthElement = document.getElementById('currentMonth');
+    // Clear the calendar
+    calendarElement.innerHTML = '';
 
-      // Create a date object for the first day of the specified month
-      const firstDayOfMonth = new Date(year, month, 1);
-      const daysInMonth = new Date(year, month + 1, 0).getDate();
+    // Set the current month text
+    const monthNames = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+    currentMonthElement.innerText = `${monthNames[month]} ${year}`;
 
-      // Clear the calendar
-      calendarElement.innerHTML = '';
+    // Calculate the day of the week for the first day of the month (0 - Sunday, 1 - Monday, ..., 6 - Saturday)
+    const firstDayOfWeek = firstDayOfMonth.getDay();
 
-      // Set the current month text
-      const monthNames = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
-      currentMonthElement.innerText = `${monthNames[month]} ${year}`;
+    // Create headers for the days of the week
+    const daysOfWeek = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+    daysOfWeek.forEach(day => {
+      const dayElement = document.createElement('div');
+      dayElement.className = 'text-center font-semibold';
+      dayElement.innerText = day;
+      calendarElement.appendChild(dayElement);
+    });
 
-      // Calculate the day of the week for the first day of the month (0 - Sunday, 1 - Monday, ..., 6 - Saturday)
-      const firstDayOfWeek = firstDayOfMonth.getDay();
-
-      // Create headers for the days of the week
-      const daysOfWeek = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
-      daysOfWeek.forEach(day => {
-        const dayElement = document.createElement('div');
-        dayElement.className = 'text-center font-semibold';
-        dayElement.innerText = day;
-        calendarElement.appendChild(dayElement);
-      });
-
-      // Create empty boxes for days before the first day of the month
-      for (let i = 0; i < firstDayOfWeek; i++) {
-        const emptyDayElement = document.createElement('div');
-        calendarElement.appendChild(emptyDayElement);
-      }
-
-      // Create boxes for each day of the month
-      for (let day = 1; day <= daysInMonth; day++) {
-        const dayElement = document.createElement('div');
-        dayElement.className = 'text-center cursor-pointer';
-        dayElement.innerText = day;
-
-        // Check if this date is the current date
-        const currentDate = new Date();
-        if (year === currentDate.getFullYear() && month === currentDate.getMonth() && day === currentDate.getDate()) {
-          dayElement.classList.add('bg-blue-500', 'text-white'); // Add classes for the indicator
-        }
-
-        calendarElement.appendChild(dayElement);
-      }
+    // Create empty boxes for days before the first day of the month
+    for (let i = 0; i < firstDayOfWeek; i++) {
+      const emptyDayElement = document.createElement('div');
+      calendarElement.appendChild(emptyDayElement);
     }
 
-    // Initialize the calendar with the current month and year
-    const currentDate = new Date();
-    let currentYear = currentDate.getFullYear();
-    let currentMonth = currentDate.getMonth();
+    // Create boxes for each day of the month
+    for (let day = 1; day <= daysInMonth; day++) {
+      const dayElement = document.createElement('div');
+      dayElement.className = 'text-center cursor-pointer';
+      dayElement.innerText = day;
+
+      // Check if this date is the current date
+      const currentDate = new Date();
+      if (year === currentDate.getFullYear() && month === currentDate.getMonth() && day === currentDate.getDate()) {
+        dayElement.classList.add('bg-blue-500', 'text-white'); // Add classes for the indicator
+      }
+
+      calendarElement.appendChild(dayElement);
+    }
+  }
+
+  // Initialize the calendar with the current month and year
+  const currentDate = new Date();
+  let currentYear = currentDate.getFullYear();
+  let currentMonth = currentDate.getMonth();
+  generateCalendar(currentYear, currentMonth);
+
+  // Event listeners for previous and next month buttons
+  document.getElementById('prevMonth').addEventListener('click', () => {
+    currentMonth--;
+    if (currentMonth < 0) {
+      currentMonth = 11;
+      currentYear--;
+    }
     generateCalendar(currentYear, currentMonth);
+  });
 
-    // Event listeners for previous and next month buttons
-    document.getElementById('prevMonth').addEventListener('click', () => {
-      currentMonth--;
-      if (currentMonth < 0) {
-        currentMonth = 11;
-        currentYear--;
-      }
-      generateCalendar(currentYear, currentMonth);
-    });
-
-    document.getElementById('nextMonth').addEventListener('click', () => {
-      currentMonth++;
-      if (currentMonth > 11) {
-        currentMonth = 0;
-        currentYear++;
-      }
-      generateCalendar(currentYear, currentMonth);
-    });
-  </script>
+  document.getElementById('nextMonth').addEventListener('click', () => {
+    currentMonth++;
+    if (currentMonth > 11) {
+      currentMonth = 0;
+      currentYear++;
+    }
+    generateCalendar(currentYear, currentMonth);
+  });
+</script>
