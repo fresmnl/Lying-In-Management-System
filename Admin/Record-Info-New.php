@@ -100,6 +100,43 @@ if ($_SESSION['admin']['loggedin'] !== true && !isset($_SESSION['admin']['userna
                 <th>Name of Patient</th>
                 <th>Username</th>
                 <th>Password</th>
+                <th>Date Created</th>
+                <th>Birthdate</th>
+                <th>Age</th>
+                <th>Sex</th>
+                <th>Civil Status</th>
+                <th>Email Address</th>
+                <th>Phone Number</th>
+                <th>Address</th>
+                <th>Educational Attainment</th>
+                <th>Employment Status</th>
+                <th>Occupation</th>
+                <th>DSWD NHTS</th>
+                <th>4Ps Member</th>
+                <th>ID Type</th>
+                <th>Attach File</th>
+                <th>Smoker</th>
+                <th>Pack/Years</th>
+                <th>Drinker</th>
+                <th>Bottle/Day</th>
+                <th>Drug Use/Abuse</th>
+                <th>Hypertension</th>
+                <th>Asthma</th>
+                <th>Blood<br>Disorder</th>
+                <th>Heart<br>Disorder</th>
+                <th>Liver<br> Disorder</th>
+                <th>Kidney<br>Disorder</th>
+                <th>Pulmonary<br>Tuberculosis</th>
+                <th>Diabetes<br>Mellitus</th>
+                <th>Type</th>
+                <th>Cancer</th>
+                <th>Type</th>
+                <th>Stage</th>
+                <th>Skin<br>Disease</th>
+                <th>Type</th>
+                <th>Allergy</th>
+                <th>Type</th>
+                <th>Others</th>
             </tr>
         </thead>
         <tbody>

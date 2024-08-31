@@ -154,9 +154,10 @@ if ($_SESSION['admin']['loggedin'] !== true && !isset($_SESSION['admin']['userna
             <input type="text" placeholder="Enter the name">
           </div>
           <div>
-            Sector
-            
+            Name of Hospital
+            <input type="text" placeholder="Enter the name">
           </div>
+          
         </div>
         <button type="submit">Save</button>
       </form>
