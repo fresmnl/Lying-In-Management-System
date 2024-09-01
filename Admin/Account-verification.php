@@ -26,7 +26,7 @@ if ($_SESSION['admin']['loggedin'] !== true && !isset($_SESSION['admin']['userna
         <div class="content-child"></div>
         <button class="rectangle-parent">
           <div class="frame-child"></div>
-          <a href="Account-verification.php" class="verification">Verification</a>
+          <a href="Account-Verification.php" class="verification">Verification</a>
         </button>
         <div class="history-wrapper">
           <a href="Account-History.php" class="history">History</a>

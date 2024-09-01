@@ -16,6 +16,10 @@ function AccountToggleCollapse() {
 
 HFRegistration =
   "/CapstoneProject/Lying-In-Management-System/Admin/Registration.php";
+  AccountVerification =
+  "/CapstoneProject/Lying-In-Management-System/Admin/Account-Verification.php";
+  AccountHistory =
+  "/CapstoneProject/Lying-In-Management-System/Admin/Account-History.php";
 RecordAccount =
   "/CapstoneProject/Lying-In-Management-System/Admin/Record-Account.php";
 RecordInformation =
@@ -52,7 +56,8 @@ if (
 }
 if (
   window.location.pathname == HFRegistration ||
-  window.location.pathname == PatientRegistration
+  window.location.pathname == AccountVerification ||
+  window.location.pathname == AccountHistory
 ) {
   registrationToggle.classList.remove("hidden");
 }

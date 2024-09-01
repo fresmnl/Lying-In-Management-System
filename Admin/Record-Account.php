@@ -29,7 +29,6 @@ function maskHash($hash, $maskChar = '*') {
     rel="stylesheet"
     href="https://fonts.googleapis.com/css2?family=Lato:wght@500;700;800&display=swap" />
   <link rel="stylesheet" href="css/Record-Account.css">
-<<<<<<< HEAD
   <div class="admin-registration">
     <header class="main">
       <div class="content">
@@ -42,23 +41,6 @@ function maskHash($hash, $maskChar = '*') {
               <div class="rectangle-parent">
                 <div class="frame-child"></div>
                 <input class="search" placeholder="Search..." type="text" />
-=======
-  <style>
-    
-  </style>
-<div class="admin-registration">
-  <header class="main">
-    <div class="content">
-      <div class="accounts-header-parent">
-        <div class="accounts-header">
-          <b class="account-of-health">Account of Health Facilities</b>
-        </div>
-        <div class="search-and-add">
-          <div class="search-and-add-inner">
-            <div class="rectangle-parent">
-              <div class="frame-child"></div>
-              <input class="search" placeholder="Search..." type="text" />
->>>>>>> e94abbd3475105d44dbbee67220773100359e64f
 
                 <div class="search-icon">
                   <img
