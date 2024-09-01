@@ -14,7 +14,7 @@ $db_conn = new Database("localhost", "root", "", "db_lyingin");
 <meta charset="utf-8" />
 <meta name="viewport" content="initial-scale=1, width=device-width" />
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
-<!-- <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.all.min.js"></script>
 <link rel="stylesheet" href="css/Sign-Up-Patient.css" />
 <link rel="icon" type="image/x-icon" href="../Admin/images/webpage-logo.png">
@@ -109,33 +109,6 @@ $db_conn = new Database("localhost", "root", "", "db_lyingin");
           </div>
           <div class="name-and-r-h-u">
             <div class="rectangle-parent">
-              <!-- <div class="frame-child"></div>
-              <div class="designated-r-h-u-label-parent">
-                <div class="designated-r-h-u-label">
-                  <b class="designated-rhu-name">Health Facility</b>
-                </div>
-                <div class="rectangle-group">
-                  <div class="frame-item"></div>
-                  <div class="r-h-u-dropdown">
-
-                    Dropdown using select
-                    <select id="dropdownSelect" name="health_facility" class="select-rhu" required>
-                      <option value="">Select Health Facility</option>
-                      <?php $HealthfacilityNames = $db_conn->getHealthFacilityNames();
-
-                      if (empty($HealthfacilityNames)) {
-                        echo '<option value="">No facilities available' . $HealthfacilityNames . '</option>';
-                      } else {
-                        foreach ($HealthfacilityNames as $healthfacilityName) {
-                          echo '<option value="' . $healthfacilityName['Name'] . '">' . $healthfacilityName['Name'] . '</option>';
-                        }
-                      }
-                      ?>
-                      <option <?= isset($_SESSION['health_facility']) && $_SESSION['health_facility'] === "RHU" ? "selected" : "" ?> value="RHU">RHU</option>
-                    </select>
-                  </div>
-                </div>
-              </div> -->
               <div class="name-fields">
                 <div class="name-labels">
                   <b class="first-name">First Name<span class="font-bold text-[#ff0000] ml-1">*</span></b>
