@@ -18,7 +18,7 @@
 </style> -->
 <aside id="logo-sidebar" class="fixed top-0 left-0 z-40 w-70 h-screen pt-2 transition-transform translate-x-full border-r border-gray-200 sm:translate-x-0 bg-[#00ACCE]" aria-label="Sidebar">
    <div class="logo" style="width: 16rem;">
-      <img src="nav-side-bar/logo-side.png" alt="Logo">
+      <img src="views/partials/logo-side.png" alt="Logo">
    </div>
    <div id="sidebar-container" class="h-full px-3 pb-4 overflow-y-auto bg-[#00ACCE]">
 

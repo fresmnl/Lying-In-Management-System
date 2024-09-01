@@ -12,8 +12,8 @@ if ($_SESSION['admin']['username'] !== true && !isset($_SESSION['admin']['logged
 }
 ?>
 <!-- <?php include 'nav-side-bar/sidebar.php'; ?> -->
+<?php include 'views/partials/navbar.php'; ?>
 <?php require 'views/structures/header.php'; ?>
-<?php include 'nav-side-bar/navbar.php'; ?>
 <!-- <?php require 'views/partials/navbar.php'; ?> -->
 <?php require 'views/partials/sidebar.php'; ?>
 
